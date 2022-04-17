@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello Hexo!</title>
+    <url>/archives/9628.html</url>
+    <content><![CDATA[<h2 id="Hello-hexo-this-is-neuerliu"><a href="#Hello-hexo-this-is-neuerliu" class="headerlink" title="Hello hexo, this is neuerliu!"></a>Hello hexo, this is neuerliu!</h2><p>你好，这个是我的个人网站！我的博客网站使用了Hexo作为模板建立，在此感谢Hexo。如果你有需要，可以访问<a href="https://github.com/hexojs/hexo">HexoGithub</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>(一)shell讲解</title>
+    <url>/archives/c3194ed7.html</url>
+    <content><![CDATA[<h1 id="Shell讲解"><a href="#Shell讲解" class="headerlink" title="Shell讲解"></a>Shell讲解</h1><h2 id="一、Linux常用命令"><a href="#一、Linux常用命令" class="headerlink" title="一、Linux常用命令"></a>一、Linux常用命令</h2><ul>
+<li>date：显示日期</li>
+<li>echo：重复字符</li>
+<li>echo $PATH：查看系统的环境变量</li>
+<li>which：查看运行某程序的位置，例如which echo</li>
+<li>绝对路径：描述文件的绝对位置</li>
+<li>相对路径：描述文件的相对位置</li>
+<li>pwd：查看当前的工作目录(print working directory)</li>
+<li>cd &lt;dir&gt;：打开某目录</li>
+<li>cd .&#x2F;&lt;相对路径&gt;：打开相对路径</li>
+<li>cd ..：回到父目录</li>
+<li>clear&#x2F;ctrl+L：命令行页面向后翻一页</li>
+<li>ls：展示当前目录中的文件</li>
+<li>cd ~：回到用户目录(用户目录和根目录是不一样的)</li>
+<li>cd -：回退工作目录(最终退到用户目录)</li>
+<li>ls -l：展示当前目录中的文件详细信息(d开头表示是文件夹，后面是权限)</li>
+<li>mv &lt;原路径&gt; &lt;新路径&gt;：既可以更改文件名，还可以移动文件位置</li>
+<li>cp &lt;filename&gt; &lt;复制到的位置&gt;：将文件复制到指定位置</li>
+<li>rm &lt;filename&gt;：删除文件</li>
+<li>mkdir：建立新文件</li>
+<li>cat &lt;filename&gt;：查看文件内容</li>
+<li>tee：标准输入输出</li>
+<li>sudo：临时superuser命令</li>
+<li>rmdir：删除目录</li>
+<li>grep [option] &lt;pattern&gt; &lt;filename&gt;：在file中寻找pattern，option可选</li>
+<li>convert &lt;file1&gt; &lt;file2&gt;：将file1转化为file2</li>
+</ul>
+<h2 id="二、重定向输入输出流"><a href="#二、重定向输入输出流" class="headerlink" title="二、重定向输入输出流"></a>二、重定向输入输出流</h2><p>&lt; &lt;输入流&gt;：利用&lt;，后面可以连接输入流位置(默认在键盘)</p>
+<p>&gt; &lt;输出流&gt;：利用&gt;，后面可以连接输出流位置(例如可以输出到文件中，默认在显示屏)</p>
+<p>例如：echo hello &gt; hello.txt</p>
+<p>&gt;&gt; 表示追加内容(会换行)</p>
+<ul>
+<li>管道符(pipe)：&lt;命令1&gt;|&lt;命令2&gt;，将左边命令1的输出作为命令2的输入(例如：ls -l | tail -n1)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>missing_semester</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的第一篇博客</title>
     <url>/archives/63785.html</url>
     <content><![CDATA[<h1 id="博客包含的内容"><a href="#博客包含的内容" class="headerlink" title="博客包含的内容"></a>博客包含的内容</h1><pre><code>我个人比较关注的方向有数据分析、机器学习、深度学习及其在拓扑声学中的应用。
@@ -13,11 +65,5 @@
       <tags>
         <tag>博客简介</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello Hexo!</title>
-    <url>/archives/9628.html</url>
-    <content><![CDATA[<h2 id="Hello-hexo-this-is-neuerliu"><a href="#Hello-hexo-this-is-neuerliu" class="headerlink" title="Hello hexo, this is neuerliu!"></a>Hello hexo, this is neuerliu!</h2><p>你好，这个是我的个人网站！我的博客网站使用了Hexo作为模板建立，在此感谢Hexo。如果你有需要，可以访问<a href="https://github.com/hexojs/hexo">HexoGithub</a></p>
-]]></content>
   </entry>
 </search>
