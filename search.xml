@@ -314,6 +314,142 @@
       </tags>
   </entry>
   <entry>
+    <title>(一)git的基本使用</title>
+    <url>/archives/555df1d9.html</url>
+    <content><![CDATA[<p>我们这里主要记录下最基本的git和github使用流程。</p>
+<h1 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1.创建仓库"></a>1.创建仓库</h1><p>我们可以通过点击下图中红色框内图表创建新的仓库，并进行命名等操作。</p>
+<p><img src="C:\Users\liuyu\AppData\Roaming\Typora\typora-user-images\image-20220710164558546.png" alt="image-20220710164558546"></p>
+<ul>
+<li>仓库名称(Repository name)：依据项目内容进行命名，例如<code>Hello World</code></li>
+<li>描述(Description)：非必填项，描述仓库的基本信息</li>
+<li>选择Public&#x2F;Private：我们一般创建公开仓库(私有仓库的服务收费)</li>
+<li>选择是否<code>Initialize this repository with a README</code>：如果勾选，仓库初始化后会自动生成<code>readme.md</code>文件，一般这个文件用于记录项目信息(如果是需要添加已有的git仓库，则尽量不要勾选此项)</li>
+<li>选择是否<code>Add .gitignore</code>：<code>.gitignore</code>文件的作用是将不需要进行版本控制的文件记录下来</li>
+<li>添加协议(Add a license)：添加的许可协议文件</li>
+</ul>
+<p>最后我们点击<code>Create repository</code>创建仓库。</p>
+<h1 id="2-git的最基本操作"><a href="#2-git的最基本操作" class="headerlink" title="2.git的最基本操作"></a>2.git的最基本操作</h1><p>我们在上述已创建的仓库基础上，演示如何对新创建的github仓库上传代码。注意：以下操作需要在shell或者cmd中运行，我们假定已经打开存储仓库内容的文件位置。</p>
+<h2 id="2-1-clone已有仓库"><a href="#2-1-clone已有仓库" class="headerlink" title="2.1 clone已有仓库"></a>2.1 clone已有仓库</h2><p>我们这里通过ssh方式进行clone，首先需要找到仓库进行ssh克隆的url地址，具体位置code—&gt;ssh—&gt;复制地址。接下来使用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone &lt;ssh的url地址&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-编写代码"><a href="#2-2-编写代码" class="headerlink" title="2.2 编写代码"></a>2.2 编写代码</h2><p>我们编写一段简单的python代码，放置在上述克隆的仓库文件夹下，例如文件名为<code>hello_world.py</code>。我们使用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p>显示存在<code>untracted files</code></p>
+<h2 id="2-3-提交代码"><a href="#2-3-提交代码" class="headerlink" title="2.3 提交代码"></a>2.3 提交代码</h2><p>我们使用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add hello_world.py #将文件加入暂存区</span><br><span class="line">git commit -m &#x27;Add hello world python script&#x27; #添加说明并提交代码</span><br><span class="line">git log #查看提交日志</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4-更新github仓库"><a href="#2-4-更新github仓库" class="headerlink" title="2.4 更新github仓库"></a>2.4 更新github仓库</h2><p>我们使用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git push #更新github仓库</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>github使用</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VScode使用(一)</title>
+    <url>/archives/34d8562e.html</url>
+    <content><![CDATA[<p>在这里我将记录如何使用并配置vscode，使得我们的编程更加方便</p>
+<span id="more"></span>
+
+<h1 id="1-基础使用"><a href="#1-基础使用" class="headerlink" title="1.基础使用"></a>1.基础使用</h1><h2 id="1-1-语言配置"><a href="#1-1-语言配置" class="headerlink" title="1.1 语言配置"></a>1.1 语言配置</h2><p>下载中文包后，可以输入<code>ctrl+shift+p</code>显示所有命令。在其中输入<code>display</code>点击高亮选项，可以切换语言(zh-cn&#x2F;en)。</p>
+<h2 id="1-2-文件操作"><a href="#1-2-文件操作" class="headerlink" title="1.2 文件操作"></a>1.2 文件操作</h2><ul>
+<li>输入<code>ctrl+n</code>新建文件</li>
+<li>输入<code>ctrl+o</code>打开电脑文件</li>
+<li>打开工作区可以将一个项目的内容进行整合，可以认为是一个逻辑上的文件夹</li>
+</ul>
+<h2 id="1-3-编辑操作"><a href="#1-3-编辑操作" class="headerlink" title="1.3 编辑操作"></a>1.3 编辑操作</h2><p>基础操作就是复制、粘贴、查找等等，快捷键比较常用</p>
+<h1 id="2-快捷键的基本使用"><a href="#2-快捷键的基本使用" class="headerlink" title="2.快捷键的基本使用"></a>2.快捷键的基本使用</h1><p>可以在帮助-编辑器操场进行学习</p>
+<h2 id="2-1-多光标编辑"><a href="#2-1-多光标编辑" class="headerlink" title="2.1 多光标编辑"></a>2.1 多光标编辑</h2><ul>
+<li>选中矩形区域：通过<code>shift+DownArrow</code>进行上下左右移动，选中矩形区域</li>
+<li>同时编辑多行：通过<code>ctrl+alt+DownArrow</code>或者<code>ctrl+alt+UpArrow</code>使得光标上下移动，在多行同时编辑</li>
+<li>选中同一内容，同时编辑：选中待编辑的内容，通过<code>ctrl+shift+L</code>可以选中同一内容，以同时编辑</li>
+</ul>
+<h2 id="2-2-代码补全"><a href="#2-2-代码补全" class="headerlink" title="2.2 代码补全"></a>2.2 代码补全</h2><ul>
+<li>在vscode中，已经有对于JavaScript和TypeScript的代码补全</li>
+<li>对于python，我们如果需要代码补全，则首先需要安装<code>pylint-django</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install pylint-django</span><br></pre></td></tr></table></figure>
+
+<p>接下来在vscode中显示所有命令，选择Preferences:Open Workspace Settings (JSON)，并输入：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;python.autoComplete.addBrackets&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.languageServer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jedi&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.linting.pylintArgs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;--load-plugins&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;pylint_django&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>重启vscode即可实现python的代码补全</p>
+<ul>
+<li>代码补全如果没有出现，可以通过<code>Alt+/</code>查看</li>
+</ul>
+<h2 id="2-3-操作行"><a href="#2-3-操作行" class="headerlink" title="2.3 操作行"></a>2.3 操作行</h2><ul>
+<li>复制一行：通过<code>shift+Alt+DownArrow/UpArrow</code>可以实现在原行的下&#x2F;上行复制</li>
+<li>移动一行：通过<code>Alt+DownArrow/UpArrow</code>可以实现下&#x2F;上移动一行</li>
+<li>删除一行：在该行<code>Ctrl+shift+k</code>删除行</li>
+</ul>
+<h2 id="2-4-变量名重构"><a href="#2-4-变量名重构" class="headerlink" title="2.4 变量名重构"></a>2.4 变量名重构</h2><p>我们有时候需要批量修改变量名，此时可以通过<code>Fn+F2</code>实现变量名的选中，并且不会选中文本中部分包含变量名的内容</p>
+<h2 id="2-5-格式"><a href="#2-5-格式" class="headerlink" title="2.5 格式"></a>2.5 格式</h2><p>很多时候会存在缩进问题：</p>
+<ul>
+<li>调整整个文档的缩进：输入<code>shift+Alt+F</code></li>
+<li>调整某行的缩进：输入<code>ctrl+K</code>再输入<code>ctrl+F</code></li>
+</ul>
+<h2 id="2-6-代码折叠"><a href="#2-6-代码折叠" class="headerlink" title="2.6 代码折叠"></a>2.6 代码折叠</h2><p>可以直接手动操作，也可以通过<code>ctrl+shift+[</code>来折叠，通过<code>ctrl+shift+]</code>来打开</p>
+]]></content>
+      <categories>
+        <category>VScode</category>
+      </categories>
+      <tags>
+        <tag>编辑器使用</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VScode使用(二)</title>
+    <url>/archives/9be9cd4c.html</url>
+    <content><![CDATA[<p>这里将介绍一些我比较常用的VScode的小trick</p>
+<span id="more"></span>
+
+<h2 id="1-代码片段的使用"><a href="#1-代码片段的使用" class="headerlink" title="1.代码片段的使用"></a>1.代码片段的使用</h2><p>代码片段的使用能极大方便我们的编程，减少输入模板类型的代码</p>
+<h3 id="1-1-使用内置的代码片段"><a href="#1-1-使用内置的代码片段" class="headerlink" title="1.1 使用内置的代码片段"></a>1.1 使用内置的代码片段</h3><p>输入<code>ctrl+shift+P</code>进行所有命令，输入<code>insert Snippet </code>可以查看所有的代码片段</p>
+<h3 id="1-2-自定义代码片段"><a href="#1-2-自定义代码片段" class="headerlink" title="1.2 自定义代码片段"></a>1.2 自定义代码片段</h3><p>输入<code>ctrl+shift+P</code>进行所有命令，输入<code>configure user snippet</code>设置自定义代码片段</p>
+<p>具体设置代码片段需要编辑以下部分：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;Print to console&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line"> 	<span class="attr">&quot;scope&quot;</span><span class="punctuation">:</span> <span class="string">&quot;javascript,typescript&quot;</span><span class="punctuation">,</span></span><br><span class="line"> 	<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;log&quot;</span><span class="punctuation">,</span></span><br><span class="line"> 	<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line"> 		<span class="string">&quot;console.log(&#x27;$1&#x27;);&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$2&quot;</span></span><br><span class="line"> 	<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"> 	<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Log output to console&quot;</span></span><br><span class="line"> <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li>scope表示该代码片段应用的语言</li>
+<li>prefix表示输出该代码片段时需要在编辑器中键入的内容</li>
+<li>body是代码片段的具体内容</li>
+<li>description描述该代码片段的作用</li>
+</ul>
+<p>需要注意的是：</p>
+<ul>
+<li>上述代码片段中每一行需要用<code>&quot;&quot;</code>括起，同时用<code>,</code>表示切换下一行</li>
+<li><code>$</code>表示代码片段导入后光标的位置，光标出现位置的顺序由后面的数字决定，切换位置需使用<code>tab</code></li>
+<li><code>$&lt;数字&gt;:&lt;默认内容&gt;</code>可以加入默认内容</li>
+</ul>
+<h2 id="2-marp的使用"><a href="#2-marp的使用" class="headerlink" title="2.marp的使用"></a>2.<code>marp</code>的使用</h2><p>我们可以使用<code>marp</code>在Vscode中快速构建slides。</p>
+<h3 id="2-1-marp的安装"><a href="#2-1-marp的安装" class="headerlink" title="2.1 marp的安装"></a>2.1 <code>marp</code>的安装</h3><p>在扩展中搜索<code>marp</code>并安装(注意如果安装了<code>markdown preview enhanced</code>，需要禁用此扩展，否则无法正常预览slides)</p>
+<h3 id="2-2-marp的基本使用"><a href="#2-2-marp的基本使用" class="headerlink" title="2.2 marp的基本使用"></a>2.2 <code>marp</code>的基本使用</h3><ul>
+<li>新建md文件后，在文件头输入：</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">marp: true</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<p>启用<code>marp</code></p>
+<ul>
+<li>输入新内容并实时预览</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Hello Marp</span></span><br><span class="line">你好，marp！</span><br><span class="line"><span class="bullet">-</span> 这是第一条</span><br><span class="line"><span class="bullet">-</span> 这是第二条</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"><span class="section"># 第二张slide</span></span><br><span class="line"><span class="bullet">-</span> 这是第一条</span><br><span class="line"><span class="bullet">-</span> 这是第二条</span><br></pre></td></tr></table></figure>
+
+<p>紧接着之前的文件头输入以上内容，可以使用<code>ctrl+shift+v</code>开启新页面预览，也可以使用<code>ctrl+K V</code>分屏实时预览。</p>
+<p>详细教程见<a href="https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode">marp</a></p>
+]]></content>
+      <categories>
+        <category>VScode</category>
+      </categories>
+      <tags>
+        <tag>编辑器使用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>(二)Shell工具和脚本</title>
     <url>/archives/df8b93b8.html</url>
     <content><![CDATA[<p>在这节课中，我们将会展示bash作为脚本语言的一些基础操作，以及几种最常用的shell工具。我们已经学习来如何在shell中执行命令，并使用管道将命令组合使用。但是，很多情况下我们需要执行一系列的操作并使用条件或循环这样的控制流。本节中，我们会专注于bash脚本，因为它最流行，应用更为广泛。</p>
@@ -454,106 +590,6 @@
       <tags>
         <tag>Linux</tag>
         <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VScode使用(二)</title>
-    <url>/archives/9be9cd4c.html</url>
-    <content><![CDATA[<p>这里将介绍一些我比较常用的VScode的小trick</p>
-<span id="more"></span>
-
-<h2 id="1-代码片段的使用"><a href="#1-代码片段的使用" class="headerlink" title="1.代码片段的使用"></a>1.代码片段的使用</h2><p>代码片段的使用能极大方便我们的编程，减少输入模板类型的代码</p>
-<h3 id="1-1-使用内置的代码片段"><a href="#1-1-使用内置的代码片段" class="headerlink" title="1.1 使用内置的代码片段"></a>1.1 使用内置的代码片段</h3><p>输入<code>ctrl+shift+P</code>进行所有命令，输入<code>insert Snippet </code>可以查看所有的代码片段</p>
-<h3 id="1-2-自定义代码片段"><a href="#1-2-自定义代码片段" class="headerlink" title="1.2 自定义代码片段"></a>1.2 自定义代码片段</h3><p>输入<code>ctrl+shift+P</code>进行所有命令，输入<code>configure user snippet</code>设置自定义代码片段</p>
-<p>具体设置代码片段需要编辑以下部分：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;Print to console&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line"> 	<span class="attr">&quot;scope&quot;</span><span class="punctuation">:</span> <span class="string">&quot;javascript,typescript&quot;</span><span class="punctuation">,</span></span><br><span class="line"> 	<span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;log&quot;</span><span class="punctuation">,</span></span><br><span class="line"> 	<span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line"> 		<span class="string">&quot;console.log(&#x27;$1&#x27;);&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$2&quot;</span></span><br><span class="line"> 	<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line"> 	<span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Log output to console&quot;</span></span><br><span class="line"> <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>其中：</p>
-<ul>
-<li>scope表示该代码片段应用的语言</li>
-<li>prefix表示输出该代码片段时需要在编辑器中键入的内容</li>
-<li>body是代码片段的具体内容</li>
-<li>description描述该代码片段的作用</li>
-</ul>
-<p>需要注意的是：</p>
-<ul>
-<li>上述代码片段中每一行需要用<code>&quot;&quot;</code>括起，同时用<code>,</code>表示切换下一行</li>
-<li><code>$</code>表示代码片段导入后光标的位置，光标出现位置的顺序由后面的数字决定，切换位置需使用<code>tab</code></li>
-<li><code>$&lt;数字&gt;:&lt;默认内容&gt;</code>可以加入默认内容</li>
-</ul>
-<h2 id="2-marp的使用"><a href="#2-marp的使用" class="headerlink" title="2.marp的使用"></a>2.<code>marp</code>的使用</h2><p>我们可以使用<code>marp</code>在Vscode中快速构建slides。</p>
-<h3 id="2-1-marp的安装"><a href="#2-1-marp的安装" class="headerlink" title="2.1 marp的安装"></a>2.1 <code>marp</code>的安装</h3><p>在扩展中搜索<code>marp</code>并安装(注意如果安装了<code>markdown preview enhanced</code>，需要禁用此扩展，否则无法正常预览slides)</p>
-<h3 id="2-2-marp的基本使用"><a href="#2-2-marp的基本使用" class="headerlink" title="2.2 marp的基本使用"></a>2.2 <code>marp</code>的基本使用</h3><ul>
-<li>新建md文件后，在文件头输入：</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">marp: true</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
-
-<p>启用<code>marp</code></p>
-<ul>
-<li>输入新内容并实时预览</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># Hello Marp</span></span><br><span class="line">你好，marp！</span><br><span class="line"><span class="bullet">-</span> 这是第一条</span><br><span class="line"><span class="bullet">-</span> 这是第二条</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"><span class="section"># 第二张slide</span></span><br><span class="line"><span class="bullet">-</span> 这是第一条</span><br><span class="line"><span class="bullet">-</span> 这是第二条</span><br></pre></td></tr></table></figure>
-
-<p>紧接着之前的文件头输入以上内容，可以使用<code>ctrl+shift+v</code>开启新页面预览，也可以使用<code>ctrl+K V</code>分屏实时预览。</p>
-<p>详细教程见<a href="https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode">marp</a></p>
-]]></content>
-      <categories>
-        <category>VScode</category>
-      </categories>
-      <tags>
-        <tag>编辑器使用</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VScode使用(一)</title>
-    <url>/archives/34d8562e.html</url>
-    <content><![CDATA[<p>在这里我将记录如何使用并配置vscode，使得我们的编程更加方便</p>
-<span id="more"></span>
-
-<h1 id="1-基础使用"><a href="#1-基础使用" class="headerlink" title="1.基础使用"></a>1.基础使用</h1><h2 id="1-1-语言配置"><a href="#1-1-语言配置" class="headerlink" title="1.1 语言配置"></a>1.1 语言配置</h2><p>下载中文包后，可以输入<code>ctrl+shift+p</code>显示所有命令。在其中输入<code>display</code>点击高亮选项，可以切换语言(zh-cn&#x2F;en)。</p>
-<h2 id="1-2-文件操作"><a href="#1-2-文件操作" class="headerlink" title="1.2 文件操作"></a>1.2 文件操作</h2><ul>
-<li>输入<code>ctrl+n</code>新建文件</li>
-<li>输入<code>ctrl+o</code>打开电脑文件</li>
-<li>打开工作区可以将一个项目的内容进行整合，可以认为是一个逻辑上的文件夹</li>
-</ul>
-<h2 id="1-3-编辑操作"><a href="#1-3-编辑操作" class="headerlink" title="1.3 编辑操作"></a>1.3 编辑操作</h2><p>基础操作就是复制、粘贴、查找等等，快捷键比较常用</p>
-<h1 id="2-快捷键的基本使用"><a href="#2-快捷键的基本使用" class="headerlink" title="2.快捷键的基本使用"></a>2.快捷键的基本使用</h1><p>可以在帮助-编辑器操场进行学习</p>
-<h2 id="2-1-多光标编辑"><a href="#2-1-多光标编辑" class="headerlink" title="2.1 多光标编辑"></a>2.1 多光标编辑</h2><ul>
-<li>选中矩形区域：通过<code>shift+DownArrow</code>进行上下左右移动，选中矩形区域</li>
-<li>同时编辑多行：通过<code>ctrl+alt+DownArrow</code>或者<code>ctrl+alt+UpArrow</code>使得光标上下移动，在多行同时编辑</li>
-<li>选中同一内容，同时编辑：选中待编辑的内容，通过<code>ctrl+shift+L</code>可以选中同一内容，以同时编辑</li>
-</ul>
-<h2 id="2-2-代码补全"><a href="#2-2-代码补全" class="headerlink" title="2.2 代码补全"></a>2.2 代码补全</h2><ul>
-<li>在vscode中，已经有对于JavaScript和TypeScript的代码补全</li>
-<li>对于python，我们如果需要代码补全，则首先需要安装<code>pylint-django</code></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install pylint-django</span><br></pre></td></tr></table></figure>
-
-<p>接下来在vscode中显示所有命令，选择Preferences:Open Workspace Settings (JSON)，并输入：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;python.autoComplete.addBrackets&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.languageServer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jedi&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.linting.pylintArgs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;--load-plugins&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;pylint_django&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>重启vscode即可实现python的代码补全</p>
-<ul>
-<li>代码补全如果没有出现，可以通过<code>Alt+/</code>查看</li>
-</ul>
-<h2 id="2-3-操作行"><a href="#2-3-操作行" class="headerlink" title="2.3 操作行"></a>2.3 操作行</h2><ul>
-<li>复制一行：通过<code>shift+Alt+DownArrow/UpArrow</code>可以实现在原行的下&#x2F;上行复制</li>
-<li>移动一行：通过<code>Alt+DownArrow/UpArrow</code>可以实现下&#x2F;上移动一行</li>
-<li>删除一行：在该行<code>Ctrl+shift+k</code>删除行</li>
-</ul>
-<h2 id="2-4-变量名重构"><a href="#2-4-变量名重构" class="headerlink" title="2.4 变量名重构"></a>2.4 变量名重构</h2><p>我们有时候需要批量修改变量名，此时可以通过<code>Fn+F2</code>实现变量名的选中，并且不会选中文本中部分包含变量名的内容</p>
-<h2 id="2-5-格式"><a href="#2-5-格式" class="headerlink" title="2.5 格式"></a>2.5 格式</h2><p>很多时候会存在缩进问题：</p>
-<ul>
-<li>调整整个文档的缩进：输入<code>shift+Alt+F</code></li>
-<li>调整某行的缩进：输入<code>ctrl+K</code>再输入<code>ctrl+F</code></li>
-</ul>
-<h2 id="2-6-代码折叠"><a href="#2-6-代码折叠" class="headerlink" title="2.6 代码折叠"></a>2.6 代码折叠</h2><p>可以直接手动操作，也可以通过<code>ctrl+shift+[</code>来折叠，通过<code>ctrl+shift+]</code>来打开</p>
-]]></content>
-      <categories>
-        <category>VScode</category>
-      </categories>
-      <tags>
-        <tag>编辑器使用</tag>
       </tags>
   </entry>
   <entry>
