@@ -216,7 +216,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-07-12 15:13:43 / Modified: 15:22:48" itemprop="dateCreated datePublished" datetime="2022-07-12T15:13:43+08:00">2022-07-12</time>
+              <time title="Created: 2022-07-12 15:13:43 / Modified: 15:25:55" itemprop="dateCreated datePublished" datetime="2022-07-12T15:13:43+08:00">2022-07-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,31 +240,14 @@
 
       
           <p>我们这里主要记录下最基本的git和github使用流程。</p>
-<h1 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1.创建仓库"></a>1.创建仓库</h1><p>我们可以通过点击下图中红色框内图表创建新的仓库，并进行命名等操作。</p>
-<p><img src="/../images/new_repo.png" alt="new_repo"></p>
-<ul>
-<li>仓库名称(Repository name)：依据项目内容进行命名，例如<code>Hello World</code></li>
-<li>描述(Description)：非必填项，描述仓库的基本信息</li>
-<li>选择Public&#x2F;Private：我们一般创建公开仓库(私有仓库的服务收费)</li>
-<li>选择是否<code>Initialize this repository with a README</code>：如果勾选，仓库初始化后会自动生成<code>readme.md</code>文件，一般这个文件用于记录项目信息(如果是需要添加已有的git仓库，则尽量不要勾选此项)</li>
-<li>选择是否<code>Add .gitignore</code>：<code>.gitignore</code>文件的作用是将不需要进行版本控制的文件记录下来</li>
-<li>添加协议(Add a license)：添加的许可协议文件</li>
-</ul>
-<p>最后我们点击<code>Create repository</code>创建仓库。</p>
-<h1 id="2-git的最基本操作"><a href="#2-git的最基本操作" class="headerlink" title="2.git的最基本操作"></a>2.git的最基本操作</h1><p>我们在上述已创建的仓库基础上，演示如何对新创建的github仓库上传代码。注意：以下操作需要在shell或者cmd中运行，我们假定已经打开存储仓库内容的文件位置。</p>
-<h2 id="2-1-clone已有仓库"><a href="#2-1-clone已有仓库" class="headerlink" title="2.1 clone已有仓库"></a>2.1 clone已有仓库</h2><p>我们这里通过ssh方式进行clone，首先需要找到仓库进行ssh克隆的url地址，具体位置code—&gt;ssh—&gt;复制地址。接下来使用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;ssh的url地址&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-2-编写代码"><a href="#2-2-编写代码" class="headerlink" title="2.2 编写代码"></a>2.2 编写代码</h2><p>我们编写一段简单的python代码，放置在上述克隆的仓库文件夹下，例如文件名为<code>hello_world.py</code>。我们使用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-
-<p>显示存在<code>untracted files</code></p>
-<h2 id="2-3-提交代码"><a href="#2-3-提交代码" class="headerlink" title="2.3 提交代码"></a>2.3 提交代码</h2><p>我们使用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add hello_world.py #将文件加入暂存区</span><br><span class="line">git commit -m &#x27;Add hello world python script&#x27; #添加说明并提交代码</span><br><span class="line">git log #查看提交日志</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-4-更新github仓库"><a href="#2-4-更新github仓库" class="headerlink" title="2.4 更新github仓库"></a>2.4 更新github仓库</h2><p>我们使用</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push #更新github仓库</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/555df1d9.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
