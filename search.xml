@@ -160,44 +160,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git入门:(一)git的基本使用</title>
-    <url>/archives/555df1d9.html</url>
-    <content><![CDATA[<p>我们这里主要记录下最基本的git和github使用流程。</p>
-<span id="more"></span>
-
-<h1 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1.创建仓库"></a>1.创建仓库</h1><p>我们可以通过点击下图中红色框内图表创建新的仓库，并进行命名等操作。</p>
-<p><img src="/../images/new_repo.png" alt="new_repo"></p>
-<ul>
-<li>仓库名称(Repository name)：依据项目内容进行命名，例如<code>Hello World</code></li>
-<li>描述(Description)：非必填项，描述仓库的基本信息</li>
-<li>选择Public&#x2F;Private：我们一般创建公开仓库(私有仓库的服务收费)</li>
-<li>选择是否<code>Initialize this repository with a README</code>：如果勾选，仓库初始化后会自动生成<code>readme.md</code>文件，一般这个文件用于记录项目信息(如果是需要添加已有的git仓库，则尽量不要勾选此项)</li>
-<li>选择是否<code>Add .gitignore</code>：<code>.gitignore</code>文件的作用是将不需要进行版本控制的文件记录下来</li>
-<li>添加协议(Add a license)：添加的许可协议文件</li>
-</ul>
-<p>最后我们点击<code>Create repository</code>创建仓库。</p>
-<h1 id="2-git的最基本操作"><a href="#2-git的最基本操作" class="headerlink" title="2.git的最基本操作"></a>2.git的最基本操作</h1><p>我们在上述已创建的仓库基础上，演示如何对新创建的github仓库上传代码。注意：以下操作需要在shell或者cmd中运行，我们假定已经打开存储仓库内容的文件位置。</p>
-<h2 id="2-1-clone已有仓库"><a href="#2-1-clone已有仓库" class="headerlink" title="2.1 clone已有仓库"></a>2.1 clone已有仓库</h2><p>我们这里通过ssh方式进行clone，首先需要找到仓库进行ssh克隆的url地址，具体位置code—&gt;ssh—&gt;复制地址。接下来使用</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone &lt;ssh的url地址&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-2-编写代码"><a href="#2-2-编写代码" class="headerlink" title="2.2 编写代码"></a>2.2 编写代码</h2><p>我们编写一段简单的python代码，放置在上述克隆的仓库文件夹下，例如文件名为<code>hello_world.py</code>。我们使用</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-
-<p>显示存在<code>untracted files</code></p>
-<h2 id="2-3-提交代码"><a href="#2-3-提交代码" class="headerlink" title="2.3 提交代码"></a>2.3 提交代码</h2><p>我们使用</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add hello_world.py #将文件加入暂存区</span><br><span class="line">git commit -m &#x27;Add hello world python script&#x27; #添加说明并提交代码</span><br><span class="line">git log #查看提交日志</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-4-更新github仓库"><a href="#2-4-更新github仓库" class="headerlink" title="2.4 更新github仓库"></a>2.4 更新github仓库</h2><p>我们使用</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git push #更新github仓库</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>github使用</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux实用工具:(一)shell讲解</title>
     <url>/archives/c3194ed7.html</url>
     <content><![CDATA[<h1 id="1-Linux常用命令"><a href="#1-Linux常用命令" class="headerlink" title="1.Linux常用命令"></a>1.Linux常用命令</h1><span id="more"></span>
@@ -242,6 +204,44 @@
       <tags>
         <tag>Linux</tag>
         <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git入门:(一)git的基本使用</title>
+    <url>/archives/555df1d9.html</url>
+    <content><![CDATA[<p>我们这里主要记录下最基本的git和github使用流程。</p>
+<span id="more"></span>
+
+<h1 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1.创建仓库"></a>1.创建仓库</h1><p>我们可以通过点击下图中红色框内图表创建新的仓库，并进行命名等操作。</p>
+<p><img src="/../images/new_repo.png" alt="new_repo"></p>
+<ul>
+<li>仓库名称(Repository name)：依据项目内容进行命名，例如<code>Hello World</code></li>
+<li>描述(Description)：非必填项，描述仓库的基本信息</li>
+<li>选择Public&#x2F;Private：我们一般创建公开仓库(私有仓库的服务收费)</li>
+<li>选择是否<code>Initialize this repository with a README</code>：如果勾选，仓库初始化后会自动生成<code>readme.md</code>文件，一般这个文件用于记录项目信息(如果是需要添加已有的git仓库，则尽量不要勾选此项)</li>
+<li>选择是否<code>Add .gitignore</code>：<code>.gitignore</code>文件的作用是将不需要进行版本控制的文件记录下来</li>
+<li>添加协议(Add a license)：添加的许可协议文件</li>
+</ul>
+<p>最后我们点击<code>Create repository</code>创建仓库。</p>
+<h1 id="2-git的最基本操作"><a href="#2-git的最基本操作" class="headerlink" title="2.git的最基本操作"></a>2.git的最基本操作</h1><p>我们在上述已创建的仓库基础上，演示如何对新创建的github仓库上传代码。注意：以下操作需要在shell或者cmd中运行，我们假定已经打开存储仓库内容的文件位置。</p>
+<h2 id="2-1-clone已有仓库"><a href="#2-1-clone已有仓库" class="headerlink" title="2.1 clone已有仓库"></a>2.1 clone已有仓库</h2><p>我们这里通过ssh方式进行clone，首先需要找到仓库进行ssh克隆的url地址，具体位置code—&gt;ssh—&gt;复制地址。接下来使用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone &lt;ssh的url地址&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-编写代码"><a href="#2-2-编写代码" class="headerlink" title="2.2 编写代码"></a>2.2 编写代码</h2><p>我们编写一段简单的python代码，放置在上述克隆的仓库文件夹下，例如文件名为<code>hello_world.py</code>。我们使用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p>显示存在<code>untracted files</code></p>
+<h2 id="2-3-提交代码"><a href="#2-3-提交代码" class="headerlink" title="2.3 提交代码"></a>2.3 提交代码</h2><p>我们使用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git add hello_world.py #将文件加入暂存区</span><br><span class="line">git commit -m &#x27;Add hello world python script&#x27; #添加说明并提交代码</span><br><span class="line">git log #查看提交日志</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4-更新github仓库"><a href="#2-4-更新github仓库" class="headerlink" title="2.4 更新github仓库"></a>2.4 更新github仓库</h2><p>我们使用</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git push #更新github仓库</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>github使用</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -792,149 +792,6 @@
       </tags>
   </entry>
   <entry>
-    <title>linux实用工具:(二)Shell工具和脚本</title>
-    <url>/archives/df8b93b8.html</url>
-    <content><![CDATA[<p>在这节课中，我们将会展示bash作为脚本语言的一些基础操作，以及几种最常用的shell工具。我们已经学习来如何在shell中执行命令，并使用管道将命令组合使用。但是，很多情况下我们需要执行一系列的操作并使用条件或循环这样的控制流。本节中，我们会专注于bash脚本，因为它最流行，应用更为广泛。</p>
-<span id="more"></span>
-
-<p>在bash中为变量赋值的语法是foo&#x3D;bar，访问变量中存储的数值，其语法为 $foo。 需要注意的是，foo &#x3D; bar （使用空格隔开）是不能正确工作的，因为解释器会调用程序foo 并将 &#x3D; 和 bar作为参数。 总的来说，在shell脚本中使用空格会起到分割参数的作用，有时候可能会造成混淆，请务必多加检查。</p>
-<p>Bash中的字符串通过<code>&#39;</code> 和 <code>&quot;</code>分隔符来定义，但是它们的含义并不相同。以<code>&#39;</code>定义的字符串为原义字符串，其中的变量不会被转义，而 <code>&quot;</code>定义的字符串会将变量值进行替换。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">foo=bar</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$foo</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="1-打印-bar"><a href="#1-打印-bar" class="headerlink" title="1.打印 bar"></a>1.打印 bar</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;$foo&#x27;</span>`</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-打印-foo"><a href="#2-打印-foo" class="headerlink" title="2.打印 $foo"></a>2.打印 $foo</h1><p>和其他大多数的编程语言一样，bash也支持if, case, while 和 for 这些控制流关键字。同样地， bash 也支持函数，它可以接受参数并基于参数进行操作。下面这个函数是一个例子，它会创建一个文件夹并使用cd进入该文件夹。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#创建并打开一个文件夹</span></span><br><span class="line"><span class="function"><span class="title">mcd</span></span> () &#123;</span><br><span class="line">    <span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">    <span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里 $1 是脚本的第一个参数。与其他脚本语言不同的是，bash使用了很多特殊的变量来表示参数、错误代码和相关变量。</p>
-<table>
-<thead>
-<tr>
-<th align="center">符号</th>
-<th align="center">含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">$0</td>
-<td align="center">脚本名</td>
-</tr>
-<tr>
-<td align="center">$1 到$9</td>
-<td align="center">脚本的参数，其中$1 是第一个参数，依此类推</td>
-</tr>
-<tr>
-<td align="center">$@</td>
-<td align="center">所有参数</td>
-</tr>
-<tr>
-<td align="center">$#</td>
-<td align="center">参数个数</td>
-</tr>
-<tr>
-<td align="center">$?</td>
-<td align="center">前一个命令的返回值</td>
-</tr>
-<tr>
-<td align="center">$$</td>
-<td align="center">当前脚本的进程识别码</td>
-</tr>
-<tr>
-<td align="center">!!</td>
-<td align="center">完整的上一条命令，包括参数。常见应用：当你因为权限不足执行命令失败时，可以使用 sudo !!再尝试一次。</td>
-</tr>
-<tr>
-<td align="center">$_</td>
-<td align="center">上一条命令的最后一个参数。如果你正在使用的是交互式shell，你可以通过按下 Esc 之后键入 . 来获取这个值。</td>
-</tr>
-</tbody></table>
-<ul>
-<li>命令返回值(类比C语言的退出码)</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> hello</span><br><span class="line">$? <span class="comment">#错误代码为0，表示运行成功</span></span><br><span class="line"></span><br><span class="line">True</span><br><span class="line">$? <span class="comment">#错误代码为0</span></span><br><span class="line"></span><br><span class="line">Fasle</span><br><span class="line">$? <span class="comment">#错误代码为1</span></span><br></pre></td></tr></table></figure>
-
-<p>命令通常使用 <code>STDOUT</code>来返回输出值，使用<code>STDERR</code> 来返回错误及错误码，便于脚本以更加友好的方式报告错误。 返回码或退出状态是脚本&#x2F;命令之间交流执行状态的方式。返回值0表示正常执行，其他所有非0的返回值都表示有错误发生。退出码可以搭配<code>&amp;&amp;</code> (与操作符) 和 <code>||</code> (或操作符)使用，用来进行条件判断，决定是否执行其他程序。它们都属于短路运算符（short-circuiting） 同一行的多个命令可以用 <code>;</code> 分隔。程序 true 的返回码永远是<code>0</code>，false 的返回码永远是<code>1</code>。让我们看几个例子：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="literal">false</span> || <span class="built_in">echo</span> <span class="string">&quot;Oops, fail&quot;</span></span><br><span class="line"><span class="comment"># 输出Oops, fail(执行后面的语句)</span></span><br><span class="line"></span><br><span class="line"><span class="literal">true</span> || <span class="built_in">echo</span> <span class="string">&quot;Will not be printed&quot;</span></span><br><span class="line"><span class="comment"># 什么都不输出(执行前面的语句)</span></span><br><span class="line"></span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;Things went well&quot;</span></span><br><span class="line"><span class="comment"># 输出Things went well</span></span><br><span class="line"></span><br><span class="line"><span class="literal">false</span> &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;Will not be printed&quot;</span></span><br><span class="line"><span class="comment"># 什么都不输出</span></span><br><span class="line"></span><br><span class="line"><span class="literal">false</span> ; <span class="built_in">echo</span> <span class="string">&quot;This will always run&quot;</span></span><br><span class="line"><span class="comment"># 输出This will always run</span></span><br></pre></td></tr></table></figure>
-
-<p>另一个常见的模式是以变量的形式获取一个命令的输出，这可以通过命令替换 (command substitution)实现。例如：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">foo=$(<span class="built_in">pwd</span>) <span class="comment">#foo存储当前工作目录</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$foo</span> <span class="comment">#打印foo</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;We are in <span class="variable">$foo</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>当您通过 <code>$(CMD)</code> 这样的方式来执行<code>CMD</code> 这个命令时，它的输出结果会替换掉 <code>$(CMD)</code> 。例如，如果执行 <code>for file in $(ls)</code> ，shell首先将调用<code>ls</code> ，然后遍历得到的这些返回值。还有一个冷门的类似特性是 进程替换（process substitution）， <code>&lt;(CMD)</code> 会执行 <code>CMD</code> 并将结果输出到一个临时文件中，并将 <code>&lt;(CMD)</code> 替换成临时文件名。这在我们希望返回值通过文件而不是<code>STDIN</code>传递时很有用。例如， <code>diff &lt;(ls foo) &lt;(ls bar)</code> 会显示文件夹 foo 和 bar 中文件的区别。</p>
-<p>下面这个例子展示了一部分上面提到的特性。这段脚本会遍历我们提供的参数，使用grep 搜索字符串 foobar，如果没有找到，则将其作为注释追加到文件中。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Starting program at <span class="subst">$(date)</span>&quot;</span> <span class="comment"># date会被替换成日期和时间</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Running program <span class="variable">$0</span> with <span class="variable">$#</span> arguments with pid $$&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> <span class="string">&quot;<span class="variable">$@</span>&quot;</span>; <span class="keyword">do</span></span><br><span class="line">    grep foobar <span class="string">&quot;<span class="variable">$file</span>&quot;</span> &gt; /dev/null 2&gt; /dev/null</span><br><span class="line">    <span class="comment"># 如果模式没有找到，则grep退出状态为 1</span></span><br><span class="line">    <span class="comment"># 2&gt; 表示标准错误重定向</span></span><br><span class="line">    <span class="comment"># 我们将标准输出流和标准错误流重定向到Null，因为我们并不关心这些信息</span></span><br><span class="line">    <span class="keyword">if</span> [[ $? -ne 0 ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;File <span class="variable">$file</span> does not have any foobar, adding one&quot;</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;# foobar&quot;</span> &gt;&gt; <span class="string">&quot;<span class="variable">$file</span>&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="comment"># -ne 表示not equal，即不等于</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<p>在条件语句中，我们比较 <code>$?</code> 是否等于0。在bash中进行比较时，尽量使用双方括号 <code>[[ ]]</code> 而不是单方括号 <code>[ ]</code>，这样会降低犯错的几率，尽管这样并不能兼容 sh。</p>
-<p><em><strong>注意：此时可能会遇到无权限执行，需要：</strong></em></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 &lt;文件名&gt;</span><br></pre></td></tr></table></figure>
-
-<p>当执行脚本时，我们经常需要提供形式类似的参数。bash使我们可以轻松的实现这一操作，它可以基于文件扩展名展开表达式。</p>
-<h1 id="3-通配符"><a href="#3-通配符" class="headerlink" title="3.通配符"></a>3.通配符</h1><ul>
-<li>当你想要利用通配符进行匹配时，你可以分别使用 <code>?</code> 和<code>*</code> 来匹配一个或任意个字符。例如，对于文件foo, foo1, foo2, foo10 和 bar, <code>rm foo?</code>这条命令会删除foo1 和 foo2 ，而<code>rm foo*</code> 则会删除除了bar之外的所有文件。</li>
-<li>花括号{} ：当你有一系列的指令，其中包含一段公共子串时，可以用花括号来自动展开这些命令。这在批量移动或转换文件时非常方便。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">convert image.&#123;png,jpg</span><br><span class="line"><span class="comment"># 会展开为</span></span><br><span class="line">convert image.png image.jpg</span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> /path/to/project/&#123;foo,bar,baz&#125;.sh /newpath</span><br><span class="line"><span class="comment"># 会展开为</span></span><br><span class="line"><span class="built_in">cp</span> /path/to/project/foo.sh /path/to/project/bar.sh /path/to/project/baz.sh /newpath</span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以结合通配使用</span></span><br><span class="line"><span class="built_in">mv</span> *&#123;.py,.sh&#125; folder <span class="comment"># 会移动所有 *.py 和 *.sh 文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面命令会创建foo/a, foo/b, ... foo/h, bar/a, bar/b, ... bar/h这些文件</span></span><br><span class="line"><span class="built_in">touch</span> &#123;foo,bar&#125;/&#123;a..h&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 比较文件夹 foo 和 bar 中包含文件的不同</span></span><br><span class="line">diff &lt;(<span class="built_in">ls</span> foo) &lt;(<span class="built_in">ls</span> bar)</span><br></pre></td></tr></table></figure>
-
-<p>编写 bash 脚本有时候会很别扭和反直觉。例如 shellcheck这样的工具可以帮助你定位sh&#x2F;bash脚本中的错误。</p>
-<h1 id="4-shebang行"><a href="#4-shebang行" class="headerlink" title="4.shebang行"></a>4.shebang行</h1><p>脚本并不一定只有用bash写才能在终端里调用。比如说，这是一段Python脚本，作用是将输入的参数倒序输出：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/local/bin/python</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">for</span> arg <span class="keyword">in</span> <span class="built_in">reversed</span>(sys.argv[<span class="number">1</span>:]):</span><br><span class="line">    <span class="built_in">print</span>(arg)</span><br></pre></td></tr></table></figure>
-
-<p>内核知道去用python解释器而不是shell命令来运行这段脚本，是因为脚本的开头第一行的shebang行，这告诉内核解释器的位置。在 shebang 行中使用 env 命令是一种好的实践，它会利用环境变量中的程序来解析该脚本，这样就提高来您的脚本的可移植性。env 会利用我们第一节讲座中介绍过的PATH 环境变量来进行定位。 例如，使用了env的shebang看上去时这样的<code>#!/usr/bin/env python</code>。</p>
-<p><strong>shell函数和脚本有如下一些不同点</strong>：</p>
-<ul>
-<li>函数只能用与shell使用相同的语言，脚本可以使用任意语言。因此在脚本中包含 shebang 是很重要的。</li>
-<li>函数仅在定义时被加载，脚本会在每次被执行时加载。这让函数的加载比脚本略快一些，但每次修改函数定义，都要重新加载一次。</li>
-<li>函数会在当前的shell环境中执行，脚本会在单独的进程中执行。因此，函数可以对环境变量进行更改，比如改变当前工作目录，脚本则不行。脚本需要使用 export 将环境变量导出，并将值传递给环境变量。</li>
-<li>与其他程序语言一样，函数可以提高代码模块性、代码复用性并创建清晰性的结构。shell脚本中往往也会包含它们自己的函数定义。</li>
-</ul>
-<p>在上一节中我们介绍过，最常用的方法是为对应的命令行添加<code>-h</code> 或 <code>--help</code> 标记。另外一个更详细的方法则是使用<code>man</code> 命令。<code>man</code> 命令是手册(manual)的缩写，它提供了命令的用户手册。</p>
-<p>例如，man rm 会输出命令 rm 的说明，同时还有其标记列表，包括之前我们介绍过的-i。 事实上，目前我们给出的所有命令的说明链接，都是网页版的Linux命令手册。即使是您安装的第三方命令，前提是开发者编写了手册并将其包含在了安装包中。在交互式的、基于字符处理的终端窗口中，一般也可以通过 <code>help</code> 命令或键入 <code>?</code>来获取帮助。</p>
-<p>有时候手册内容太过详实，让我们难以在其中查找哪些最常用的标记和语法。 <code>TLDRpages</code> 是一个很不错的替代品，它提供了一些案例，可以帮助您快速找到正确的选项。</p>
-<p>例如，自己就常常在tldr(too long don’t read)上搜索tar 和 ffmpeg 的用法。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看tar用法</span></span><br><span class="line">tldr tar</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看convert用法</span></span><br><span class="line">tldr convert</span><br></pre></td></tr></table></figure>
-
-<h1 id="5-查找文件"><a href="#5-查找文件" class="headerlink" title="5.查找文件"></a>5.查找文件</h1><h2 id="5-1-find"><a href="#5-1-find" class="headerlink" title="5.1 find"></a>5.1 find</h2><p>程序员们面对的最常见的重复任务就是查找文件或目录。所有的类UNIX系统都包含一个名为 <code>find</code>的工具，它是shell上用于查找文件的绝佳工具。find命令会递归地搜索符合条件的文件，例如：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找所有名称为src的文件夹</span></span><br><span class="line">find . -name src -type d # .表示当前工作目录</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找所有文件夹路径中包含<span class="built_in">test</span>的python文件</span></span><br><span class="line">find . -path &#x27;*/test/*.py&#x27; -type f</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找前一天修改的所有文件</span></span><br><span class="line">find . -mtime -1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找所有大小在500k至10M的tar.gz文件</span></span><br><span class="line">find . -size +500k -size -10M -name &#x27;*.tar.gz&#x27;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">除了列出所寻找的文件之外，find还能对所有查找到的文件进行操作。这能极大地简化一些单调的任务。</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除全部扩展名为.tmp 的文件</span></span><br><span class="line">find . -name &#x27;*.tmp&#x27; -exec rm &#123;&#125; \;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找全部的 PNG 文件并将其转换为 JPG</span></span><br><span class="line">find . -name &#x27;*.png&#x27; -exec convert &#123;&#125; &#123;&#125;.jpg \;</span><br></pre></td></tr></table></figure>
-
-<p>尽管 find 用途广泛，它的语法却比较难以记忆。例如，为了查找满足模式 PATTERN 的文件，您需要执行 <code>find -name &#39;*PATTERN*&#39;</code> (如果您希望模式匹配时是不区分大小写，可以使用<code>-iname</code>选项）</p>
-<p>您当然可以使用alias设置别名来简化上述操作，但shell的哲学之一便是寻找（更好用的）替代方案。 记住，shell最好的特性就是您只是在调用程序，因此您只要找到合适的替代程序即可（甚至自己编写）。</p>
-<h2 id="5-2-其他查找工具"><a href="#5-2-其他查找工具" class="headerlink" title="5.2 其他查找工具"></a>5.2 其他查找工具</h2><p>例如， <code>fd</code>就是一个更简单、更快速、更友好的程序，它可以用来作为find的替代品。它有很多不错的默认设置，例如输出着色、默认支持正则匹配、支持unicode并且我认为它的语法更符合直觉。以模式<code>PATTERN</code> 搜索的语法是 <code>fd PATTERN</code>。</p>
-<p>大多数人都认为 find 和 fd 已经很好用了，但是有的人可能想知道，我们是不是可以有更高效的方法，例如不要每次都搜索文件而是通过编译索引或建立数据库的方式来实现更加快速地搜索。</p>
-<p>这就要靠 <code>locate</code> 了。 locate 使用一个由 updatedb负责更新的数据库，在大多数系统中 updatedb 都会通过 cron每日更新。这便需要我们在速度和时效性之间作出权衡。而且，find 和类似的工具可以通过别的属性比如文件大小、修改时间或是权限来查找文件，locate则只能通过文件名。 here有一个更详细的对比。</p>
-<h1 id="6-查找代码"><a href="#6-查找代码" class="headerlink" title="6.查找代码"></a>6.查找代码</h1><p>查找文件是很有用的技能，但是很多时候您的目标其实是查看文件的内容。一个最常见的场景是您希望查找具有某种模式的全部文件，并找它们的位置。</p>
-<p>为了实现这一点，很多类UNIX的系统都提供了<code>grep</code>命令，它是用于对输入文本进行匹配的通用工具。它是一个非常重要的shell工具，我们会在后续的数据清理课程中深入的探讨它。</p>
-<p>grep 有很多选项，这也使它成为一个非常全能的工具。其中我经常使用的有</p>
-<ul>
-<li>-C：获取查找结果的上下文（Context）</li>
-<li>-v：将对结果进行反选（Invert），也就是输出不匹配的结果</li>
-</ul>
-<p>举例来说， grep -C 5 会输出匹配结果前后五行。当需要搜索大量文件的时候，使用 -R 会递归地进入子目录并搜索所有的文本文件。</p>
-<p>但是，我们有很多办法可以对 grep -R 进行改进，例如使其忽略.git 文件夹，使用多CPU等等。替代品中常用的是 ripgrep (rg) ，因为它速度快，而且用法非常符合直觉。例子如下：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找所有使用了 requests 库的文件</span></span><br><span class="line">rg -t py &#x27;import requests&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找所有没有写 shebang 的文件（包含隐藏文件）</span></span><br><span class="line">rg -u --files-without-match &quot;^#!&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找所有的foo字符串，并打印其之后的5行</span></span><br><span class="line">rg foo -A 5</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打印匹配的统计信息（匹配的行和文件的数量）</span></span><br><span class="line">rg --stats PATTERN</span><br></pre></td></tr></table></figure>
-
-<p>与 find&#x2F;fd 一样，重要的是你要知道有些问题使用合适的工具就会迎刃而解，而具体选择哪个工具则不是那么重要。</p>
-<h1 id="7-查找已执行的shell命令"><a href="#7-查找已执行的shell命令" class="headerlink" title="7.查找已执行的shell命令"></a>7.查找已执行的shell命令</h1><p>目前为止，我们已经学习了如何查找文件和代码，但随着你使用shell的时间越来越久，可能想要找到之前输入过的某条命令。<em><strong>首先，按向上的方向键会显示你使用过的上一条命令，继续按上键则会遍历整个历史记录。</strong></em></p>
-<h2 id="7-1-history命令"><a href="#7-1-history命令" class="headerlink" title="7.1 history命令"></a>7.1 history命令</h2><p>history 命令允许您以程序员的方式来访问shell中输入的历史命令。这个命令会在标准输出中打印shell中的里面命令。如果我们要搜索历史记录，则可以利用<strong>管道</strong>将输出结果传递给 grep 进行模式搜索。 <code>history | grep find</code> 会打印包含<code>find</code>子串的命令。</p>
-<h2 id="7-2-ctrl-R命令"><a href="#7-2-ctrl-R命令" class="headerlink" title="7.2 ctrl+R命令"></a>7.2 <code>ctrl+R</code>命令</h2><p>对于大多数的shell来说，您可以使用 <code>Ctrl+R</code> 对命令历史记录进行回溯搜索。敲 <code>Ctrl+R</code> 后可以输入子串来进行匹配，查找历史命令行。</p>
-<p>反复按下就会在所有搜索结果中循环。在 zsh中，使用方向键上或下也可以完成这项工作。</p>
-<p>Ctrl+R 可以配合 <code>fzf</code> 使用。fzf 是一个通用对模糊查找工具，它可以和很多命令一起使用。这里我们可以对历史命令进行模糊查找并将结果以赏心悦目的格式输出。</p>
-<h2 id="7-3-命令补全—fish"><a href="#7-3-命令补全—fish" class="headerlink" title="7.3 命令补全—fish"></a>7.3 命令补全—fish</h2><p>另外一个和历史命令相关的技巧我喜欢称之为基于历史的自动补全。 这一特性最初是由 <code>fish shell</code> 创建的，它可以根据您最近使用过的开头相同的命令，动态地对当前对shell命令进行补全。这一功能在 zsh 中也可以使用，它可以极大的提高用户体验。</p>
-<p>你可以修改 shell history 的行为，例如，如果在命令的开头加上一个空格，它就不会被加进shell记录中。当你输入包含密码等命令时会用到这一特性。 为此你需要在<code>.bashrc</code>中添加<code>HISTCONTROL=ignorespace</code>或者向<code>.zshrc</code> 添加 <code>setopt HIST_IGNORE_SPACE</code>。 如果你不小心忘了在前面加空格，可以通过编辑<code>bash_history</code>或 <code>.zhistory</code> 来手动地从历史记录中移除那一项。</p>
-<p><strong>需要使用fish时，可以在shell中输入fish</strong></p>
-<h1 id="8-文件夹导航"><a href="#8-文件夹导航" class="headerlink" title="8.文件夹导航"></a>8.文件夹导航</h1><p>之前对所有操作我们都默认一个前提，即您已经位于想要执行命令的目录下，但是如何才能高效地在目录间随意切换呢？有很多简便的方法可以做到，比如<strong>设置alias</strong>，<strong>使用 ln -s创建符号连接</strong>等。而开发者们已经想到了很多更为精妙的解决方案。</p>
-<p>由于本课程的目的是尽可能对你的日常习惯进行优化。因此，我们可以使用fasd和autojump这两个工具来查找最常用或最近使用的文件和目录。</p>
-<p>Fasd 基于 frecency对文件和文件排序，也就是说它会同时针对频率（frequency ）和时效（ recency）进行排序。默认情况下，fasd使用命令 z 帮助我们快速切换到最常访问的目录。例如， 如果您经常访问&#x2F;home&#x2F;user&#x2F;files&#x2F;cool_project 目录，那么可以直接使用 z cool 跳转到该目录。对于 autojump，则使用j cool代替即可。</p>
-<p>还有一些更复杂的工具可以用来概览目录结构，例如 tree, broot 或更加完整的文件管理器，例如 nnn 或 ranger。</p>
-]]></content>
-      <categories>
-        <category>missing_semester</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端入门:(四)Bootstrap介绍</title>
     <url>/archives/df0d4cb3.html</url>
     <content><![CDATA[<h1 id="Bootstrap介绍"><a href="#Bootstrap介绍" class="headerlink" title="Bootstrap介绍"></a>Bootstrap介绍</h1><p><code>Bootstrap</code>可以认为是别人已经实现的css样式，我们可以使用。</p>
@@ -1120,20 +977,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>我的第一篇博客</title>
-    <url>/archives/63785.html</url>
-    <content><![CDATA[<h1 id="博客包含的内容"><a href="#博客包含的内容" class="headerlink" title="博客包含的内容"></a>博客包含的内容</h1><pre><code>我个人比较关注的方向有数据分析、机器学习、深度学习及其在拓扑声学中的应用。
-我目前在学习有关深度学习的内容，未来会更新基础的机器学习算法介绍、经典的深度学习模型介绍以及生活中有意思的事。
-</code></pre>
-]]></content>
-      <categories>
-        <category>博客介绍</category>
-      </categories>
-      <tags>
-        <tag>博客简介</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端入门:(五)javascript介绍</title>
     <url>/archives/8b3fb578.html</url>
     <content><![CDATA[<ul>
@@ -1276,6 +1119,163 @@
         <tag>前端</tag>
         <tag>css</tag>
         <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客</title>
+    <url>/archives/63785.html</url>
+    <content><![CDATA[<h1 id="博客包含的内容"><a href="#博客包含的内容" class="headerlink" title="博客包含的内容"></a>博客包含的内容</h1><pre><code>我个人比较关注的方向有数据分析、机器学习、深度学习及其在拓扑声学中的应用。
+我目前在学习有关深度学习的内容，未来会更新基础的机器学习算法介绍、经典的深度学习模型介绍以及生活中有意思的事。
+</code></pre>
+]]></content>
+      <categories>
+        <category>博客介绍</category>
+      </categories>
+      <tags>
+        <tag>博客简介</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux实用工具:(二)Shell工具和脚本</title>
+    <url>/archives/df8b93b8.html</url>
+    <content><![CDATA[<p>在这节课中，我们将会展示bash作为脚本语言的一些基础操作，以及几种最常用的shell工具。我们已经学习来如何在shell中执行命令，并使用管道将命令组合使用。但是，很多情况下我们需要执行一系列的操作并使用条件或循环这样的控制流。本节中，我们会专注于bash脚本，因为它最流行，应用更为广泛。</p>
+<span id="more"></span>
+
+<p>在bash中为变量赋值的语法是foo&#x3D;bar，访问变量中存储的数值，其语法为 $foo。 需要注意的是，foo &#x3D; bar （使用空格隔开）是不能正确工作的，因为解释器会调用程序foo 并将 &#x3D; 和 bar作为参数。 总的来说，在shell脚本中使用空格会起到分割参数的作用，有时候可能会造成混淆，请务必多加检查。</p>
+<p>Bash中的字符串通过<code>&#39;</code> 和 <code>&quot;</code>分隔符来定义，但是它们的含义并不相同。以<code>&#39;</code>定义的字符串为原义字符串，其中的变量不会被转义，而 <code>&quot;</code>定义的字符串会将变量值进行替换。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">foo=bar</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$foo</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="1-打印-bar"><a href="#1-打印-bar" class="headerlink" title="1.打印 bar"></a>1.打印 bar</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;$foo&#x27;</span>`</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-打印-foo"><a href="#2-打印-foo" class="headerlink" title="2.打印 $foo"></a>2.打印 $foo</h1><p>和其他大多数的编程语言一样，bash也支持if, case, while 和 for 这些控制流关键字。同样地， bash 也支持函数，它可以接受参数并基于参数进行操作。下面这个函数是一个例子，它会创建一个文件夹并使用cd进入该文件夹。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#创建并打开一个文件夹</span></span><br><span class="line"><span class="function"><span class="title">mcd</span></span> () &#123;</span><br><span class="line">    <span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">    <span class="built_in">cd</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里 $1 是脚本的第一个参数。与其他脚本语言不同的是，bash使用了很多特殊的变量来表示参数、错误代码和相关变量。</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$0</td>
+<td align="center">脚本名</td>
+</tr>
+<tr>
+<td align="center">$1 到$9</td>
+<td align="center">脚本的参数，其中$1 是第一个参数，依此类推</td>
+</tr>
+<tr>
+<td align="center">$@</td>
+<td align="center">所有参数</td>
+</tr>
+<tr>
+<td align="center">$#</td>
+<td align="center">参数个数</td>
+</tr>
+<tr>
+<td align="center">$?</td>
+<td align="center">前一个命令的返回值</td>
+</tr>
+<tr>
+<td align="center">$$</td>
+<td align="center">当前脚本的进程识别码</td>
+</tr>
+<tr>
+<td align="center">!!</td>
+<td align="center">完整的上一条命令，包括参数。常见应用：当你因为权限不足执行命令失败时，可以使用 sudo !!再尝试一次。</td>
+</tr>
+<tr>
+<td align="center">$_</td>
+<td align="center">上一条命令的最后一个参数。如果你正在使用的是交互式shell，你可以通过按下 Esc 之后键入 . 来获取这个值。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>命令返回值(类比C语言的退出码)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> hello</span><br><span class="line">$? <span class="comment">#错误代码为0，表示运行成功</span></span><br><span class="line"></span><br><span class="line">True</span><br><span class="line">$? <span class="comment">#错误代码为0</span></span><br><span class="line"></span><br><span class="line">Fasle</span><br><span class="line">$? <span class="comment">#错误代码为1</span></span><br></pre></td></tr></table></figure>
+
+<p>命令通常使用 <code>STDOUT</code>来返回输出值，使用<code>STDERR</code> 来返回错误及错误码，便于脚本以更加友好的方式报告错误。 返回码或退出状态是脚本&#x2F;命令之间交流执行状态的方式。返回值0表示正常执行，其他所有非0的返回值都表示有错误发生。退出码可以搭配<code>&amp;&amp;</code> (与操作符) 和 <code>||</code> (或操作符)使用，用来进行条件判断，决定是否执行其他程序。它们都属于短路运算符（short-circuiting） 同一行的多个命令可以用 <code>;</code> 分隔。程序 true 的返回码永远是<code>0</code>，false 的返回码永远是<code>1</code>。让我们看几个例子：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="literal">false</span> || <span class="built_in">echo</span> <span class="string">&quot;Oops, fail&quot;</span></span><br><span class="line"><span class="comment"># 输出Oops, fail(执行后面的语句)</span></span><br><span class="line"></span><br><span class="line"><span class="literal">true</span> || <span class="built_in">echo</span> <span class="string">&quot;Will not be printed&quot;</span></span><br><span class="line"><span class="comment"># 什么都不输出(执行前面的语句)</span></span><br><span class="line"></span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;Things went well&quot;</span></span><br><span class="line"><span class="comment"># 输出Things went well</span></span><br><span class="line"></span><br><span class="line"><span class="literal">false</span> &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;Will not be printed&quot;</span></span><br><span class="line"><span class="comment"># 什么都不输出</span></span><br><span class="line"></span><br><span class="line"><span class="literal">false</span> ; <span class="built_in">echo</span> <span class="string">&quot;This will always run&quot;</span></span><br><span class="line"><span class="comment"># 输出This will always run</span></span><br></pre></td></tr></table></figure>
+
+<p>另一个常见的模式是以变量的形式获取一个命令的输出，这可以通过命令替换 (command substitution)实现。例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">foo=$(<span class="built_in">pwd</span>) <span class="comment">#foo存储当前工作目录</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$foo</span> <span class="comment">#打印foo</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;We are in <span class="variable">$foo</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>当您通过 <code>$(CMD)</code> 这样的方式来执行<code>CMD</code> 这个命令时，它的输出结果会替换掉 <code>$(CMD)</code> 。例如，如果执行 <code>for file in $(ls)</code> ，shell首先将调用<code>ls</code> ，然后遍历得到的这些返回值。还有一个冷门的类似特性是 进程替换（process substitution）， <code>&lt;(CMD)</code> 会执行 <code>CMD</code> 并将结果输出到一个临时文件中，并将 <code>&lt;(CMD)</code> 替换成临时文件名。这在我们希望返回值通过文件而不是<code>STDIN</code>传递时很有用。例如， <code>diff &lt;(ls foo) &lt;(ls bar)</code> 会显示文件夹 foo 和 bar 中文件的区别。</p>
+<p>下面这个例子展示了一部分上面提到的特性。这段脚本会遍历我们提供的参数，使用grep 搜索字符串 foobar，如果没有找到，则将其作为注释追加到文件中。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Starting program at <span class="subst">$(date)</span>&quot;</span> <span class="comment"># date会被替换成日期和时间</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Running program <span class="variable">$0</span> with <span class="variable">$#</span> arguments with pid $$&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> <span class="string">&quot;<span class="variable">$@</span>&quot;</span>; <span class="keyword">do</span></span><br><span class="line">    grep foobar <span class="string">&quot;<span class="variable">$file</span>&quot;</span> &gt; /dev/null 2&gt; /dev/null</span><br><span class="line">    <span class="comment"># 如果模式没有找到，则grep退出状态为 1</span></span><br><span class="line">    <span class="comment"># 2&gt; 表示标准错误重定向</span></span><br><span class="line">    <span class="comment"># 我们将标准输出流和标准错误流重定向到Null，因为我们并不关心这些信息</span></span><br><span class="line">    <span class="keyword">if</span> [[ $? -ne 0 ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;File <span class="variable">$file</span> does not have any foobar, adding one&quot;</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;# foobar&quot;</span> &gt;&gt; <span class="string">&quot;<span class="variable">$file</span>&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="comment"># -ne 表示not equal，即不等于</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p>在条件语句中，我们比较 <code>$?</code> 是否等于0。在bash中进行比较时，尽量使用双方括号 <code>[[ ]]</code> 而不是单方括号 <code>[ ]</code>，这样会降低犯错的几率，尽管这样并不能兼容 sh。</p>
+<p><em><strong>注意：此时可能会遇到无权限执行，需要：</strong></em></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 &lt;文件名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>当执行脚本时，我们经常需要提供形式类似的参数。bash使我们可以轻松的实现这一操作，它可以基于文件扩展名展开表达式。</p>
+<h1 id="3-通配符"><a href="#3-通配符" class="headerlink" title="3.通配符"></a>3.通配符</h1><ul>
+<li>当你想要利用通配符进行匹配时，你可以分别使用 <code>?</code> 和<code>*</code> 来匹配一个或任意个字符。例如，对于文件foo, foo1, foo2, foo10 和 bar, <code>rm foo?</code>这条命令会删除foo1 和 foo2 ，而<code>rm foo*</code> 则会删除除了bar之外的所有文件。</li>
+<li>花括号{} ：当你有一系列的指令，其中包含一段公共子串时，可以用花括号来自动展开这些命令。这在批量移动或转换文件时非常方便。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">convert image.&#123;png,jpg</span><br><span class="line"><span class="comment"># 会展开为</span></span><br><span class="line">convert image.png image.jpg</span><br><span class="line"></span><br><span class="line"><span class="built_in">cp</span> /path/to/project/&#123;foo,bar,baz&#125;.sh /newpath</span><br><span class="line"><span class="comment"># 会展开为</span></span><br><span class="line"><span class="built_in">cp</span> /path/to/project/foo.sh /path/to/project/bar.sh /path/to/project/baz.sh /newpath</span><br><span class="line"></span><br><span class="line"><span class="comment"># 也可以结合通配使用</span></span><br><span class="line"><span class="built_in">mv</span> *&#123;.py,.sh&#125; folder <span class="comment"># 会移动所有 *.py 和 *.sh 文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面命令会创建foo/a, foo/b, ... foo/h, bar/a, bar/b, ... bar/h这些文件</span></span><br><span class="line"><span class="built_in">touch</span> &#123;foo,bar&#125;/&#123;a..h&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 比较文件夹 foo 和 bar 中包含文件的不同</span></span><br><span class="line">diff &lt;(<span class="built_in">ls</span> foo) &lt;(<span class="built_in">ls</span> bar)</span><br></pre></td></tr></table></figure>
+
+<p>编写 bash 脚本有时候会很别扭和反直觉。例如 shellcheck这样的工具可以帮助你定位sh&#x2F;bash脚本中的错误。</p>
+<h1 id="4-shebang行"><a href="#4-shebang行" class="headerlink" title="4.shebang行"></a>4.shebang行</h1><p>脚本并不一定只有用bash写才能在终端里调用。比如说，这是一段Python脚本，作用是将输入的参数倒序输出：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/local/bin/python</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">for</span> arg <span class="keyword">in</span> <span class="built_in">reversed</span>(sys.argv[<span class="number">1</span>:]):</span><br><span class="line">    <span class="built_in">print</span>(arg)</span><br></pre></td></tr></table></figure>
+
+<p>内核知道去用python解释器而不是shell命令来运行这段脚本，是因为脚本的开头第一行的shebang行，这告诉内核解释器的位置。在 shebang 行中使用 env 命令是一种好的实践，它会利用环境变量中的程序来解析该脚本，这样就提高来您的脚本的可移植性。env 会利用我们第一节讲座中介绍过的PATH 环境变量来进行定位。 例如，使用了env的shebang看上去时这样的<code>#!/usr/bin/env python</code>。</p>
+<p><strong>shell函数和脚本有如下一些不同点</strong>：</p>
+<ul>
+<li>函数只能用与shell使用相同的语言，脚本可以使用任意语言。因此在脚本中包含 shebang 是很重要的。</li>
+<li>函数仅在定义时被加载，脚本会在每次被执行时加载。这让函数的加载比脚本略快一些，但每次修改函数定义，都要重新加载一次。</li>
+<li>函数会在当前的shell环境中执行，脚本会在单独的进程中执行。因此，函数可以对环境变量进行更改，比如改变当前工作目录，脚本则不行。脚本需要使用 export 将环境变量导出，并将值传递给环境变量。</li>
+<li>与其他程序语言一样，函数可以提高代码模块性、代码复用性并创建清晰性的结构。shell脚本中往往也会包含它们自己的函数定义。</li>
+</ul>
+<p>在上一节中我们介绍过，最常用的方法是为对应的命令行添加<code>-h</code> 或 <code>--help</code> 标记。另外一个更详细的方法则是使用<code>man</code> 命令。<code>man</code> 命令是手册(manual)的缩写，它提供了命令的用户手册。</p>
+<p>例如，man rm 会输出命令 rm 的说明，同时还有其标记列表，包括之前我们介绍过的-i。 事实上，目前我们给出的所有命令的说明链接，都是网页版的Linux命令手册。即使是您安装的第三方命令，前提是开发者编写了手册并将其包含在了安装包中。在交互式的、基于字符处理的终端窗口中，一般也可以通过 <code>help</code> 命令或键入 <code>?</code>来获取帮助。</p>
+<p>有时候手册内容太过详实，让我们难以在其中查找哪些最常用的标记和语法。 <code>TLDRpages</code> 是一个很不错的替代品，它提供了一些案例，可以帮助您快速找到正确的选项。</p>
+<p>例如，自己就常常在tldr(too long don’t read)上搜索tar 和 ffmpeg 的用法。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看tar用法</span></span><br><span class="line">tldr tar</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看convert用法</span></span><br><span class="line">tldr convert</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-查找文件"><a href="#5-查找文件" class="headerlink" title="5.查找文件"></a>5.查找文件</h1><h2 id="5-1-find"><a href="#5-1-find" class="headerlink" title="5.1 find"></a>5.1 find</h2><p>程序员们面对的最常见的重复任务就是查找文件或目录。所有的类UNIX系统都包含一个名为 <code>find</code>的工具，它是shell上用于查找文件的绝佳工具。find命令会递归地搜索符合条件的文件，例如：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找所有名称为src的文件夹</span></span><br><span class="line">find . -name src -type d # .表示当前工作目录</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找所有文件夹路径中包含<span class="built_in">test</span>的python文件</span></span><br><span class="line">find . -path &#x27;*/test/*.py&#x27; -type f</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找前一天修改的所有文件</span></span><br><span class="line">find . -mtime -1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找所有大小在500k至10M的tar.gz文件</span></span><br><span class="line">find . -size +500k -size -10M -name &#x27;*.tar.gz&#x27;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">除了列出所寻找的文件之外，find还能对所有查找到的文件进行操作。这能极大地简化一些单调的任务。</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除全部扩展名为.tmp 的文件</span></span><br><span class="line">find . -name &#x27;*.tmp&#x27; -exec rm &#123;&#125; \;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找全部的 PNG 文件并将其转换为 JPG</span></span><br><span class="line">find . -name &#x27;*.png&#x27; -exec convert &#123;&#125; &#123;&#125;.jpg \;</span><br></pre></td></tr></table></figure>
+
+<p>尽管 find 用途广泛，它的语法却比较难以记忆。例如，为了查找满足模式 PATTERN 的文件，您需要执行 <code>find -name &#39;*PATTERN*&#39;</code> (如果您希望模式匹配时是不区分大小写，可以使用<code>-iname</code>选项）</p>
+<p>您当然可以使用alias设置别名来简化上述操作，但shell的哲学之一便是寻找（更好用的）替代方案。 记住，shell最好的特性就是您只是在调用程序，因此您只要找到合适的替代程序即可（甚至自己编写）。</p>
+<h2 id="5-2-其他查找工具"><a href="#5-2-其他查找工具" class="headerlink" title="5.2 其他查找工具"></a>5.2 其他查找工具</h2><p>例如， <code>fd</code>就是一个更简单、更快速、更友好的程序，它可以用来作为find的替代品。它有很多不错的默认设置，例如输出着色、默认支持正则匹配、支持unicode并且我认为它的语法更符合直觉。以模式<code>PATTERN</code> 搜索的语法是 <code>fd PATTERN</code>。</p>
+<p>大多数人都认为 find 和 fd 已经很好用了，但是有的人可能想知道，我们是不是可以有更高效的方法，例如不要每次都搜索文件而是通过编译索引或建立数据库的方式来实现更加快速地搜索。</p>
+<p>这就要靠 <code>locate</code> 了。 locate 使用一个由 updatedb负责更新的数据库，在大多数系统中 updatedb 都会通过 cron每日更新。这便需要我们在速度和时效性之间作出权衡。而且，find 和类似的工具可以通过别的属性比如文件大小、修改时间或是权限来查找文件，locate则只能通过文件名。 here有一个更详细的对比。</p>
+<h1 id="6-查找代码"><a href="#6-查找代码" class="headerlink" title="6.查找代码"></a>6.查找代码</h1><p>查找文件是很有用的技能，但是很多时候您的目标其实是查看文件的内容。一个最常见的场景是您希望查找具有某种模式的全部文件，并找它们的位置。</p>
+<p>为了实现这一点，很多类UNIX的系统都提供了<code>grep</code>命令，它是用于对输入文本进行匹配的通用工具。它是一个非常重要的shell工具，我们会在后续的数据清理课程中深入的探讨它。</p>
+<p>grep 有很多选项，这也使它成为一个非常全能的工具。其中我经常使用的有</p>
+<ul>
+<li>-C：获取查找结果的上下文（Context）</li>
+<li>-v：将对结果进行反选（Invert），也就是输出不匹配的结果</li>
+</ul>
+<p>举例来说， grep -C 5 会输出匹配结果前后五行。当需要搜索大量文件的时候，使用 -R 会递归地进入子目录并搜索所有的文本文件。</p>
+<p>但是，我们有很多办法可以对 grep -R 进行改进，例如使其忽略.git 文件夹，使用多CPU等等。替代品中常用的是 ripgrep (rg) ，因为它速度快，而且用法非常符合直觉。例子如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找所有使用了 requests 库的文件</span></span><br><span class="line">rg -t py &#x27;import requests&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找所有没有写 shebang 的文件（包含隐藏文件）</span></span><br><span class="line">rg -u --files-without-match &quot;^#!&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查找所有的foo字符串，并打印其之后的5行</span></span><br><span class="line">rg foo -A 5</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打印匹配的统计信息（匹配的行和文件的数量）</span></span><br><span class="line">rg --stats PATTERN</span><br></pre></td></tr></table></figure>
+
+<p>与 find&#x2F;fd 一样，重要的是你要知道有些问题使用合适的工具就会迎刃而解，而具体选择哪个工具则不是那么重要。</p>
+<h1 id="7-查找已执行的shell命令"><a href="#7-查找已执行的shell命令" class="headerlink" title="7.查找已执行的shell命令"></a>7.查找已执行的shell命令</h1><p>目前为止，我们已经学习了如何查找文件和代码，但随着你使用shell的时间越来越久，可能想要找到之前输入过的某条命令。<em><strong>首先，按向上的方向键会显示你使用过的上一条命令，继续按上键则会遍历整个历史记录。</strong></em></p>
+<h2 id="7-1-history命令"><a href="#7-1-history命令" class="headerlink" title="7.1 history命令"></a>7.1 history命令</h2><p>history 命令允许您以程序员的方式来访问shell中输入的历史命令。这个命令会在标准输出中打印shell中的里面命令。如果我们要搜索历史记录，则可以利用<strong>管道</strong>将输出结果传递给 grep 进行模式搜索。 <code>history | grep find</code> 会打印包含<code>find</code>子串的命令。</p>
+<h2 id="7-2-ctrl-R命令"><a href="#7-2-ctrl-R命令" class="headerlink" title="7.2 ctrl+R命令"></a>7.2 <code>ctrl+R</code>命令</h2><p>对于大多数的shell来说，您可以使用 <code>Ctrl+R</code> 对命令历史记录进行回溯搜索。敲 <code>Ctrl+R</code> 后可以输入子串来进行匹配，查找历史命令行。</p>
+<p>反复按下就会在所有搜索结果中循环。在 zsh中，使用方向键上或下也可以完成这项工作。</p>
+<p>Ctrl+R 可以配合 <code>fzf</code> 使用。fzf 是一个通用对模糊查找工具，它可以和很多命令一起使用。这里我们可以对历史命令进行模糊查找并将结果以赏心悦目的格式输出。</p>
+<h2 id="7-3-命令补全—fish"><a href="#7-3-命令补全—fish" class="headerlink" title="7.3 命令补全—fish"></a>7.3 命令补全—fish</h2><p>另外一个和历史命令相关的技巧我喜欢称之为基于历史的自动补全。 这一特性最初是由 <code>fish shell</code> 创建的，它可以根据您最近使用过的开头相同的命令，动态地对当前对shell命令进行补全。这一功能在 zsh 中也可以使用，它可以极大的提高用户体验。</p>
+<p>你可以修改 shell history 的行为，例如，如果在命令的开头加上一个空格，它就不会被加进shell记录中。当你输入包含密码等命令时会用到这一特性。 为此你需要在<code>.bashrc</code>中添加<code>HISTCONTROL=ignorespace</code>或者向<code>.zshrc</code> 添加 <code>setopt HIST_IGNORE_SPACE</code>。 如果你不小心忘了在前面加空格，可以通过编辑<code>bash_history</code>或 <code>.zhistory</code> 来手动地从历史记录中移除那一项。</p>
+<p><strong>需要使用fish时，可以在shell中输入fish</strong></p>
+<h1 id="8-文件夹导航"><a href="#8-文件夹导航" class="headerlink" title="8.文件夹导航"></a>8.文件夹导航</h1><p>之前对所有操作我们都默认一个前提，即您已经位于想要执行命令的目录下，但是如何才能高效地在目录间随意切换呢？有很多简便的方法可以做到，比如<strong>设置alias</strong>，<strong>使用 ln -s创建符号连接</strong>等。而开发者们已经想到了很多更为精妙的解决方案。</p>
+<p>由于本课程的目的是尽可能对你的日常习惯进行优化。因此，我们可以使用fasd和autojump这两个工具来查找最常用或最近使用的文件和目录。</p>
+<p>Fasd 基于 frecency对文件和文件排序，也就是说它会同时针对频率（frequency ）和时效（ recency）进行排序。默认情况下，fasd使用命令 z 帮助我们快速切换到最常访问的目录。例如， 如果您经常访问&#x2F;home&#x2F;user&#x2F;files&#x2F;cool_project 目录，那么可以直接使用 z cool 跳转到该目录。对于 autojump，则使用j cool代替即可。</p>
+<p>还有一些更复杂的工具可以用来概览目录结构，例如 tree, broot 或更加完整的文件管理器，例如 nnn 或 ranger。</p>
+]]></content>
+      <categories>
+        <category>missing_semester</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
 </search>
