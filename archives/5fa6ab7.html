@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"neuerliu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1.线性结构(Linear Structure)1.1 线性结构的定义线性结构是一种有序数据项的集合，其中每个数据项都有唯一的前驱和后继。  第一个没有前驱，最后一个没有后继 新的数据项加入到数据集中，只会加入到原有某个数据项之前或之后  1.2 线性结构的两端线性结构有两端，称为左端、右端或者前端、后端。两端的称呼并不是关键，不同线性结构的关键区别在于数据项增减的方式。  有的结构只允许数据项从">
+  <meta name="description" content="1.线性结构(Linear Structure)1.1 线性结构的定义线性结构是一种有序数据项的集合，其中每个数据项都有唯一的前驱和后继。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python数据结构与算法:(二)基本结构">
 <meta property="og:url" content="https://neuerliu.github.io/archives/5fa6ab7.html">
 <meta property="og:site_name" content="诺小新 | Neuerliu">
-<meta property="og:description" content="1.线性结构(Linear Structure)1.1 线性结构的定义线性结构是一种有序数据项的集合，其中每个数据项都有唯一的前驱和后继。  第一个没有前驱，最后一个没有后继 新的数据项加入到数据集中，只会加入到原有某个数据项之前或之后  1.2 线性结构的两端线性结构有两端，称为左端、右端或者前端、后端。两端的称呼并不是关键，不同线性结构的关键区别在于数据项增减的方式。  有的结构只允许数据项从">
+<meta property="og:description" content="1.线性结构(Linear Structure)1.1 线性结构的定义线性结构是一种有序数据项的集合，其中每个数据项都有唯一的前驱和后继。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://neuerliu.github.io/images/python_dsa/%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D.PNG">
 <meta property="og:image" content="https://neuerliu.github.io/images/python_dsa/%E5%89%8D%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F.PNG">
@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://neuerliu.github.io/images/python_dsa/%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%8F%96vs%E9%9A%8F%E6%9C%BA%E5%AD%98%E5%8F%96.PNG">
 <meta property="og:image" content="https://neuerliu.github.io/images/python_dsa/%E5%A4%9A%E9%87%8D%E9%93%BE%E8%A1%A8_%E4%BA%8C%E5%8F%89%E9%93%BE%E8%A1%A8.PNG">
 <meta property="article:published_time" content="2023-03-01T08:40:10.000Z">
-<meta property="article:modified_time" content="2023-03-01T08:47:42.362Z">
+<meta property="article:modified_time" content="2023-03-01T10:31:11.904Z">
 <meta property="article:author" content="neuerliu">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="数据结构">
@@ -236,7 +236,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-03-01 16:40:10 / Modified: 16:47:42" itemprop="dateCreated datePublished" datetime="2023-03-01T16:40:10+08:00">2023-03-01</time>
+              <time title="Created: 2023-03-01 16:40:10 / Modified: 18:31:11" itemprop="dateCreated datePublished" datetime="2023-03-01T16:40:10+08:00">2023-03-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -267,6 +267,8 @@
 
       
         <h1 id="1-线性结构-Linear-Structure"><a href="#1-线性结构-Linear-Structure" class="headerlink" title="1.线性结构(Linear Structure)"></a>1.线性结构(Linear Structure)</h1><h2 id="1-1-线性结构的定义"><a href="#1-1-线性结构的定义" class="headerlink" title="1.1 线性结构的定义"></a>1.1 线性结构的定义</h2><p>线性结构是一种有序数据项的集合，其中每个数据项都有唯一的前驱和后继。</p>
+<span id="more"></span>
+
 <ul>
 <li>第一个没有前驱，最后一个没有后继</li>
 <li>新的数据项加入到数据集中，只会加入到原有某个数据项之前或之后</li>
