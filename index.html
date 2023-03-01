@@ -121,17 +121,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">12</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">14</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">5</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">6</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">13</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">15</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -187,6 +187,426 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://neuerliu.github.io/archives/5fa6ab7.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="neuerliu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="诺小新 | Neuerliu">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/5fa6ab7.html" class="post-title-link" itemprop="url">python数据结构与算法:(二)基本结构</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-03-01 16:40:10 / Modified: 16:47:10" itemprop="dateCreated datePublished" datetime="2023-03-01T16:40:10+08:00">2023-03-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">python数据结构与算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-线性结构-Linear-Structure"><a href="#1-线性结构-Linear-Structure" class="headerlink" title="1.线性结构(Linear Structure)"></a>1.线性结构(Linear Structure)</h1><h2 id="1-1-线性结构的定义"><a href="#1-1-线性结构的定义" class="headerlink" title="1.1 线性结构的定义"></a>1.1 线性结构的定义</h2><p>线性结构是一种有序数据项的集合，其中每个数据项都有唯一的前驱和后继。</p>
+<ul>
+<li>第一个没有前驱，最后一个没有后继</li>
+<li>新的数据项加入到数据集中，只会加入到原有某个数据项之前或之后</li>
+</ul>
+<h2 id="1-2-线性结构的两端"><a href="#1-2-线性结构的两端" class="headerlink" title="1.2 线性结构的两端"></a>1.2 线性结构的两端</h2><p>线性结构有两端，称为左端、右端或者前端、后端。两端的称呼并不是关键，不同线性结构的关键区别在于数据项增减的方式。</p>
+<ul>
+<li>有的结构只允许数据项从一段添加，而有的结构则允许数据项从两端移除；有的结构允许数据项从中间插入、移除</li>
+</ul>
+<p>依据数据项增减方式的不同，可以研究<strong>4种结构</strong>：</p>
+<ul>
+<li>栈(Stack)</li>
+<li>队列(Queue)</li>
+<li>双端队列(Deque)</li>
+<li>列表(List)</li>
+</ul>
+<h1 id="2-栈抽象数据类型及Python实现"><a href="#2-栈抽象数据类型及Python实现" class="headerlink" title="2.栈抽象数据类型及Python实现"></a>2.栈抽象数据类型及Python实现</h1><h2 id="2-1-栈的定义"><a href="#2-1-栈的定义" class="headerlink" title="2.1 栈的定义"></a>2.1 栈的定义</h2><p>栈是一种有次序的数据项集合，在栈中数据项的加入和移除都仅发生在同一端。一般加入&#x2F;移除数据项的段称为<strong>栈顶</strong>(top)，另一端称为<strong>栈底</strong>(base)。</p>
+<ul>
+<li>距离栈底越近的数据项，留在栈中的时间越长—&gt;这种次序被称为“**后进先出LIFO(Last in First out)**”</li>
+</ul>
+<p>举例：访问网页的后退按钮，一般最先back的是最近的网页；Word中的撤销按钮也是针对最近的操作</p>
+<h2 id="2-2-抽象数据类型Stack"><a href="#2-2-抽象数据类型Stack" class="headerlink" title="2.2 抽象数据类型Stack"></a>2.2 抽象数据类型Stack</h2><p>栈是一个有次序的数据集，每个数据项仅从栈顶一端加入、移除数据集中，栈具有后进先出的LIFO特性。</p>
+<p>栈的定义包括如下方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Stack()</td>
+<td align="center">创建一个空栈，不包含任何数据项</td>
+</tr>
+<tr>
+<td align="center">push(item)</td>
+<td align="center">将item加入栈项，无返回值</td>
+</tr>
+<tr>
+<td align="center">pop()</td>
+<td align="center">从栈顶将数据项移除并返回移除值，栈被修改</td>
+</tr>
+<tr>
+<td align="center">peek()</td>
+<td align="center">窥视栈顶数据项，返回栈顶的数据项但不移除，栈不被修改</td>
+</tr>
+<tr>
+<td align="center">isEmpty()</td>
+<td align="center">返回栈是否为空栈</td>
+</tr>
+<tr>
+<td align="center">size()</td>
+<td align="center">返回栈中有多少个数据项</td>
+</tr>
+</tbody></table>
+<h2 id="2-3-用Python实现ADT-Stack"><a href="#2-3-用Python实现ADT-Stack" class="headerlink" title="2.3 用Python实现ADT Stack"></a>2.3 用Python实现ADT Stack</h2><p>ADT(Abstract Data Type, 抽象数据类型)，我们用python的列表类型实现，选用<strong>列表的末端(index &#x3D; -1)作为栈顶</strong>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Stack</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        初始化Stack</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        self.items = []</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isEmpty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        判断是否为空</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.items == []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">push</span>(<span class="params">self, item</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        添加新元素，无返回值</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        self.items.append(item)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        移除元素，返回被移除元素</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.items.pop()</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">peek</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        窥视栈顶数据项</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.items[<span class="built_in">len</span>(self.items) - <span class="number">1</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        查看栈的大小</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.items)</span><br></pre></td></tr></table></figure>
+
+<p>如果将index&#x3D;0作为栈顶，同样可以实现上述功能。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Stack</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        初始化Stack</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        self.items = []</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isEmpty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        判断是否为空</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.items == []</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">push</span>(<span class="params">self, item</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        添加新元素，无返回值</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        self.items.insert(<span class="number">0</span>, item)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        移除元素，返回被移除元素</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.items.pop(<span class="number">0</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">peek</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        窥视栈顶数据项</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.items[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        查看栈的大小</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.items)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4-栈的应用：简单括号匹配"><a href="#2-4-栈的应用：简单括号匹配" class="headerlink" title="2.4 栈的应用：简单括号匹配"></a>2.4 栈的应用：简单括号匹配</h2><ul>
+<li>括号需要遵循平衡原则，即每个开括号要恰好对应一个闭括号，并且每一对括号要正确闭合。</li>
+<li>将其余字符去除，从左到右扫面括号构成的字符串，则最先遇到的左括号应该匹配最后遇到的右括号。这是一种次序反转，可以使用栈来处理。</li>
+</ul>
+<p><img src="/../images/python_dsa/%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D.PNG" alt="括号匹配"></p>
+<h2 id="2-5-进制转换"><a href="#2-5-进制转换" class="headerlink" title="2.5 进制转换"></a>2.5 进制转换</h2><ul>
+<li>进制：用多少个字符表示整数</li>
+<li>将十进制转化为二进制可以使用除法，不断除以2，通过余数得到各位的表示。最后的书写则需要反转这一过程，可以通过栈来实现。</li>
+<li>此外，还可以将十进制转换为十六以下任意进制</li>
+</ul>
+<h2 id="3-表达式转换"><a href="#3-表达式转换" class="headerlink" title="3.表达式转换"></a>3.表达式转换</h2><h2 id="3-1-中缀表达式"><a href="#3-1-中缀表达式" class="headerlink" title="3.1 中缀表达式"></a>3.1 中缀表达式</h2><ul>
+<li>中缀表达式：操作符介于操作数中间的表示法，称为“中缀”表示法，例如：<code>A+B*C</code></li>
+<li>人们通过引入操作符的<strong>优先级</strong>解决这个问题来消除混淆，通过引入括号来表示<strong>强制优先级</strong></li>
+<li>计算机处理问题时最好能明确优先级，避免处理复杂的优先规则，引入全括号表达式—&gt;将表达式加入括号，表示优先级</li>
+</ul>
+<h2 id="3-2-前缀和后缀表达式"><a href="#3-2-前缀和后缀表达式" class="headerlink" title="3.2 前缀和后缀表达式"></a>3.2 前缀和后缀表达式</h2><p>实际上就是改变操作符的位置，以<code>A+B</code>为例：</p>
+<ul>
+<li>前缀表达式：将操作符移到前面，变为<code>+AB</code></li>
+<li>后缀表达式：将操作符移到后面，变为<code>AB+</code></li>
+</ul>
+<p><img src="/../images/python_dsa/%E5%89%8D%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F.PNG" alt="前后缀表达式"></p>
+<p>在前缀、后缀表达式中，<strong>操作符的次序完全决定了运算次序</strong>，不再需要括号。</p>
+<h2 id="3-3-表达式转换"><a href="#3-3-表达式转换" class="headerlink" title="3.3 表达式转换"></a>3.3 表达式转换</h2><p><img src="/../images/python_dsa/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E6%8D%A21.PNG" alt="表达式转换1"></p>
+<p><img src="/../images/python_dsa/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%BD%AC%E6%8D%A22.PNG" alt="表达式转换2"></p>
+<p>主要步骤如下：</p>
+<ul>
+<li>将中缀表达式转换为全括号形式</li>
+<li>将所有的操作符移动到子表达式所在的左括号(针对前缀情况)或者右括号处(针对后缀情况)，替代之，在删除所有的括号</li>
+</ul>
+<h3 id="3-3-1-中缀转后缀表达式"><a href="#3-3-1-中缀转后缀表达式" class="headerlink" title="3.3.1 中缀转后缀表达式"></a>3.3.1 中缀转后缀表达式</h3><ul>
+<li>在中缀表达式转换为后缀表达式的过程中，操作符比操作数要晚输出，因此需要暂存操作符</li>
+<li>暂存的操作符可能由于优先级的规则，需要反转次序输出—&gt;考虑用栈存储操作符</li>
+</ul>
+<p>通用算法：</p>
+<ul>
+<li><p>约定中缀表达式是由空格隔开的一系列单词(token)构成</p>
+<ul>
+<li>操作符单词包括：<code>+-*/()</code></li>
+<li>操作数单词是单字母标识符A、B、C等</li>
+</ul>
+</li>
+<li><p>创建空栈opstack用于暂存操作符，空表用于保存后缀表达式</p>
+</li>
+<li><p>从左到右扫描中缀表达式单词列表<br><img src="/../images/python_dsa/%E8%BD%AC%E5%8C%96%E4%B8%BA%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B5%81%E7%A8%8B1.PNG" alt="转化为后缀表达式流程1"></p>
+</li>
+<li><p>中缀表达式单词列表扫描结束后，把opstack栈中所有剩余操作符一次弹出，添加到输出列表末尾</p>
+</li>
+<li><p>把输出列表再用join方法合并成后缀表达式字符串</p>
+</li>
+</ul>
+<h3 id="3-3-2-后缀转中缀表达式"><a href="#3-3-2-后缀转中缀表达式" class="headerlink" title="3.3.2 后缀转中缀表达式"></a>3.3.2 后缀转中缀表达式</h3><p>此时操作符在操作数的后面，因此需要暂存操作数，碰到操作符时将栈顶的操作符弹出进行运算</p>
+<p><img src="/../images/python_dsa/%E8%BD%AC%E5%8C%96%E4%B8%BA%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F1.PNG" alt="转化为中缀表达式1"></p>
+<h1 id="3-队列抽象数据类型及Python实现"><a href="#3-队列抽象数据类型及Python实现" class="headerlink" title="3.队列抽象数据类型及Python实现"></a>3.队列抽象数据类型及Python实现</h1><h2 id="3-1-队列的定义"><a href="#3-1-队列的定义" class="headerlink" title="3.1 队列的定义"></a>3.1 队列的定义</h2><p>队列(Queue)是一种有次序的数据集合，特征是：</p>
+<ul>
+<li><p>新数据项的添加总发生在一端，通常称为<strong>尾端(rear)</strong></p>
+</li>
+<li><p>现存数据项的移除总发生在另一端，通常称为<strong>首端(front)</strong></p>
+</li>
+<li><p>新加入的数据项必须在数据集末尾等待，等待时间最长的数据项则是队首，这种次序被称为先进先出(FIFO, First In First Out)</p>
+</li>
+</ul>
+<p>队列的例子是排队，队列只有一个入口和出口。</p>
+<h2 id="3-2-抽象数据类型Queue"><a href="#3-2-抽象数据类型Queue" class="headerlink" title="3.2 抽象数据类型Queue"></a>3.2 抽象数据类型Queue</h2><p>抽象数据类型Queue由如下操作定义：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Queue()</td>
+<td align="center">创建一个空队列，返回值为Queue对象</td>
+</tr>
+<tr>
+<td align="center">enqueue()</td>
+<td align="center">将数据项item添加到队尾，无返回值</td>
+</tr>
+<tr>
+<td align="center">dequeue()</td>
+<td align="center">从队首移除数据项，返回队首数据项</td>
+</tr>
+<tr>
+<td align="center">isEmpty()</td>
+<td align="center">测试队列是否为空队列，返回值为布尔值</td>
+</tr>
+<tr>
+<td align="center">size()</td>
+<td align="center">返回队列中数据项个数</td>
+</tr>
+</tbody></table>
+<h2 id="3-3-队列问题：热土豆问题"><a href="#3-3-队列问题：热土豆问题" class="headerlink" title="3.3 队列问题：热土豆问题"></a>3.3 队列问题：热土豆问题</h2><p>热土豆问题(约瑟夫问题)：传烫手的热土豆，鼓声停的时候，手里有土豆的小孩就要出列。如果去掉鼓，改为传过固定人数，就成了现代版约瑟夫问题。</p>
+<p><img src="/../images/python_dsa/%E9%98%9F%E5%88%97_%E7%83%AD%E5%9C%9F%E8%B1%86%E9%97%AE%E9%A2%98.PNG" alt="队列_热土豆问题"></p>
+<h2 id="3-4-队列应用：打印任务"><a href="#3-4-队列应用：打印任务" class="headerlink" title="3.4 队列应用：打印任务"></a>3.4 队列应用：打印任务</h2><blockquote>
+<ul>
+<li><p>场景：多人共享一台打印机，采取“先到先服务”的队列策略来执行打印任务</p>
+</li>
+<li><p>打印模式有两种：草稿模式，质量低，每分钟10页；正常模式，质量高，每分钟5页</p>
+</li>
+<li><p>问题是如何在大家等待时间不会太久的前提下实现尽可能高质量的打印？—&gt; 决策支持问题</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="3-4-1-问题建模"><a href="#3-4-1-问题建模" class="headerlink" title="3.4.1 问题建模"></a>3.4.1 问题建模</h3><ul>
+<li>对象：打印任务、打印队列、打印机<ul>
+<li>打印任务属性：提交任务时间、打印页数</li>
+<li>打印队列的属性：具有FIFO性质的打印任务队列</li>
+<li>打印机属性：打印速度、是否忙</li>
+</ul>
+</li>
+<li>过程<ul>
+<li>生成和提交打印任务：此时每180s有一个打印任务，打印页数在1~20页之间满足均匀分布，打印速度为5页&#x2F;s</li>
+<li>实施打印：新作业在打印时开始倒计时，回0表示打印完毕，可以处理下一个作业</li>
+<li>模拟时间：以s的形式均匀流逝，同时在一个时间单位中对生成打印任务和实施打印两个过程各处理一次</li>
+</ul>
+</li>
+</ul>
+<p><img src="/../images/python_dsa/%E6%89%93%E5%8D%B0%E6%9C%BA%E4%BB%BB%E5%8A%A1%E6%B5%81%E7%A8%8B.PNG" alt="打印机任务流程"></p>
+<ul>
+<li>作业的等待时间<ul>
+<li>生成作业时，记录生成的时间戳</li>
+<li>开始打印时，当前时间减去生成时间即可</li>
+</ul>
+</li>
+<li>作业打印时间<ul>
+<li>生成作业时，记录作业的页数</li>
+<li>开始打印时，页数除以打印速度即可</li>
+</ul>
+</li>
+</ul>
+<h1 id="4-双端队列抽象数据类型及Python实现"><a href="#4-双端队列抽象数据类型及Python实现" class="headerlink" title="4.双端队列抽象数据类型及Python实现"></a>4.双端队列抽象数据类型及Python实现</h1><h2 id="4-1-双端队列的定义"><a href="#4-1-双端队列的定义" class="headerlink" title="4.1 双端队列的定义"></a>4.1 双端队列的定义</h2><p>双端队列(deque)两端可以称作首尾，数据项既可以从两端加入，也可以从两端移除。从某种意义上，<strong>双端队列同时具有栈、队列的特性</strong>。</p>
+<h2 id="4-2-抽象数据类型Deque"><a href="#4-2-抽象数据类型Deque" class="headerlink" title="4.2 抽象数据类型Deque"></a>4.2 抽象数据类型Deque</h2><p>双端队列包括以下功能：</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>Deque()</code></td>
+<td align="center">初始化</td>
+</tr>
+<tr>
+<td align="center"><code>isEmpty()</code></td>
+<td align="center">判断双端队列是否为空</td>
+</tr>
+<tr>
+<td align="center"><code>addRear(item)</code></td>
+<td align="center">尾部添加元素</td>
+</tr>
+<tr>
+<td align="center"><code>addFront(item)</code></td>
+<td align="center">首部添加元素</td>
+</tr>
+<tr>
+<td align="center"><code>size()</code></td>
+<td align="center">双端队列大小</td>
+</tr>
+<tr>
+<td align="center"><code>removeRear()</code></td>
+<td align="center">尾部元素移除</td>
+</tr>
+<tr>
+<td align="center"><code>removeFront()</code></td>
+<td align="center">首部元素移除</td>
+</tr>
+</tbody></table>
+<h2 id="4-3-双端队列Python实现"><a href="#4-3-双端队列Python实现" class="headerlink" title="4.3 双端队列Python实现"></a>4.3 双端队列Python实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Deque</span>:</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    双端队列，最后是首部，最前面是尾部</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        双端队列的初始化</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        self.items = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isEmpty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        判断双端队列是否为空</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.items == []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addFront</span>(<span class="params">self, item</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        双端队列首部加入数据项</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        self.items.append(item)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">addRear</span>(<span class="params">self, item</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        双端队列尾部加入数据项</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        self.items.insert(<span class="number">0</span>, item)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeFront</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        双端队列首部元素去除</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.items.pop()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">removeRear</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        双端队列尾部元素去除</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.items.pop(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        双端队列大小</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">len</span>(self.items)</span><br></pre></td></tr></table></figure>
+
+<p>应用：判断回文词</p>
+<h1 id="5-无序表抽象数据类型和Python实现"><a href="#5-无序表抽象数据类型和Python实现" class="headerlink" title="5.无序表抽象数据类型和Python实现"></a>5.无序表抽象数据类型和Python实现</h1><h2 id="5-1-无序表的定义"><a href="#5-1-无序表的定义" class="headerlink" title="5.1 无序表的定义"></a>5.1 无序表的定义</h2><p>数据项按照相对位置存放的数据集，称为无序表(unordered list)，实际上就是list。</p>
+<h2 id="5-2-采用链表实现无序表"><a href="#5-2-采用链表实现无序表" class="headerlink" title="5.2 采用链表实现无序表"></a>5.2 采用链表实现无序表</h2><p>虽然列表数据结构要求保持数据项的前后相对位置，但这种前后位置的保持并不要求数据项一次存放在连续存储空间中。</p>
+<p><img src="/../images/python_dsa/%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A81.PNG" alt="无序列表1"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, initdata</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        链表节点的初始化</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        self.data = initdata</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getData</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        查看节点数据</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.data</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getNext</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        得到下一个节点</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setData</span>(<span class="params">self, newdata</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        更改节点数据</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        self.data = newdata</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setNext</span>(<span class="params">self, newnext</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        更改指向的节点</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        self.<span class="built_in">next</span> = newnext</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UnorderedList</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        无序列表的初始化</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        self.head = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isEmpty</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        无序列表是否为空</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> self.head == <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">self, item</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        添加数据项</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="comment">#添加新节点最好的方式是表头</span></span><br><span class="line">        <span class="comment">#注意顺序，需要先将新的节点指向先前的表头，再修改表头</span></span><br><span class="line">        temp = Node(item)</span><br><span class="line">        temp.setNext(self.head)</span><br><span class="line">        self.head = temp</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">size</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        链表大小</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        current = self.head</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> current != <span class="literal">None</span>:</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">            current = current.getNext()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">self, item</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        寻找指定数据项item</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        current = self.head <span class="comment">#当前节点</span></span><br><span class="line">        found = <span class="literal">False</span> <span class="comment">#是否找到</span></span><br><span class="line">        <span class="keyword">while</span> current != <span class="literal">None</span> <span class="keyword">and</span> <span class="keyword">not</span> found:</span><br><span class="line">            <span class="keyword">if</span> current.data == item:</span><br><span class="line">                found = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                current = current.getNext()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> found</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self, item</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        删除指定数据项item</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span>    </span><br><span class="line">        current = self.head <span class="comment">#当前节点</span></span><br><span class="line">        previous = <span class="literal">None</span> <span class="comment">#前一个节点</span></span><br><span class="line">        found = <span class="literal">False</span> <span class="comment">#是否找到</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> found:</span><br><span class="line">            <span class="keyword">if</span> current.data == item:</span><br><span class="line">                <span class="keyword">if</span> previous != <span class="literal">None</span>:</span><br><span class="line">                    previous.setNext(current.getNext())</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    self.head = current.getNext()</span><br><span class="line"></span><br><span class="line">                found = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                previous = current</span><br><span class="line">                current = current.getNext()</span><br></pre></td></tr></table></figure>
+
+<h1 id="6-有序表抽象数据类型及Python实现"><a href="#6-有序表抽象数据类型及Python实现" class="headerlink" title="6.有序表抽象数据类型及Python实现"></a>6.有序表抽象数据类型及Python实现</h1><h2 id="6-1-有序表的定义"><a href="#6-1-有序表的定义" class="headerlink" title="6.1 有序表的定义"></a>6.1 有序表的定义</h2><p>有序表是一种数据项依照其某科比性质(如整数大小、字母表先后)来决定在列表中的位置</p>
+<p><img src="/../images/python_dsa/%E6%9C%89%E5%BA%8F%E8%A1%A8%E6%93%8D%E4%BD%9C.PNG" alt="有序表操作"></p>
+<h2 id="6-2-采用链表实现有序表"><a href="#6-2-采用链表实现有序表" class="headerlink" title="6.2 采用链表实现有序表"></a>6.2 采用链表实现有序表</h2><ul>
+<li>实现有序表时，需要记住的是数据项的相对位置取决于它们之间的“大小”比较。我们可以定义<code>__gt__</code>方法，就可以应用<code>&gt;</code>比较自定义的数据类型。</li>
+<li>对于<code>isEmpty</code>&#x2F;<code>size</code>&#x2F;<code>remove</code>方法，与节点次序无关，实现和之前的无序表一致；<code>search</code>&#x2F;<code>add</code>需要修改</li>
+</ul>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>线性结构是指数据项以某种<strong>线性次序</strong>组织起来</p>
+<ul>
+<li>栈Stack维持了数据项后进先出(LIFO)的次序，基础操作包括：<code>push</code>、<code>pop</code>、<code>isEmpty</code></li>
+<li>队列Queue维持了数据项先进先出(FIFO)的次序，基础操作包括：<code>enqueue</code>、<code>dequeue</code>、<code>isEmpty</code></li>
+<li>双端队列Deque同时具备栈和队列的功能</li>
+<li>列表List是数据项能够维持相对位置的数据集</li>
+<li>链表的实现可以保持列表维持相对位置的特点，而不需要连续的存储空间</li>
+</ul>
+<p>案例总结：</p>
+<ul>
+<li><p>书写表达式的方法有前缀<code>prefix</code>、中缀<code>infix</code>、后缀<code>postfix</code>三种，由于栈结构具有次序反转的特性，所以栈结构适合用于开发<strong>表达式求值</strong>和<strong>转换算法</strong>。</p>
+</li>
+<li><p>模拟系统通过对现实问题进行抽象建模，加入随机数动态运行，为复杂问题的决策提供依据。队列<code>queue</code>可以用来进行模拟系统的开发。</p>
+</li>
+</ul>
+<p><img src="/../images/python_dsa/%E7%BA%BF%E6%80%A7%E8%A1%A8%E3%80%81%E9%93%BE%E8%A1%A8%E3%80%81%E9%A1%BA%E5%BA%8F%E8%A1%A8.PNG" alt="线性表、链表、顺序表"></p>
+<p><img src="/../images/python_dsa/%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%8F%96vs%E9%9A%8F%E6%9C%BA%E5%AD%98%E5%8F%96.PNG" alt="顺序存取vs随机存取"></p>
+<p>区分两个概念，存储方式和存取方式：存储方式是指数据在内存中的布局，若连续布局则是顺序存储，若布局没有物理结构的相关性，则可能是链式存储。</p>
+<ul>
+<li>顺序存储由于物理结构上的相关性，则访问数据时可以随机访问，因此是<strong>随机存取</strong>；</li>
+<li>链式存储由于物理结构上不具备相关性，则访问数据需要从链表头节点开始，因此是<strong>顺序存取</strong></li>
+</ul>
+<p>多重链表、二叉链表</p>
+<p><img src="/../images/python_dsa/%E5%A4%9A%E9%87%8D%E9%93%BE%E8%A1%A8_%E4%BA%8C%E5%8F%89%E9%93%BE%E8%A1%A8.PNG" alt="多重链表_二叉链表"></p>
+<h1 id="问题解答"><a href="#问题解答" class="headerlink" title="问题解答"></a>问题解答</h1><ul>
+<li><p>判断：栈的pop操作时间复杂度为O(n)</p>
+<p>答：错误。栈的pop操作时间复杂度取决于栈的具体实现，可能是O(n)，也可能是O(1)。</p>
+</li>
+<li><p>如何打印输出一个类？</p>
+<p>答：可以定义其中的<code>__str__</code>和<code>__repr__</code>特殊方法实现，在执行<code>print(&lt;类名&gt;)</code>实现打印类的自定义信息。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://neuerliu.github.io/archives/f30c48de.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="neuerliu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="诺小新 | Neuerliu">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/f30c48de.html" class="post-title-link" itemprop="url">python数据结构与算法:(一)算法分析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-03-01 16:17:10 / Modified: 16:46:01" itemprop="dateCreated datePublished" datetime="2023-03-01T16:17:10+08:00">2023-03-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">python数据结构与算法</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-大O表示法"><a href="#1-大O表示法" class="headerlink" title="1.大O表示法"></a>1.大O表示法</h1><h2 id="1-1-算法时间度量指标"><a href="#1-1-算法时间度量指标" class="headerlink" title="1.1 算法时间度量指标"></a>1.1 算法时间度量指标</h2><ul>
+<li>算法实施的操作数量或步骤数可以作为独立于具体程序或机器的度量指标</li>
+<li><strong>赋值语句</strong>是一个合适作为度量的选择</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/f30c48de.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -361,10 +781,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-08-23 16:42:25 / Modified: 16:59:08" itemprop="dateCreated datePublished" datetime="2022-08-23T16:42:25+08:00">2022-08-23</time>
+              <time title="Created: 2022-08-23 16:42:25" itemprop="dateCreated datePublished" datetime="2022-08-23T16:42:25+08:00">2022-08-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-01 16:30:07" itemprop="dateModified" datetime="2023-03-01T16:30:07+08:00">2023-03-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -682,7 +1108,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-19 11:13:10" itemprop="dateModified" datetime="2022-08-19T11:13:10+08:00">2022-08-19</time>
+                <time title="Modified: 2023-03-01 16:33:03" itemprop="dateModified" datetime="2023-03-01T16:33:03+08:00">2023-03-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -803,162 +1229,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://neuerliu.github.io/archives/34d8562e.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="neuerliu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="诺小新 | Neuerliu">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/34d8562e.html" class="post-title-link" itemprop="url">VScode使用(一)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-04-24 20:20:28 / Modified: 20:23:22" itemprop="dateCreated datePublished" datetime="2022-04-24T20:20:28+08:00">2022-04-24</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/VScode/" itemprop="url" rel="index"><span itemprop="name">VScode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在这里我将记录如何使用并配置vscode，使得我们的编程更加方便</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/archives/34d8562e.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://neuerliu.github.io/archives/ecdd79bb.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="neuerliu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="诺小新 | Neuerliu">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/ecdd79bb.html" class="post-title-link" itemprop="url">linux实用工具:(三)Vim编辑器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-24 13:30:05" itemprop="dateCreated datePublished" datetime="2022-04-24T13:30:05+08:00">2022-04-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-19 11:14:02" itemprop="dateModified" datetime="2022-08-19T11:14:02+08:00">2022-08-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/missing-semester/" itemprop="url" rel="index"><span itemprop="name">missing_semester</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1-Vim的哲学"><a href="#1-Vim的哲学" class="headerlink" title="1.Vim的哲学"></a>1.Vim的哲学</h1><p>在编程的时候，你会把大量时间花在阅读&#x2F;编辑而不是在写代码上。所以，Vim 是一个多模态编辑器：它对于插入文字和操纵文字有不同的模式。Vim 是可编程的（可以使用 Vimscript 或者像 Python 一样的其他程序语言），Vim 的接口本身也是一个程序语言：键入操作（以及其助记名） 是命令，这些命令也是可组合的。Vim 避免了使用鼠标，因为那样太慢了；Vim 甚至避免用 上下左右键因为那样需要太多的手指移动。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/archives/ecdd79bb.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1028,20 +1298,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -1078,8 +1348,8 @@
 
 <div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

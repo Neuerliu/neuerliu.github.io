@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"neuerliu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1.大O表示法1.1 算法时间度量指标 算法实施的操作数量或步骤数可以作为独立于具体程序或机器的度量指标 赋值语句是一个合适作为度量的选择">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python数据结构与算法:(一)算法分析">
+<meta property="og:url" content="https://neuerliu.github.io/archives/f30c48de.html">
+<meta property="og:site_name" content="诺小新 | Neuerliu">
+<meta property="og:description" content="1.大O表示法1.1 算法时间度量指标 算法实施的操作数量或步骤数可以作为独立于具体程序或机器的度量指标 赋值语句是一个合适作为度量的选择">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://neuerliu.github.io/images/python_dsa/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%A4%A7O%E6%95%B0%E9%87%8F%E7%BA%A7%E5%87%BD%E6%95%B0.PNG">
+<meta property="og:image" content="https://neuerliu.github.io/images/python_dsa/list%E5%92%8Cdict.PNG">
+<meta property="article:published_time" content="2023-03-01T08:17:10.000Z">
+<meta property="article:modified_time" content="2023-03-01T08:46:01.030Z">
+<meta property="article:author" content="neuerliu">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://neuerliu.github.io/images/python_dsa/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%A4%A7O%E6%95%B0%E9%87%8F%E7%BA%A7%E5%87%BD%E6%95%B0.PNG">
+
+<link rel="canonical" href="https://neuerliu.github.io/archives/f30c48de.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>python数据结构与算法:(一)算法分析 | 诺小新 | Neuerliu</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">诺小新 | Neuerliu</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">14</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">15</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/neuerliu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://neuerliu.github.io/archives/f30c48de.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="neuerliu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="诺小新 | Neuerliu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python数据结构与算法:(一)算法分析
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-03-01 16:17:10 / Modified: 16:46:01" itemprop="dateCreated datePublished" datetime="2023-03-01T16:17:10+08:00">2023-03-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">python数据结构与算法</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="1-大O表示法"><a href="#1-大O表示法" class="headerlink" title="1.大O表示法"></a>1.大O表示法</h1><h2 id="1-1-算法时间度量指标"><a href="#1-1-算法时间度量指标" class="headerlink" title="1.1 算法时间度量指标"></a>1.1 算法时间度量指标</h2><ul>
+<li>算法实施的操作数量或步骤数可以作为独立于具体程序或机器的度量指标</li>
+<li><strong>赋值语句</strong>是一个合适作为度量的选择</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="1-2-问题规模影响算法执行时间"><a href="#1-2-问题规模影响算法执行时间" class="headerlink" title="1.2 问题规模影响算法执行时间"></a>1.2 问题规模影响算法执行时间</h2><ul>
+<li>问题规模：影响算法执行时间的主要因素</li>
+<li><strong>算法分析的目标</strong>：找出问题规模如何影响算法执行时间</li>
+</ul>
+<h2 id="1-3-数量级函数"><a href="#1-3-数量级函数" class="headerlink" title="1.3 数量级函数"></a>1.3 数量级函数</h2><ul>
+<li>基本操作数量函数<code>T(n)</code>的精确值并不是特别重要，重要的是<code>T(n)</code>中起<strong>决定性因素的主导部分</strong></li>
+<li>数量级函数描述了<code>T(n)</code>中随着n增加而增加速度最快的主导部分，称为<strong>大O表示法</strong>，记作<code>O(f(n))</code>，其中<code>f(n)</code>表示<code>T(n)</code>中的主导部分，即<code>T(n)</code>中变化最快的部分</li>
+</ul>
+<h2 id="1-4-影响算法执行的其他因素"><a href="#1-4-影响算法执行的其他因素" class="headerlink" title="1.4 影响算法执行的其他因素"></a>1.4 影响算法执行的其他因素</h2><p>某些具体数据也会影响算法运行时间</p>
+<ul>
+<li>分为最好、平均、最差情况，平均情况体现了算法的主流性能</li>
+<li>对算法分析看<strong>主流</strong></li>
+</ul>
+<h2 id="1-5-常见的大O数量级函数"><a href="#1-5-常见的大O数量级函数" class="headerlink" title="1.5 常见的大O数量级函数"></a>1.5 常见的大O数量级函数</h2><p><img src="/../images/python_dsa/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%A4%A7O%E6%95%B0%E9%87%8F%E7%BA%A7%E5%87%BD%E6%95%B0.PNG" alt="常见的大O数量级函数"></p>
+<h2 id="1-6-其他算法复杂度表示方法"><a href="#1-6-其他算法复杂度表示方法" class="headerlink" title="1.6 其他算法复杂度表示方法"></a>1.6 其他算法复杂度表示方法</h2><ul>
+<li>大O表示法：表示了所有上限中最小的那个上限</li>
+<li>大Ω表示法：表示了所有下限中最大的那个下限</li>
+<li>大θ表示法：上下限相同时可以使用大θ表示</li>
+</ul>
+<h1 id="2-“变位词”判断问题"><a href="#2-“变位词”判断问题" class="headerlink" title="2.“变位词”判断问题"></a>2.“变位词”判断问题</h1><h2 id="2-1-问题描述"><a href="#2-1-问题描述" class="headerlink" title="2.1 问题描述"></a>2.1 问题描述</h2><ul>
+<li>问题描述：所谓变位词是指两个词之间存在组成字母的重新排列关系，例如：<code>heart</code>和<code>earth</code>。为了简单起见，假设参与判断的两个词仅由小写字母构成，而且长度相等。</li>
+<li>解题目标：写一个<code>bool</code>函数，以两个词作为参数，返回这两个词是否为变位词</li>
+<li>意义：展示同一问题的不同数量级算法算法</li>
+</ul>
+<h2 id="2-2-解决方案"><a href="#2-2-解决方案" class="headerlink" title="2.2 解决方案"></a>2.2 解决方案</h2><h3 id="2-2-1-逐字检查"><a href="#2-2-1-逐字检查" class="headerlink" title="2.2.1 逐字检查"></a>2.2.1 逐字检查</h3><ul>
+<li><p>思路：将词1的字符逐个到词2中检查是否存在，存在就打勾。如果每个字符都能找到，则说明两个词的变位词；如果存在一个词找不到，则不是变位词。</p>
+</li>
+<li><p>问题规模：词中包含字符个数n</p>
+</li>
+<li><p>主要部分在于两重循环，总执行次数为<br>$$<br>\frac{n(n+1)}{2}\rightarrow O(n^2)<br>$$</p>
+</li>
+</ul>
+<h3 id="2-2-2-排序比较"><a href="#2-2-2-排序比较" class="headerlink" title="2.2.2 排序比较"></a>2.2.2 排序比较</h3><ul>
+<li><p>思路：将两个字符串按照字母顺序排列，再逐个比较字符，如果相同则是变位词，如果不同则不是变位词</p>
+</li>
+<li><p>本算法的主要执行时间在排序步骤，运行时间数量级等于排序过程的数量级<code>O(nlogn)</code></p>
+</li>
+</ul>
+<h3 id="2-2-3-暴力法"><a href="#2-2-3-暴力法" class="headerlink" title="2.2.3 暴力法"></a>2.2.3 暴力法</h3><ul>
+<li>思路：穷尽所有可能组合，检查是否存在</li>
+<li>本算法的主要执行时间数量级为<code>O(n!)</code></li>
+</ul>
+<h3 id="2-2-4-计数比较"><a href="#2-2-4-计数比较" class="headerlink" title="2.2.4 计数比较"></a>2.2.4 计数比较</h3><ul>
+<li>思路：记录各字母出现的次数，如果相同则说明是变位词</li>
+<li>本算法的主要执行时间数量级为<code>O(n)</code></li>
+</ul>
+<h1 id="3-Python数据类型的性能"><a href="#3-Python数据类型的性能" class="headerlink" title="3.Python数据类型的性能"></a>3.Python数据类型的性能</h1><h2 id="3-1-list和dict各种操作的大O数量级"><a href="#3-1-list和dict各种操作的大O数量级" class="headerlink" title="3.1 list和dict各种操作的大O数量级"></a>3.1 <code>list</code>和<code>dict</code>各种操作的大O数量级</h2><p><img src="/../images/python_dsa/list%E5%92%8Cdict.PNG" alt="list和dict"></p>
+<h3 id="3-1-1-列表list"><a href="#3-1-1-列表list" class="headerlink" title="3.1.1 列表list"></a>3.1.1 列表<code>list</code></h3><ul>
+<li>最常用的是：按索引取值和赋值，均为O(1)</li>
+<li>另一个常用的是列表增长，可以选择<code>append()</code>或者<code>+</code>，执行复杂度分别为O(1)和O(n+k)</li>
+<li><code>pop()</code>的时间复杂度为O(1)，<code>pop(i)</code>的时间复杂度为O(n)</li>
+</ul>
+<p>使用<code>timeit</code>模块进行计时，其中可以指定反复运行次数</p>
+<h3 id="3-1-2-字典dict"><a href="#3-1-2-字典dict" class="headerlink" title="3.1.2 字典dict"></a>3.1.2 字典<code>dict</code></h3><ul>
+<li>最常用的取值<code>get</code>和赋值<code>set</code>，其性能为O(1)</li>
+<li>另一个重要操作<code>contains</code>(in)，其心梗也是O(1)</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>neuerliu
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://neuerliu.github.io/archives/f30c48de.html" title="python数据结构与算法:(一)算法分析">https://neuerliu.github.io/archives/f30c48de.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/archives/9628.html" rel="prev" title="Hello Hexo!">
+      <i class="fa fa-chevron-left"></i> Hello Hexo!
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/archives/5fa6ab7.html" rel="next" title="python数据结构与算法:(二)基本结构">
+      python数据结构与算法:(二)基本结构 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%A4%A7O%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-text">1.大O表示法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%BA%A6%E9%87%8F%E6%8C%87%E6%A0%87"><span class="nav-text">1.1 算法时间度量指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E9%97%AE%E9%A2%98%E8%A7%84%E6%A8%A1%E5%BD%B1%E5%93%8D%E7%AE%97%E6%B3%95%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="nav-text">1.2 问题规模影响算法执行时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%95%B0%E9%87%8F%E7%BA%A7%E5%87%BD%E6%95%B0"><span class="nav-text">1.3 数量级函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E5%BD%B1%E5%93%8D%E7%AE%97%E6%B3%95%E6%89%A7%E8%A1%8C%E7%9A%84%E5%85%B6%E4%BB%96%E5%9B%A0%E7%B4%A0"><span class="nav-text">1.4 影响算法执行的其他因素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%A4%A7O%E6%95%B0%E9%87%8F%E7%BA%A7%E5%87%BD%E6%95%B0"><span class="nav-text">1.5 常见的大O数量级函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-%E5%85%B6%E4%BB%96%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-text">1.6 其他算法复杂度表示方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E2%80%9C%E5%8F%98%E4%BD%8D%E8%AF%8D%E2%80%9D%E5%88%A4%E6%96%AD%E9%97%AE%E9%A2%98"><span class="nav-text">2.“变位词”判断问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-text">2.1 问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">2.2 解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-%E9%80%90%E5%AD%97%E6%A3%80%E6%9F%A5"><span class="nav-text">2.2.1 逐字检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-%E6%8E%92%E5%BA%8F%E6%AF%94%E8%BE%83"><span class="nav-text">2.2.2 排序比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-%E6%9A%B4%E5%8A%9B%E6%B3%95"><span class="nav-text">2.2.3 暴力法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-4-%E8%AE%A1%E6%95%B0%E6%AF%94%E8%BE%83"><span class="nav-text">2.2.4 计数比较</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Python%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%80%A7%E8%83%BD"><span class="nav-text">3.Python数据类型的性能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-list%E5%92%8Cdict%E5%90%84%E7%A7%8D%E6%93%8D%E4%BD%9C%E7%9A%84%E5%A4%A7O%E6%95%B0%E9%87%8F%E7%BA%A7"><span class="nav-text">3.1 list和dict各种操作的大O数量级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-%E5%88%97%E8%A1%A8list"><span class="nav-text">3.1.1 列表list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-%E5%AD%97%E5%85%B8dict"><span class="nav-text">3.1.2 字典dict</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">neuerliu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/neuerliu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;neuerliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:brackneuer@foxmail.com" title="E-Mail → mailto:brackneuer@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">neuerliu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
