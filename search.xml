@@ -511,81 +511,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python数据结构与算法:(一)算法分析</title>
-    <url>/archives/f30c48de.html</url>
-    <content><![CDATA[<h1 id="1-大O表示法"><a href="#1-大O表示法" class="headerlink" title="1.大O表示法"></a>1.大O表示法</h1><h2 id="1-1-算法时间度量指标"><a href="#1-1-算法时间度量指标" class="headerlink" title="1.1 算法时间度量指标"></a>1.1 算法时间度量指标</h2><ul>
-<li>算法实施的操作数量或步骤数可以作为独立于具体程序或机器的度量指标</li>
-<li><strong>赋值语句</strong>是一个合适作为度量的选择</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="1-2-问题规模影响算法执行时间"><a href="#1-2-问题规模影响算法执行时间" class="headerlink" title="1.2 问题规模影响算法执行时间"></a>1.2 问题规模影响算法执行时间</h2><ul>
-<li>问题规模：影响算法执行时间的主要因素</li>
-<li><strong>算法分析的目标</strong>：找出问题规模如何影响算法执行时间</li>
-</ul>
-<h2 id="1-3-数量级函数"><a href="#1-3-数量级函数" class="headerlink" title="1.3 数量级函数"></a>1.3 数量级函数</h2><ul>
-<li>基本操作数量函数<code>T(n)</code>的精确值并不是特别重要，重要的是<code>T(n)</code>中起<strong>决定性因素的主导部分</strong></li>
-<li>数量级函数描述了<code>T(n)</code>中随着n增加而增加速度最快的主导部分，称为<strong>大O表示法</strong>，记作<code>O(f(n))</code>，其中<code>f(n)</code>表示<code>T(n)</code>中的主导部分，即<code>T(n)</code>中变化最快的部分</li>
-</ul>
-<h2 id="1-4-影响算法执行的其他因素"><a href="#1-4-影响算法执行的其他因素" class="headerlink" title="1.4 影响算法执行的其他因素"></a>1.4 影响算法执行的其他因素</h2><p>某些具体数据也会影响算法运行时间</p>
-<ul>
-<li>分为最好、平均、最差情况，平均情况体现了算法的主流性能</li>
-<li>对算法分析看<strong>主流</strong></li>
-</ul>
-<h2 id="1-5-常见的大O数量级函数"><a href="#1-5-常见的大O数量级函数" class="headerlink" title="1.5 常见的大O数量级函数"></a>1.5 常见的大O数量级函数</h2><p><img src="/../images/python_dsa/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%A4%A7O%E6%95%B0%E9%87%8F%E7%BA%A7%E5%87%BD%E6%95%B0.PNG" alt="常见的大O数量级函数"></p>
-<h2 id="1-6-其他算法复杂度表示方法"><a href="#1-6-其他算法复杂度表示方法" class="headerlink" title="1.6 其他算法复杂度表示方法"></a>1.6 其他算法复杂度表示方法</h2><ul>
-<li>大O表示法：表示了所有上限中最小的那个上限</li>
-<li>大Ω表示法：表示了所有下限中最大的那个下限</li>
-<li>大θ表示法：上下限相同时可以使用大θ表示</li>
-</ul>
-<h1 id="2-“变位词”判断问题"><a href="#2-“变位词”判断问题" class="headerlink" title="2.“变位词”判断问题"></a>2.“变位词”判断问题</h1><h2 id="2-1-问题描述"><a href="#2-1-问题描述" class="headerlink" title="2.1 问题描述"></a>2.1 问题描述</h2><ul>
-<li>问题描述：所谓变位词是指两个词之间存在组成字母的重新排列关系，例如：<code>heart</code>和<code>earth</code>。为了简单起见，假设参与判断的两个词仅由小写字母构成，而且长度相等。</li>
-<li>解题目标：写一个<code>bool</code>函数，以两个词作为参数，返回这两个词是否为变位词</li>
-<li>意义：展示同一问题的不同数量级算法算法</li>
-</ul>
-<h2 id="2-2-解决方案"><a href="#2-2-解决方案" class="headerlink" title="2.2 解决方案"></a>2.2 解决方案</h2><h3 id="2-2-1-逐字检查"><a href="#2-2-1-逐字检查" class="headerlink" title="2.2.1 逐字检查"></a>2.2.1 逐字检查</h3><ul>
-<li><p>思路：将词1的字符逐个到词2中检查是否存在，存在就打勾。如果每个字符都能找到，则说明两个词的变位词；如果存在一个词找不到，则不是变位词。</p>
-</li>
-<li><p>问题规模：词中包含字符个数n</p>
-</li>
-<li><p>主要部分在于两重循环，总执行次数为<br>$$<br>\frac{n(n+1)}{2}\rightarrow O(n^2)<br>$$</p>
-</li>
-</ul>
-<h3 id="2-2-2-排序比较"><a href="#2-2-2-排序比较" class="headerlink" title="2.2.2 排序比较"></a>2.2.2 排序比较</h3><ul>
-<li><p>思路：将两个字符串按照字母顺序排列，再逐个比较字符，如果相同则是变位词，如果不同则不是变位词</p>
-</li>
-<li><p>本算法的主要执行时间在排序步骤，运行时间数量级等于排序过程的数量级<code>O(nlogn)</code></p>
-</li>
-</ul>
-<h3 id="2-2-3-暴力法"><a href="#2-2-3-暴力法" class="headerlink" title="2.2.3 暴力法"></a>2.2.3 暴力法</h3><ul>
-<li>思路：穷尽所有可能组合，检查是否存在</li>
-<li>本算法的主要执行时间数量级为<code>O(n!)</code></li>
-</ul>
-<h3 id="2-2-4-计数比较"><a href="#2-2-4-计数比较" class="headerlink" title="2.2.4 计数比较"></a>2.2.4 计数比较</h3><ul>
-<li>思路：记录各字母出现的次数，如果相同则说明是变位词</li>
-<li>本算法的主要执行时间数量级为<code>O(n)</code></li>
-</ul>
-<h1 id="3-Python数据类型的性能"><a href="#3-Python数据类型的性能" class="headerlink" title="3.Python数据类型的性能"></a>3.Python数据类型的性能</h1><h2 id="3-1-list和dict各种操作的大O数量级"><a href="#3-1-list和dict各种操作的大O数量级" class="headerlink" title="3.1 list和dict各种操作的大O数量级"></a>3.1 <code>list</code>和<code>dict</code>各种操作的大O数量级</h2><p><img src="/../images/python_dsa/list%E5%92%8Cdict.PNG" alt="list和dict"></p>
-<h3 id="3-1-1-列表list"><a href="#3-1-1-列表list" class="headerlink" title="3.1.1 列表list"></a>3.1.1 列表<code>list</code></h3><ul>
-<li>最常用的是：按索引取值和赋值，均为O(1)</li>
-<li>另一个常用的是列表增长，可以选择<code>append()</code>或者<code>+</code>，执行复杂度分别为O(1)和O(n+k)</li>
-<li><code>pop()</code>的时间复杂度为O(1)，<code>pop(i)</code>的时间复杂度为O(n)</li>
-</ul>
-<p>使用<code>timeit</code>模块进行计时，其中可以指定反复运行次数</p>
-<h3 id="3-1-2-字典dict"><a href="#3-1-2-字典dict" class="headerlink" title="3.1.2 字典dict"></a>3.1.2 字典<code>dict</code></h3><ul>
-<li>最常用的取值<code>get</code>和赋值<code>set</code>，其性能为O(1)</li>
-<li>另一个重要操作<code>contains</code>(in)，其心梗也是O(1)</li>
-</ul>
-]]></content>
-      <categories>
-        <category>python数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端入门:(三)css基础</title>
     <url>/archives/8db8b36e.html</url>
     <content><![CDATA[<h1 id="1-css快速了解"><a href="#1-css快速了解" class="headerlink" title="1.css快速了解"></a>1.css快速了解</h1><p>css是用于美化标签，例如：</p>
@@ -749,6 +674,81 @@
         <tag>HTML</tag>
         <tag>前端</tag>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python数据结构与算法:(一)算法分析</title>
+    <url>/archives/f30c48de.html</url>
+    <content><![CDATA[<h1 id="1-大O表示法"><a href="#1-大O表示法" class="headerlink" title="1.大O表示法"></a>1.大O表示法</h1><h2 id="1-1-算法时间度量指标"><a href="#1-1-算法时间度量指标" class="headerlink" title="1.1 算法时间度量指标"></a>1.1 算法时间度量指标</h2><ul>
+<li>算法实施的操作数量或步骤数可以作为独立于具体程序或机器的度量指标</li>
+<li><strong>赋值语句</strong>是一个合适作为度量的选择</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="1-2-问题规模影响算法执行时间"><a href="#1-2-问题规模影响算法执行时间" class="headerlink" title="1.2 问题规模影响算法执行时间"></a>1.2 问题规模影响算法执行时间</h2><ul>
+<li>问题规模：影响算法执行时间的主要因素</li>
+<li><strong>算法分析的目标</strong>：找出问题规模如何影响算法执行时间</li>
+</ul>
+<h2 id="1-3-数量级函数"><a href="#1-3-数量级函数" class="headerlink" title="1.3 数量级函数"></a>1.3 数量级函数</h2><ul>
+<li>基本操作数量函数<code>T(n)</code>的精确值并不是特别重要，重要的是<code>T(n)</code>中起<strong>决定性因素的主导部分</strong></li>
+<li>数量级函数描述了<code>T(n)</code>中随着n增加而增加速度最快的主导部分，称为<strong>大O表示法</strong>，记作<code>O(f(n))</code>，其中<code>f(n)</code>表示<code>T(n)</code>中的主导部分，即<code>T(n)</code>中变化最快的部分</li>
+</ul>
+<h2 id="1-4-影响算法执行的其他因素"><a href="#1-4-影响算法执行的其他因素" class="headerlink" title="1.4 影响算法执行的其他因素"></a>1.4 影响算法执行的其他因素</h2><p>某些具体数据也会影响算法运行时间</p>
+<ul>
+<li>分为最好、平均、最差情况，平均情况体现了算法的主流性能</li>
+<li>对算法分析看<strong>主流</strong></li>
+</ul>
+<h2 id="1-5-常见的大O数量级函数"><a href="#1-5-常见的大O数量级函数" class="headerlink" title="1.5 常见的大O数量级函数"></a>1.5 常见的大O数量级函数</h2><p><img src="/../images/python_dsa/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%A4%A7O%E6%95%B0%E9%87%8F%E7%BA%A7%E5%87%BD%E6%95%B0.PNG" alt="常见的大O数量级函数"></p>
+<h2 id="1-6-其他算法复杂度表示方法"><a href="#1-6-其他算法复杂度表示方法" class="headerlink" title="1.6 其他算法复杂度表示方法"></a>1.6 其他算法复杂度表示方法</h2><ul>
+<li>大O表示法：表示了所有上限中最小的那个上限</li>
+<li>大Ω表示法：表示了所有下限中最大的那个下限</li>
+<li>大θ表示法：上下限相同时可以使用大θ表示</li>
+</ul>
+<h1 id="2-“变位词”判断问题"><a href="#2-“变位词”判断问题" class="headerlink" title="2.“变位词”判断问题"></a>2.“变位词”判断问题</h1><h2 id="2-1-问题描述"><a href="#2-1-问题描述" class="headerlink" title="2.1 问题描述"></a>2.1 问题描述</h2><ul>
+<li>问题描述：所谓变位词是指两个词之间存在组成字母的重新排列关系，例如：<code>heart</code>和<code>earth</code>。为了简单起见，假设参与判断的两个词仅由小写字母构成，而且长度相等。</li>
+<li>解题目标：写一个<code>bool</code>函数，以两个词作为参数，返回这两个词是否为变位词</li>
+<li>意义：展示同一问题的不同数量级算法算法</li>
+</ul>
+<h2 id="2-2-解决方案"><a href="#2-2-解决方案" class="headerlink" title="2.2 解决方案"></a>2.2 解决方案</h2><h3 id="2-2-1-逐字检查"><a href="#2-2-1-逐字检查" class="headerlink" title="2.2.1 逐字检查"></a>2.2.1 逐字检查</h3><ul>
+<li><p>思路：将词1的字符逐个到词2中检查是否存在，存在就打勾。如果每个字符都能找到，则说明两个词的变位词；如果存在一个词找不到，则不是变位词。</p>
+</li>
+<li><p>问题规模：词中包含字符个数n</p>
+</li>
+<li><p>主要部分在于两重循环，总执行次数为<br>$$<br>\frac{n(n+1)}{2}\rightarrow O(n^2)<br>$$</p>
+</li>
+</ul>
+<h3 id="2-2-2-排序比较"><a href="#2-2-2-排序比较" class="headerlink" title="2.2.2 排序比较"></a>2.2.2 排序比较</h3><ul>
+<li><p>思路：将两个字符串按照字母顺序排列，再逐个比较字符，如果相同则是变位词，如果不同则不是变位词</p>
+</li>
+<li><p>本算法的主要执行时间在排序步骤，运行时间数量级等于排序过程的数量级<code>O(nlogn)</code></p>
+</li>
+</ul>
+<h3 id="2-2-3-暴力法"><a href="#2-2-3-暴力法" class="headerlink" title="2.2.3 暴力法"></a>2.2.3 暴力法</h3><ul>
+<li>思路：穷尽所有可能组合，检查是否存在</li>
+<li>本算法的主要执行时间数量级为<code>O(n!)</code></li>
+</ul>
+<h3 id="2-2-4-计数比较"><a href="#2-2-4-计数比较" class="headerlink" title="2.2.4 计数比较"></a>2.2.4 计数比较</h3><ul>
+<li>思路：记录各字母出现的次数，如果相同则说明是变位词</li>
+<li>本算法的主要执行时间数量级为<code>O(n)</code></li>
+</ul>
+<h1 id="3-Python数据类型的性能"><a href="#3-Python数据类型的性能" class="headerlink" title="3.Python数据类型的性能"></a>3.Python数据类型的性能</h1><h2 id="3-1-list和dict各种操作的大O数量级"><a href="#3-1-list和dict各种操作的大O数量级" class="headerlink" title="3.1 list和dict各种操作的大O数量级"></a>3.1 <code>list</code>和<code>dict</code>各种操作的大O数量级</h2><p><img src="/../images/python_dsa/list%E5%92%8Cdict.PNG" alt="list和dict"></p>
+<h3 id="3-1-1-列表list"><a href="#3-1-1-列表list" class="headerlink" title="3.1.1 列表list"></a>3.1.1 列表<code>list</code></h3><ul>
+<li>最常用的是：按索引取值和赋值，均为O(1)</li>
+<li>另一个常用的是列表增长，可以选择<code>append()</code>或者<code>+</code>，执行复杂度分别为O(1)和O(n+k)</li>
+<li><code>pop()</code>的时间复杂度为O(1)，<code>pop(i)</code>的时间复杂度为O(n)</li>
+</ul>
+<p>使用<code>timeit</code>模块进行计时，其中可以指定反复运行次数</p>
+<h3 id="3-1-2-字典dict"><a href="#3-1-2-字典dict" class="headerlink" title="3.1.2 字典dict"></a>3.1.2 字典<code>dict</code></h3><ul>
+<li>最常用的取值<code>get</code>和赋值<code>set</code>，其性能为O(1)</li>
+<li>另一个重要操作<code>contains</code>(in)，其心梗也是O(1)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>python数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -1444,6 +1444,58 @@
       </tags>
   </entry>
   <entry>
+    <title>VScode使用(一)</title>
+    <url>/archives/34d8562e.html</url>
+    <content><![CDATA[<p>在这里我将记录如何使用并配置vscode，使得我们的编程更加方便</p>
+<span id="more"></span>
+
+<h1 id="1-基础使用"><a href="#1-基础使用" class="headerlink" title="1.基础使用"></a>1.基础使用</h1><h2 id="1-1-语言配置"><a href="#1-1-语言配置" class="headerlink" title="1.1 语言配置"></a>1.1 语言配置</h2><p>下载中文包后，可以输入<code>ctrl+shift+p</code>显示所有命令。在其中输入<code>display</code>点击高亮选项，可以切换语言(zh-cn&#x2F;en)。</p>
+<h2 id="1-2-文件操作"><a href="#1-2-文件操作" class="headerlink" title="1.2 文件操作"></a>1.2 文件操作</h2><ul>
+<li>输入<code>ctrl+n</code>新建文件</li>
+<li>输入<code>ctrl+o</code>打开电脑文件</li>
+<li>打开工作区可以将一个项目的内容进行整合，可以认为是一个逻辑上的文件夹</li>
+</ul>
+<h2 id="1-3-编辑操作"><a href="#1-3-编辑操作" class="headerlink" title="1.3 编辑操作"></a>1.3 编辑操作</h2><p>基础操作就是复制、粘贴、查找等等，快捷键比较常用</p>
+<h1 id="2-快捷键的基本使用"><a href="#2-快捷键的基本使用" class="headerlink" title="2.快捷键的基本使用"></a>2.快捷键的基本使用</h1><p>可以在帮助-编辑器操场进行学习</p>
+<h2 id="2-1-多光标编辑"><a href="#2-1-多光标编辑" class="headerlink" title="2.1 多光标编辑"></a>2.1 多光标编辑</h2><ul>
+<li>选中矩形区域：通过<code>shift+DownArrow</code>进行上下左右移动，选中矩形区域</li>
+<li>同时编辑多行：通过<code>ctrl+alt+DownArrow</code>或者<code>ctrl+alt+UpArrow</code>使得光标上下移动，在多行同时编辑</li>
+<li>选中同一内容，同时编辑：选中待编辑的内容，通过<code>ctrl+shift+L</code>可以选中同一内容，以同时编辑</li>
+</ul>
+<h2 id="2-2-代码补全"><a href="#2-2-代码补全" class="headerlink" title="2.2 代码补全"></a>2.2 代码补全</h2><ul>
+<li>在vscode中，已经有对于JavaScript和TypeScript的代码补全</li>
+<li>对于python，我们如果需要代码补全，则首先需要安装<code>pylint-django</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install pylint-django</span><br></pre></td></tr></table></figure>
+
+<p>接下来在vscode中显示所有命令，选择Preferences:Open Workspace Settings (JSON)，并输入：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;python.autoComplete.addBrackets&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.languageServer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jedi&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.linting.pylintArgs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;--load-plugins&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;pylint_django&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>重启vscode即可实现python的代码补全</p>
+<ul>
+<li>代码补全如果没有出现，可以通过<code>Alt+/</code>查看</li>
+</ul>
+<h2 id="2-3-操作行"><a href="#2-3-操作行" class="headerlink" title="2.3 操作行"></a>2.3 操作行</h2><ul>
+<li>复制一行：通过<code>shift+Alt+DownArrow/UpArrow</code>可以实现在原行的下&#x2F;上行复制</li>
+<li>移动一行：通过<code>Alt+DownArrow/UpArrow</code>可以实现下&#x2F;上移动一行</li>
+<li>删除一行：在该行<code>Ctrl+shift+k</code>删除行</li>
+</ul>
+<h2 id="2-4-变量名重构"><a href="#2-4-变量名重构" class="headerlink" title="2.4 变量名重构"></a>2.4 变量名重构</h2><p>我们有时候需要批量修改变量名，此时可以通过<code>Fn+F2</code>实现变量名的选中，并且不会选中文本中部分包含变量名的内容</p>
+<h2 id="2-5-格式"><a href="#2-5-格式" class="headerlink" title="2.5 格式"></a>2.5 格式</h2><p>很多时候会存在缩进问题：</p>
+<ul>
+<li>调整整个文档的缩进：输入<code>shift+Alt+F</code></li>
+<li>调整某行的缩进：输入<code>ctrl+K</code>再输入<code>ctrl+F</code></li>
+</ul>
+<h2 id="2-6-代码折叠"><a href="#2-6-代码折叠" class="headerlink" title="2.6 代码折叠"></a>2.6 代码折叠</h2><p>可以直接手动操作，也可以通过<code>ctrl+shift+[</code>来折叠，通过<code>ctrl+shift+]</code>来打开</p>
+]]></content>
+      <categories>
+        <category>VScode</category>
+      </categories>
+      <tags>
+        <tag>编辑器使用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端入门:(四)Bootstrap介绍</title>
     <url>/archives/df0d4cb3.html</url>
     <content><![CDATA[<h1 id="Bootstrap介绍"><a href="#Bootstrap介绍" class="headerlink" title="Bootstrap介绍"></a>Bootstrap介绍</h1><p><code>Bootstrap</code>可以认为是别人已经实现的css样式，我们可以使用。</p>
@@ -1520,58 +1572,6 @@
         <tag>前端</tag>
         <tag>css</tag>
         <tag>Bootstrap</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VScode使用(一)</title>
-    <url>/archives/34d8562e.html</url>
-    <content><![CDATA[<p>在这里我将记录如何使用并配置vscode，使得我们的编程更加方便</p>
-<span id="more"></span>
-
-<h1 id="1-基础使用"><a href="#1-基础使用" class="headerlink" title="1.基础使用"></a>1.基础使用</h1><h2 id="1-1-语言配置"><a href="#1-1-语言配置" class="headerlink" title="1.1 语言配置"></a>1.1 语言配置</h2><p>下载中文包后，可以输入<code>ctrl+shift+p</code>显示所有命令。在其中输入<code>display</code>点击高亮选项，可以切换语言(zh-cn&#x2F;en)。</p>
-<h2 id="1-2-文件操作"><a href="#1-2-文件操作" class="headerlink" title="1.2 文件操作"></a>1.2 文件操作</h2><ul>
-<li>输入<code>ctrl+n</code>新建文件</li>
-<li>输入<code>ctrl+o</code>打开电脑文件</li>
-<li>打开工作区可以将一个项目的内容进行整合，可以认为是一个逻辑上的文件夹</li>
-</ul>
-<h2 id="1-3-编辑操作"><a href="#1-3-编辑操作" class="headerlink" title="1.3 编辑操作"></a>1.3 编辑操作</h2><p>基础操作就是复制、粘贴、查找等等，快捷键比较常用</p>
-<h1 id="2-快捷键的基本使用"><a href="#2-快捷键的基本使用" class="headerlink" title="2.快捷键的基本使用"></a>2.快捷键的基本使用</h1><p>可以在帮助-编辑器操场进行学习</p>
-<h2 id="2-1-多光标编辑"><a href="#2-1-多光标编辑" class="headerlink" title="2.1 多光标编辑"></a>2.1 多光标编辑</h2><ul>
-<li>选中矩形区域：通过<code>shift+DownArrow</code>进行上下左右移动，选中矩形区域</li>
-<li>同时编辑多行：通过<code>ctrl+alt+DownArrow</code>或者<code>ctrl+alt+UpArrow</code>使得光标上下移动，在多行同时编辑</li>
-<li>选中同一内容，同时编辑：选中待编辑的内容，通过<code>ctrl+shift+L</code>可以选中同一内容，以同时编辑</li>
-</ul>
-<h2 id="2-2-代码补全"><a href="#2-2-代码补全" class="headerlink" title="2.2 代码补全"></a>2.2 代码补全</h2><ul>
-<li>在vscode中，已经有对于JavaScript和TypeScript的代码补全</li>
-<li>对于python，我们如果需要代码补全，则首先需要安装<code>pylint-django</code></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install pylint-django</span><br></pre></td></tr></table></figure>
-
-<p>接下来在vscode中显示所有命令，选择Preferences:Open Workspace Settings (JSON)，并输入：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;python.autoComplete.addBrackets&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.languageServer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jedi&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.linting.pylintArgs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;--load-plugins&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;pylint_django&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>重启vscode即可实现python的代码补全</p>
-<ul>
-<li>代码补全如果没有出现，可以通过<code>Alt+/</code>查看</li>
-</ul>
-<h2 id="2-3-操作行"><a href="#2-3-操作行" class="headerlink" title="2.3 操作行"></a>2.3 操作行</h2><ul>
-<li>复制一行：通过<code>shift+Alt+DownArrow/UpArrow</code>可以实现在原行的下&#x2F;上行复制</li>
-<li>移动一行：通过<code>Alt+DownArrow/UpArrow</code>可以实现下&#x2F;上移动一行</li>
-<li>删除一行：在该行<code>Ctrl+shift+k</code>删除行</li>
-</ul>
-<h2 id="2-4-变量名重构"><a href="#2-4-变量名重构" class="headerlink" title="2.4 变量名重构"></a>2.4 变量名重构</h2><p>我们有时候需要批量修改变量名，此时可以通过<code>Fn+F2</code>实现变量名的选中，并且不会选中文本中部分包含变量名的内容</p>
-<h2 id="2-5-格式"><a href="#2-5-格式" class="headerlink" title="2.5 格式"></a>2.5 格式</h2><p>很多时候会存在缩进问题：</p>
-<ul>
-<li>调整整个文档的缩进：输入<code>shift+Alt+F</code></li>
-<li>调整某行的缩进：输入<code>ctrl+K</code>再输入<code>ctrl+F</code></li>
-</ul>
-<h2 id="2-6-代码折叠"><a href="#2-6-代码折叠" class="headerlink" title="2.6 代码折叠"></a>2.6 代码折叠</h2><p>可以直接手动操作，也可以通过<code>ctrl+shift+[</code>来折叠，通过<code>ctrl+shift+]</code>来打开</p>
-]]></content>
-      <categories>
-        <category>VScode</category>
-      </categories>
-      <tags>
-        <tag>编辑器使用</tag>
       </tags>
   </entry>
   <entry>
