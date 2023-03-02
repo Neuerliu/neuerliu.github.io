@@ -72,36 +72,55 @@
       </tags>
   </entry>
   <entry>
-    <title>SQL必知必会(二):MySQL简介</title>
-    <url>/archives/135337cb.html</url>
-    <content><![CDATA[<h1 id="1-什么是MySQL"><a href="#1-什么是MySQL" class="headerlink" title="1.什么是MySQL"></a>1.什么是MySQL</h1><p>数据库管理软件(DBMS)可以被分为两类：</p>
+    <title>VScode使用(一)</title>
+    <url>/archives/34d8562e.html</url>
+    <content><![CDATA[<p>在这里我将记录如何使用并配置vscode，使得我们的编程更加方便</p>
 <span id="more"></span>
+
+<h1 id="1-基础使用"><a href="#1-基础使用" class="headerlink" title="1.基础使用"></a>1.基础使用</h1><h2 id="1-1-语言配置"><a href="#1-1-语言配置" class="headerlink" title="1.1 语言配置"></a>1.1 语言配置</h2><p>下载中文包后，可以输入<code>ctrl+shift+p</code>显示所有命令。在其中输入<code>display</code>点击高亮选项，可以切换语言(zh-cn&#x2F;en)。</p>
+<h2 id="1-2-文件操作"><a href="#1-2-文件操作" class="headerlink" title="1.2 文件操作"></a>1.2 文件操作</h2><ul>
+<li>输入<code>ctrl+n</code>新建文件</li>
+<li>输入<code>ctrl+o</code>打开电脑文件</li>
+<li>打开工作区可以将一个项目的内容进行整合，可以认为是一个逻辑上的文件夹</li>
+</ul>
+<h2 id="1-3-编辑操作"><a href="#1-3-编辑操作" class="headerlink" title="1.3 编辑操作"></a>1.3 编辑操作</h2><p>基础操作就是复制、粘贴、查找等等，快捷键比较常用</p>
+<h1 id="2-快捷键的基本使用"><a href="#2-快捷键的基本使用" class="headerlink" title="2.快捷键的基本使用"></a>2.快捷键的基本使用</h1><p>可以在帮助-编辑器操场进行学习</p>
+<h2 id="2-1-多光标编辑"><a href="#2-1-多光标编辑" class="headerlink" title="2.1 多光标编辑"></a>2.1 多光标编辑</h2><ul>
+<li>选中矩形区域：通过<code>shift+DownArrow</code>进行上下左右移动，选中矩形区域</li>
+<li>同时编辑多行：通过<code>ctrl+alt+DownArrow</code>或者<code>ctrl+alt+UpArrow</code>使得光标上下移动，在多行同时编辑</li>
+<li>选中同一内容，同时编辑：选中待编辑的内容，通过<code>ctrl+shift+L</code>可以选中同一内容，以同时编辑</li>
+</ul>
+<h2 id="2-2-代码补全"><a href="#2-2-代码补全" class="headerlink" title="2.2 代码补全"></a>2.2 代码补全</h2><ul>
+<li>在vscode中，已经有对于JavaScript和TypeScript的代码补全</li>
+<li>对于python，我们如果需要代码补全，则首先需要安装<code>pylint-django</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install pylint-django</span><br></pre></td></tr></table></figure>
+
+<p>接下来在vscode中显示所有命令，选择Preferences:Open Workspace Settings (JSON)，并输入：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;python.autoComplete.addBrackets&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.languageServer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jedi&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.linting.pylintArgs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;--load-plugins&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;pylint_django&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>重启vscode即可实现python的代码补全</p>
 <ul>
-<li>基于共享文件系统的DBMS</li>
-<li>基于客户机-服务机的DBMS<ul>
-<li>服务器部分：负责数据访问和处理的一个软件，运行在<strong>数据库服务器</strong>上(可以是自己的电脑)，主要进行数据添加、删除、更新等操作</li>
-<li>客户机部分：与用户打交道的软件</li>
+<li>代码补全如果没有出现，可以通过<code>Alt+/</code>查看</li>
 </ul>
-</li>
+<h2 id="2-3-操作行"><a href="#2-3-操作行" class="headerlink" title="2.3 操作行"></a>2.3 操作行</h2><ul>
+<li>复制一行：通过<code>shift+Alt+DownArrow/UpArrow</code>可以实现在原行的下&#x2F;上行复制</li>
+<li>移动一行：通过<code>Alt+DownArrow/UpArrow</code>可以实现下&#x2F;上移动一行</li>
+<li>删除一行：在该行<code>Ctrl+shift+k</code>删除行</li>
 </ul>
-<h1 id="2-MySQL工具"><a href="#2-MySQL工具" class="headerlink" title="2.MySQL工具"></a>2.MySQL工具</h1><h2 id="2-1-MySQL程序"><a href="#2-1-MySQL程序" class="headerlink" title="2.1 MySQL程序"></a>2.1 MySQL程序</h2><ul>
-<li>程序要求：以<code>;</code>结束，输入<code>help</code>进行帮助，输入<code>quit</code>或<code>exit</code>退出程序</li>
-</ul>
-<h2 id="2-2-MySQL-Administrator"><a href="#2-2-MySQL-Administrator" class="headerlink" title="2.2 MySQL Administrator"></a>2.2 MySQL Administrator</h2><p>MySQL管理器是一个图形监护客户机，用于简化MySQL服务器管理：</p>
+<h2 id="2-4-变量名重构"><a href="#2-4-变量名重构" class="headerlink" title="2.4 变量名重构"></a>2.4 变量名重构</h2><p>我们有时候需要批量修改变量名，此时可以通过<code>Fn+F2</code>实现变量名的选中，并且不会选中文本中部分包含变量名的内容</p>
+<h2 id="2-5-格式"><a href="#2-5-格式" class="headerlink" title="2.5 格式"></a>2.5 格式</h2><p>很多时候会存在缩进问题：</p>
 <ul>
-<li>Server information显示客户机和被连接的服务器的状态和版本信息</li>
-<li>Service control允许停止和启动MySQL以及指定服务器特性</li>
-<li>User Administation用来定义MySQL用户、登录和权限</li>
-<li>Catalogs(目录)列出可用的数据库并允许创建数据库和表</li>
+<li>调整整个文档的缩进：输入<code>shift+Alt+F</code></li>
+<li>调整某行的缩进：输入<code>ctrl+K</code>再输入<code>ctrl+F</code></li>
 </ul>
-<h2 id="2-3-MySQL-Query-Browser"><a href="#2-3-MySQL-Query-Browser" class="headerlink" title="2.3 MySQL Query Browser"></a>2.3 MySQL Query Browser</h2><p>MySQL Query Browser是一个图形交互客户机，用来编写和执行MySQL命令</p>
+<h2 id="2-6-代码折叠"><a href="#2-6-代码折叠" class="headerlink" title="2.6 代码折叠"></a>2.6 代码折叠</h2><p>可以直接手动操作，也可以通过<code>ctrl+shift+[</code>来折叠，通过<code>ctrl+shift+]</code>来打开</p>
 ]]></content>
       <categories>
-        <category>SQL必知必会</category>
+        <category>VScode</category>
       </categories>
       <tags>
-        <tag>SQL</tag>
-        <tag>数据库</tag>
+        <tag>编辑器使用</tag>
       </tags>
   </entry>
   <entry>
@@ -126,6 +145,39 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 从第3行开始的4行</span><br><span class="line">SELECT prod_name FROM products LIMIT 3,4;</span><br><span class="line"># 等价于 SELECT prod_name FROM products LIMIT 4 OFFSET 3;</span><br></pre></td></tr></table></figure>
 
 <h1 id="7-使用完全限定的表名"><a href="#7-使用完全限定的表名" class="headerlink" title="7.使用完全限定的表名"></a>7.使用完全限定的表名</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 等价于之前的语句</span><br><span class="line">SELECT products.prod_name FROM products;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>SQL必知必会</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL必知必会(二):MySQL简介</title>
+    <url>/archives/135337cb.html</url>
+    <content><![CDATA[<h1 id="1-什么是MySQL"><a href="#1-什么是MySQL" class="headerlink" title="1.什么是MySQL"></a>1.什么是MySQL</h1><p>数据库管理软件(DBMS)可以被分为两类：</p>
+<span id="more"></span>
+<ul>
+<li>基于共享文件系统的DBMS</li>
+<li>基于客户机-服务机的DBMS<ul>
+<li>服务器部分：负责数据访问和处理的一个软件，运行在<strong>数据库服务器</strong>上(可以是自己的电脑)，主要进行数据添加、删除、更新等操作</li>
+<li>客户机部分：与用户打交道的软件</li>
+</ul>
+</li>
+</ul>
+<h1 id="2-MySQL工具"><a href="#2-MySQL工具" class="headerlink" title="2.MySQL工具"></a>2.MySQL工具</h1><h2 id="2-1-MySQL程序"><a href="#2-1-MySQL程序" class="headerlink" title="2.1 MySQL程序"></a>2.1 MySQL程序</h2><ul>
+<li>程序要求：以<code>;</code>结束，输入<code>help</code>进行帮助，输入<code>quit</code>或<code>exit</code>退出程序</li>
+</ul>
+<h2 id="2-2-MySQL-Administrator"><a href="#2-2-MySQL-Administrator" class="headerlink" title="2.2 MySQL Administrator"></a>2.2 MySQL Administrator</h2><p>MySQL管理器是一个图形监护客户机，用于简化MySQL服务器管理：</p>
+<ul>
+<li>Server information显示客户机和被连接的服务器的状态和版本信息</li>
+<li>Service control允许停止和启动MySQL以及指定服务器特性</li>
+<li>User Administation用来定义MySQL用户、登录和权限</li>
+<li>Catalogs(目录)列出可用的数据库并允许创建数据库和表</li>
+</ul>
+<h2 id="2-3-MySQL-Query-Browser"><a href="#2-3-MySQL-Query-Browser" class="headerlink" title="2.3 MySQL Query Browser"></a>2.3 MySQL Query Browser</h2><p>MySQL Query Browser是一个图形交互客户机，用来编写和执行MySQL命令</p>
 ]]></content>
       <categories>
         <category>SQL必知必会</category>
@@ -184,58 +236,6 @@
       </tags>
   </entry>
   <entry>
-    <title>VScode使用(一)</title>
-    <url>/archives/34d8562e.html</url>
-    <content><![CDATA[<p>在这里我将记录如何使用并配置vscode，使得我们的编程更加方便</p>
-<span id="more"></span>
-
-<h1 id="1-基础使用"><a href="#1-基础使用" class="headerlink" title="1.基础使用"></a>1.基础使用</h1><h2 id="1-1-语言配置"><a href="#1-1-语言配置" class="headerlink" title="1.1 语言配置"></a>1.1 语言配置</h2><p>下载中文包后，可以输入<code>ctrl+shift+p</code>显示所有命令。在其中输入<code>display</code>点击高亮选项，可以切换语言(zh-cn&#x2F;en)。</p>
-<h2 id="1-2-文件操作"><a href="#1-2-文件操作" class="headerlink" title="1.2 文件操作"></a>1.2 文件操作</h2><ul>
-<li>输入<code>ctrl+n</code>新建文件</li>
-<li>输入<code>ctrl+o</code>打开电脑文件</li>
-<li>打开工作区可以将一个项目的内容进行整合，可以认为是一个逻辑上的文件夹</li>
-</ul>
-<h2 id="1-3-编辑操作"><a href="#1-3-编辑操作" class="headerlink" title="1.3 编辑操作"></a>1.3 编辑操作</h2><p>基础操作就是复制、粘贴、查找等等，快捷键比较常用</p>
-<h1 id="2-快捷键的基本使用"><a href="#2-快捷键的基本使用" class="headerlink" title="2.快捷键的基本使用"></a>2.快捷键的基本使用</h1><p>可以在帮助-编辑器操场进行学习</p>
-<h2 id="2-1-多光标编辑"><a href="#2-1-多光标编辑" class="headerlink" title="2.1 多光标编辑"></a>2.1 多光标编辑</h2><ul>
-<li>选中矩形区域：通过<code>shift+DownArrow</code>进行上下左右移动，选中矩形区域</li>
-<li>同时编辑多行：通过<code>ctrl+alt+DownArrow</code>或者<code>ctrl+alt+UpArrow</code>使得光标上下移动，在多行同时编辑</li>
-<li>选中同一内容，同时编辑：选中待编辑的内容，通过<code>ctrl+shift+L</code>可以选中同一内容，以同时编辑</li>
-</ul>
-<h2 id="2-2-代码补全"><a href="#2-2-代码补全" class="headerlink" title="2.2 代码补全"></a>2.2 代码补全</h2><ul>
-<li>在vscode中，已经有对于JavaScript和TypeScript的代码补全</li>
-<li>对于python，我们如果需要代码补全，则首先需要安装<code>pylint-django</code></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install pylint-django</span><br></pre></td></tr></table></figure>
-
-<p>接下来在vscode中显示所有命令，选择Preferences:Open Workspace Settings (JSON)，并输入：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;python.autoComplete.addBrackets&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.languageServer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jedi&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.linting.pylintArgs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;--load-plugins&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;pylint_django&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>重启vscode即可实现python的代码补全</p>
-<ul>
-<li>代码补全如果没有出现，可以通过<code>Alt+/</code>查看</li>
-</ul>
-<h2 id="2-3-操作行"><a href="#2-3-操作行" class="headerlink" title="2.3 操作行"></a>2.3 操作行</h2><ul>
-<li>复制一行：通过<code>shift+Alt+DownArrow/UpArrow</code>可以实现在原行的下&#x2F;上行复制</li>
-<li>移动一行：通过<code>Alt+DownArrow/UpArrow</code>可以实现下&#x2F;上移动一行</li>
-<li>删除一行：在该行<code>Ctrl+shift+k</code>删除行</li>
-</ul>
-<h2 id="2-4-变量名重构"><a href="#2-4-变量名重构" class="headerlink" title="2.4 变量名重构"></a>2.4 变量名重构</h2><p>我们有时候需要批量修改变量名，此时可以通过<code>Fn+F2</code>实现变量名的选中，并且不会选中文本中部分包含变量名的内容</p>
-<h2 id="2-5-格式"><a href="#2-5-格式" class="headerlink" title="2.5 格式"></a>2.5 格式</h2><p>很多时候会存在缩进问题：</p>
-<ul>
-<li>调整整个文档的缩进：输入<code>shift+Alt+F</code></li>
-<li>调整某行的缩进：输入<code>ctrl+K</code>再输入<code>ctrl+F</code></li>
-</ul>
-<h2 id="2-6-代码折叠"><a href="#2-6-代码折叠" class="headerlink" title="2.6 代码折叠"></a>2.6 代码折叠</h2><p>可以直接手动操作，也可以通过<code>ctrl+shift+[</code>来折叠，通过<code>ctrl+shift+]</code>来打开</p>
-]]></content>
-      <categories>
-        <category>VScode</category>
-      </categories>
-      <tags>
-        <tag>编辑器使用</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git入门:(一)git的基本使用</title>
     <url>/archives/555df1d9.html</url>
     <content><![CDATA[<p>我们这里主要记录下最基本的git和github使用流程。</p>
@@ -271,6 +271,59 @@
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello Hexo!</title>
+    <url>/archives/9628.html</url>
+    <content><![CDATA[<h2 id="Hello-hexo-this-is-neuerliu"><a href="#Hello-hexo-this-is-neuerliu" class="headerlink" title="Hello hexo, this is neuerliu!"></a>Hello hexo, this is neuerliu!</h2><p>你好，这个是我的个人网站！我的博客网站使用了Hexo作为模板建立，在此感谢Hexo。如果你有需要，可以访问<a href="https://github.com/hexojs/hexo">HexoGithub</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>linux实用工具:(一)shell讲解</title>
+    <url>/archives/c3194ed7.html</url>
+    <content><![CDATA[<h1 id="1-Linux常用命令"><a href="#1-Linux常用命令" class="headerlink" title="1.Linux常用命令"></a>1.Linux常用命令</h1><span id="more"></span>
+<ul>
+<li>date：显示日期</li>
+<li>echo：重复字符</li>
+<li>echo $PATH：查看系统的环境变量</li>
+<li>which：查看运行某程序的位置，例如which echo</li>
+<li>绝对路径：描述文件的绝对位置</li>
+<li>相对路径：描述文件的相对位置</li>
+<li>pwd：查看当前的工作目录(print working directory)</li>
+<li>cd &lt;dir&gt;：打开某目录</li>
+<li>cd .&#x2F;&lt;相对路径&gt;：打开相对路径</li>
+<li>cd ..：回到父目录</li>
+<li>clear&#x2F;ctrl+L：命令行页面向后翻一页</li>
+<li>ls：展示当前目录中的文件</li>
+<li>cd ~：回到用户目录(用户目录和根目录是不一样的)</li>
+<li>cd -：回退工作目录(最终退到用户目录)</li>
+<li>ls -l：展示当前目录中的文件详细信息(d开头表示是文件夹，后面是权限)</li>
+<li>mv &lt;原路径&gt; &lt;新路径&gt;：既可以更改文件名，还可以移动文件位置</li>
+<li>cp &lt;filename&gt; &lt;复制到的位置&gt;：将文件复制到指定位置</li>
+<li>rm &lt;filename&gt;：删除文件</li>
+<li>mkdir：建立新文件</li>
+<li>cat &lt;filename&gt;：查看文件内容</li>
+<li>tee：标准输入输出</li>
+<li>sudo：临时superuser命令</li>
+<li>rmdir：删除目录</li>
+<li>grep [option] &lt;pattern&gt; &lt;filename&gt;：在file中寻找pattern，option可选</li>
+<li>convert &lt;file1&gt; &lt;file2&gt;：将file1转化为file2</li>
+</ul>
+<h1 id="2-重定向输入输出流"><a href="#2-重定向输入输出流" class="headerlink" title="2.重定向输入输出流"></a>2.重定向输入输出流</h1><p>&lt; &lt;输入流&gt;：利用&lt;，后面可以连接输入流位置(默认在键盘)</p>
+<p>&gt; &lt;输出流&gt;：利用&gt;，后面可以连接输出流位置(例如可以输出到文件中，默认在显示屏)</p>
+<p>例如：echo hello &gt; hello.txt</p>
+<p>&gt;&gt; 表示追加内容(会换行)</p>
+<ul>
+<li>管道符(pipe)：&lt;命令1&gt;|&lt;命令2&gt;，将左边命令1的输出作为命令2的输入(例如：ls -l | tail -n1)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>missing_semester</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -540,59 +593,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello Hexo!</title>
-    <url>/archives/9628.html</url>
-    <content><![CDATA[<h2 id="Hello-hexo-this-is-neuerliu"><a href="#Hello-hexo-this-is-neuerliu" class="headerlink" title="Hello hexo, this is neuerliu!"></a>Hello hexo, this is neuerliu!</h2><p>你好，这个是我的个人网站！我的博客网站使用了Hexo作为模板建立，在此感谢Hexo。如果你有需要，可以访问<a href="https://github.com/hexojs/hexo">HexoGithub</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>linux实用工具:(一)shell讲解</title>
-    <url>/archives/c3194ed7.html</url>
-    <content><![CDATA[<h1 id="1-Linux常用命令"><a href="#1-Linux常用命令" class="headerlink" title="1.Linux常用命令"></a>1.Linux常用命令</h1><span id="more"></span>
-<ul>
-<li>date：显示日期</li>
-<li>echo：重复字符</li>
-<li>echo $PATH：查看系统的环境变量</li>
-<li>which：查看运行某程序的位置，例如which echo</li>
-<li>绝对路径：描述文件的绝对位置</li>
-<li>相对路径：描述文件的相对位置</li>
-<li>pwd：查看当前的工作目录(print working directory)</li>
-<li>cd &lt;dir&gt;：打开某目录</li>
-<li>cd .&#x2F;&lt;相对路径&gt;：打开相对路径</li>
-<li>cd ..：回到父目录</li>
-<li>clear&#x2F;ctrl+L：命令行页面向后翻一页</li>
-<li>ls：展示当前目录中的文件</li>
-<li>cd ~：回到用户目录(用户目录和根目录是不一样的)</li>
-<li>cd -：回退工作目录(最终退到用户目录)</li>
-<li>ls -l：展示当前目录中的文件详细信息(d开头表示是文件夹，后面是权限)</li>
-<li>mv &lt;原路径&gt; &lt;新路径&gt;：既可以更改文件名，还可以移动文件位置</li>
-<li>cp &lt;filename&gt; &lt;复制到的位置&gt;：将文件复制到指定位置</li>
-<li>rm &lt;filename&gt;：删除文件</li>
-<li>mkdir：建立新文件</li>
-<li>cat &lt;filename&gt;：查看文件内容</li>
-<li>tee：标准输入输出</li>
-<li>sudo：临时superuser命令</li>
-<li>rmdir：删除目录</li>
-<li>grep [option] &lt;pattern&gt; &lt;filename&gt;：在file中寻找pattern，option可选</li>
-<li>convert &lt;file1&gt; &lt;file2&gt;：将file1转化为file2</li>
-</ul>
-<h1 id="2-重定向输入输出流"><a href="#2-重定向输入输出流" class="headerlink" title="2.重定向输入输出流"></a>2.重定向输入输出流</h1><p>&lt; &lt;输入流&gt;：利用&lt;，后面可以连接输入流位置(默认在键盘)</p>
-<p>&gt; &lt;输出流&gt;：利用&gt;，后面可以连接输出流位置(例如可以输出到文件中，默认在显示屏)</p>
-<p>例如：echo hello &gt; hello.txt</p>
-<p>&gt;&gt; 表示追加内容(会换行)</p>
-<ul>
-<li>管道符(pipe)：&lt;命令1&gt;|&lt;命令2&gt;，将左边命令1的输出作为命令2的输入(例如：ls -l | tail -n1)</li>
-</ul>
-]]></content>
-      <categories>
-        <category>missing_semester</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux实用工具:(二)Shell工具和脚本</title>
     <url>/archives/df8b93b8.html</url>
     <content><![CDATA[<p>在这节课中，我们将会展示bash作为脚本语言的一些基础操作，以及几种最常用的shell工具。我们已经学习来如何在shell中执行命令，并使用管道将命令组合使用。但是，很多情况下我们需要执行一系列的操作并使用条件或循环这样的控制流。本节中，我们会专注于bash脚本，因为它最流行，应用更为广泛。</p>
@@ -808,165 +808,6 @@
       <tags>
         <tag>python</tag>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端入门:(一)HTML基本介绍</title>
-    <url>/archives/6cd8b801.html</url>
-    <content><![CDATA[<p>该笔记的原始学习内容可以见<a href="https://web.qianguyihao.com/">前端教程</a></p>
-<span id="more"></span>
-
-<h1 id="1-Web前端基本介绍"><a href="#1-Web前端基本介绍" class="headerlink" title="1.Web前端基本介绍"></a>1.Web前端基本介绍</h1><p>Web前端分为三层：HTML、CSS、JS</p>
-<ul>
-<li>HTML：超文本标记语言，描述网页的基本结构</li>
-<li>CSS：层叠样式表，对网页进行美化</li>
-<li>JS：Javascript，描述页面行为</li>
-</ul>
-<h1 id="2-浏览器的组成"><a href="#2-浏览器的组成" class="headerlink" title="2.浏览器的组成"></a>2.浏览器的组成</h1><p>浏览器由两部分组成，分别是渲染引擎和JS引擎。</p>
-<h2 id="2-1-渲染引擎"><a href="#2-1-渲染引擎" class="headerlink" title="2.1 渲染引擎"></a>2.1 渲染引擎</h2><p><strong>渲染引擎</strong>也被称为<strong>浏览器内核</strong>，是用来解析HTML和CSS的，决定了浏览器如何显示网页内容以及页面信息。渲染引擎是<strong>浏览器出现兼容性问题的根本原因</strong>。</p>
-<h2 id="2-2-JS引擎"><a href="#2-2-JS引擎" class="headerlink" title="2.2 JS引擎"></a>2.2 JS引擎</h2><p>JS引擎也被称为JS解释器，用来解析网页中的js代码，浏览器通过内置的解释器执行js代码。</p>
-<h1 id="3-HTML简介"><a href="#3-HTML简介" class="headerlink" title="3.HTML简介"></a>3.HTML简介</h1><p>HTML是超文本标记语言。</p>
-<ul>
-<li>超文本表示其中可以表示图片、视频、音频等超出文本限制的内容，同时还可以从一个文件跳转到另一个文件</li>
-<li>标记语言表示HTML中有一套标记标签，但是没有编译过程，HTML标签直接由浏览器解析执行</li>
-</ul>
-<h2 id="3-1-HTML的历史"><a href="#3-1-HTML的历史" class="headerlink" title="3.1 HTML的历史"></a>3.1 HTML的历史</h2><p><img src="http://img.smyhvae.com/20151001_1001.png" alt="html中标签发展趋势"></p>
-<p>(图源：<a href="https://web.qianguyihao.com/01-HTML/03-%E5%88%9D%E8%AF%86HTML.html#html%E7%9A%84%E5%8E%86%E5%8F%B2">03-初识HTML | 千古前端图文教程 (qianguyihao.com)</a>)</p>
-<h2 id="3-2-HTML中的专有名词"><a href="#3-2-HTML中的专有名词" class="headerlink" title="3.2 HTML中的专有名词"></a>3.2 HTML中的专有名词</h2><ul>
-<li>网页：由标记组成的页面</li>
-<li>主页：王爷的起始页面</li>
-<li>标记：如果称&lt;p&gt;是开始标记，则&lt;&#x2F;p&gt;是结束标记，均被称为标签</li>
-<li>元素：标签及被标签标记的内容</li>
-<li>属性：标签中的辅助信息</li>
-<li>XHTML：符合XML标准的HTML</li>
-<li>http：超文本传输协议</li>
-</ul>
-<h2 id="3-3-HTML的基本结构"><a href="#3-3-HTML的基本结构" class="headerlink" title="3.3 HTML的基本结构"></a>3.3 HTML的基本结构</h2><p>HTML中标签通常是成对出现，也有少数是单边标记(&lt;br&gt;、&lt;img&gt;)，同时属性和标记之间通过空格分隔。</p>
-<h3 id="3-3-1-html中的骨架标签"><a href="#3-3-1-html中的骨架标签" class="headerlink" title="3.3.1 html中的骨架标签"></a>3.3.1 html中的骨架标签</h3><table>
-<thead>
-<tr>
-<th align="center">标签名</th>
-<th align="center">定义</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">&lt;html&gt;&lt;&#x2F;html&gt;</td>
-<td align="center">HTML标签</td>
-<td align="center">根标签</td>
-</tr>
-<tr>
-<td align="center">&lt;head&gt;&lt;&#x2F;head&gt;</td>
-<td align="center">文档的头部</td>
-<td align="center">头部标签中需要设定title</td>
-</tr>
-<tr>
-<td align="center">&lt;title&gt;&lt;&#x2F;title&gt;</td>
-<td align="center">文档标题</td>
-<td align="center">标签页面中显示的题目</td>
-</tr>
-<tr>
-<td align="center">&lt;body&gt;&lt;&#x2F;body&gt;</td>
-<td align="center">文档主体</td>
-<td align="center">页面中的内容</td>
-</tr>
-</tbody></table>
-<h3 id="3-3-2-文档声明头与页面语言"><a href="#3-3-2-文档声明头与页面语言" class="headerlink" title="3.3.2 文档声明头与页面语言"></a>3.3.2 文档声明头与页面语言</h3><ul>
-<li>文档声明头，即DocType Declaration，简称DTD。具体形式是：</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span> </span><br><span class="line"><span class="comment">&lt;!--表示是一个html文档，在html5中常用--&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>页面语言</li>
-</ul>
-<p>一般在文档声明头下指定页面语言类型，例如：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&#x27;en&#x27;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;html lang=&#x27;zh-CN&#x27;&gt;--&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-3-3-头部标签-head中的标签"><a href="#3-3-3-头部标签-head中的标签" class="headerlink" title="3.3.3 头部标签(head中的标签)"></a>3.3.3 头部标签(head中的标签)</h3><table>
-<thead>
-<tr>
-<th align="center">标签名</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">&lt;title&gt;</td>
-<td align="center">指定整个网页的标题</td>
-</tr>
-<tr>
-<td align="center">&lt;base&gt;</td>
-<td align="center">为页面上所有链接规定默认地址</td>
-</tr>
-<tr>
-<td align="center">&lt;meta&gt;</td>
-<td align="center">提供页面的基本信息</td>
-</tr>
-<tr>
-<td align="center">&lt;link&gt;</td>
-<td align="center">定义文档与外部资源的关系</td>
-</tr>
-</tbody></table>
-<p>1.meta标签</p>
-<p>meta标签表示基础配置项目，常见的meta标签如下：</p>
-<ul>
-<li>charset：字符集，一般选择utf-8</li>
-</ul>
-<p><code>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;</code></p>
-<ul>
-<li>viewport：视口</li>
-</ul>
-<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></p>
-<p><code>width=device-width</code>表示视口宽度等于屏幕宽度</p>
-<ul>
-<li>Keywords：关键词，可以提高搜索曝光率</li>
-</ul>
-<p><code>&lt;meta name=&quot;Keywords&quot; content=&quot;小新,拜仁,Neuerliu&quot; /&gt;</code></p>
-<ul>
-<li><p>Description：页面描述</p>
-</li>
-<li><p><strong>自动跳转</strong><br><code>&lt;meta http-equiv=&quot;refresh&quot; content=&quot;3;http://www.baidu.com&quot;&gt;</code>表示3秒后自动跳转百度页面</p>
-</li>
-</ul>
-<p>2.title标签</p>
-<p>设定网页标题</p>
-<p>3.base标签</p>
-<p>base标签用于指定基础路径，指定后所有的a链接都是以该路径为标准</p>
-<h3 id="3-3-4-body标签"><a href="#3-3-4-body标签" class="headerlink" title="3.3.4 body标签"></a>3.3.4 body标签</h3><p>1.body标签的属性</p>
-<ul>
-<li><p><code>bgcolor</code>：设定网页的背景颜色</p>
-</li>
-<li><p><code>background</code>：设置网页的背景图片</p>
-</li>
-<li><p><code>text</code>：设置网页中的文本颜色</p>
-</li>
-<li><p><code>leftmargin</code>：网页的左边距</p>
-</li>
-<li><p><code>topmargin</code>：网页的上边距</p>
-</li>
-<li><p><code>rightmargin</code>：网页的右边距</p>
-</li>
-<li><p><code>bottommargin</code>：网页的下边距</p>
-</li>
-<li><p><code>link</code>：默认显示的链接颜色</p>
-</li>
-<li><p><code>alink</code>：鼠标放在链接上的颜色</p>
-</li>
-<li><p><code>vlink</code>：点击链接后链接显示的颜色</p>
-</li>
-</ul>
-<p>2.注意事项</p>
-<ul>
-<li>标签不能交叉嵌套</li>
-<li>标签必须闭合</li>
-<li>属性值要加<code>&quot;&quot;</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>前端入门</category>
-      </categories>
-      <tags>
-        <tag>HTML</tag>
-        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -1420,8 +1261,167 @@
       </categories>
       <tags>
         <tag>HTML</tag>
-        <tag>前端</tag>
         <tag>css</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端入门:(一)HTML基本介绍</title>
+    <url>/archives/6cd8b801.html</url>
+    <content><![CDATA[<p>该笔记的原始学习内容可以见<a href="https://web.qianguyihao.com/">前端教程</a></p>
+<span id="more"></span>
+
+<h1 id="1-Web前端基本介绍"><a href="#1-Web前端基本介绍" class="headerlink" title="1.Web前端基本介绍"></a>1.Web前端基本介绍</h1><p>Web前端分为三层：HTML、CSS、JS</p>
+<ul>
+<li>HTML：超文本标记语言，描述网页的基本结构</li>
+<li>CSS：层叠样式表，对网页进行美化</li>
+<li>JS：Javascript，描述页面行为</li>
+</ul>
+<h1 id="2-浏览器的组成"><a href="#2-浏览器的组成" class="headerlink" title="2.浏览器的组成"></a>2.浏览器的组成</h1><p>浏览器由两部分组成，分别是渲染引擎和JS引擎。</p>
+<h2 id="2-1-渲染引擎"><a href="#2-1-渲染引擎" class="headerlink" title="2.1 渲染引擎"></a>2.1 渲染引擎</h2><p><strong>渲染引擎</strong>也被称为<strong>浏览器内核</strong>，是用来解析HTML和CSS的，决定了浏览器如何显示网页内容以及页面信息。渲染引擎是<strong>浏览器出现兼容性问题的根本原因</strong>。</p>
+<h2 id="2-2-JS引擎"><a href="#2-2-JS引擎" class="headerlink" title="2.2 JS引擎"></a>2.2 JS引擎</h2><p>JS引擎也被称为JS解释器，用来解析网页中的js代码，浏览器通过内置的解释器执行js代码。</p>
+<h1 id="3-HTML简介"><a href="#3-HTML简介" class="headerlink" title="3.HTML简介"></a>3.HTML简介</h1><p>HTML是超文本标记语言。</p>
+<ul>
+<li>超文本表示其中可以表示图片、视频、音频等超出文本限制的内容，同时还可以从一个文件跳转到另一个文件</li>
+<li>标记语言表示HTML中有一套标记标签，但是没有编译过程，HTML标签直接由浏览器解析执行</li>
+</ul>
+<h2 id="3-1-HTML的历史"><a href="#3-1-HTML的历史" class="headerlink" title="3.1 HTML的历史"></a>3.1 HTML的历史</h2><p><img src="http://img.smyhvae.com/20151001_1001.png" alt="html中标签发展趋势"></p>
+<p>(图源：<a href="https://web.qianguyihao.com/01-HTML/03-%E5%88%9D%E8%AF%86HTML.html#html%E7%9A%84%E5%8E%86%E5%8F%B2">03-初识HTML | 千古前端图文教程 (qianguyihao.com)</a>)</p>
+<h2 id="3-2-HTML中的专有名词"><a href="#3-2-HTML中的专有名词" class="headerlink" title="3.2 HTML中的专有名词"></a>3.2 HTML中的专有名词</h2><ul>
+<li>网页：由标记组成的页面</li>
+<li>主页：王爷的起始页面</li>
+<li>标记：如果称&lt;p&gt;是开始标记，则&lt;&#x2F;p&gt;是结束标记，均被称为标签</li>
+<li>元素：标签及被标签标记的内容</li>
+<li>属性：标签中的辅助信息</li>
+<li>XHTML：符合XML标准的HTML</li>
+<li>http：超文本传输协议</li>
+</ul>
+<h2 id="3-3-HTML的基本结构"><a href="#3-3-HTML的基本结构" class="headerlink" title="3.3 HTML的基本结构"></a>3.3 HTML的基本结构</h2><p>HTML中标签通常是成对出现，也有少数是单边标记(&lt;br&gt;、&lt;img&gt;)，同时属性和标记之间通过空格分隔。</p>
+<h3 id="3-3-1-html中的骨架标签"><a href="#3-3-1-html中的骨架标签" class="headerlink" title="3.3.1 html中的骨架标签"></a>3.3.1 html中的骨架标签</h3><table>
+<thead>
+<tr>
+<th align="center">标签名</th>
+<th align="center">定义</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt;html&gt;&lt;&#x2F;html&gt;</td>
+<td align="center">HTML标签</td>
+<td align="center">根标签</td>
+</tr>
+<tr>
+<td align="center">&lt;head&gt;&lt;&#x2F;head&gt;</td>
+<td align="center">文档的头部</td>
+<td align="center">头部标签中需要设定title</td>
+</tr>
+<tr>
+<td align="center">&lt;title&gt;&lt;&#x2F;title&gt;</td>
+<td align="center">文档标题</td>
+<td align="center">标签页面中显示的题目</td>
+</tr>
+<tr>
+<td align="center">&lt;body&gt;&lt;&#x2F;body&gt;</td>
+<td align="center">文档主体</td>
+<td align="center">页面中的内容</td>
+</tr>
+</tbody></table>
+<h3 id="3-3-2-文档声明头与页面语言"><a href="#3-3-2-文档声明头与页面语言" class="headerlink" title="3.3.2 文档声明头与页面语言"></a>3.3.2 文档声明头与页面语言</h3><ul>
+<li>文档声明头，即DocType Declaration，简称DTD。具体形式是：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span> </span><br><span class="line"><span class="comment">&lt;!--表示是一个html文档，在html5中常用--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>页面语言</li>
+</ul>
+<p>一般在文档声明头下指定页面语言类型，例如：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&#x27;en&#x27;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;html lang=&#x27;zh-CN&#x27;&gt;--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-3-头部标签-head中的标签"><a href="#3-3-3-头部标签-head中的标签" class="headerlink" title="3.3.3 头部标签(head中的标签)"></a>3.3.3 头部标签(head中的标签)</h3><table>
+<thead>
+<tr>
+<th align="center">标签名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt;title&gt;</td>
+<td align="center">指定整个网页的标题</td>
+</tr>
+<tr>
+<td align="center">&lt;base&gt;</td>
+<td align="center">为页面上所有链接规定默认地址</td>
+</tr>
+<tr>
+<td align="center">&lt;meta&gt;</td>
+<td align="center">提供页面的基本信息</td>
+</tr>
+<tr>
+<td align="center">&lt;link&gt;</td>
+<td align="center">定义文档与外部资源的关系</td>
+</tr>
+</tbody></table>
+<p>1.meta标签</p>
+<p>meta标签表示基础配置项目，常见的meta标签如下：</p>
+<ul>
+<li>charset：字符集，一般选择utf-8</li>
+</ul>
+<p><code>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;</code></p>
+<ul>
+<li>viewport：视口</li>
+</ul>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></p>
+<p><code>width=device-width</code>表示视口宽度等于屏幕宽度</p>
+<ul>
+<li>Keywords：关键词，可以提高搜索曝光率</li>
+</ul>
+<p><code>&lt;meta name=&quot;Keywords&quot; content=&quot;小新,拜仁,Neuerliu&quot; /&gt;</code></p>
+<ul>
+<li><p>Description：页面描述</p>
+</li>
+<li><p><strong>自动跳转</strong><br><code>&lt;meta http-equiv=&quot;refresh&quot; content=&quot;3;http://www.baidu.com&quot;&gt;</code>表示3秒后自动跳转百度页面</p>
+</li>
+</ul>
+<p>2.title标签</p>
+<p>设定网页标题</p>
+<p>3.base标签</p>
+<p>base标签用于指定基础路径，指定后所有的a链接都是以该路径为标准</p>
+<h3 id="3-3-4-body标签"><a href="#3-3-4-body标签" class="headerlink" title="3.3.4 body标签"></a>3.3.4 body标签</h3><p>1.body标签的属性</p>
+<ul>
+<li><p><code>bgcolor</code>：设定网页的背景颜色</p>
+</li>
+<li><p><code>background</code>：设置网页的背景图片</p>
+</li>
+<li><p><code>text</code>：设置网页中的文本颜色</p>
+</li>
+<li><p><code>leftmargin</code>：网页的左边距</p>
+</li>
+<li><p><code>topmargin</code>：网页的上边距</p>
+</li>
+<li><p><code>rightmargin</code>：网页的右边距</p>
+</li>
+<li><p><code>bottommargin</code>：网页的下边距</p>
+</li>
+<li><p><code>link</code>：默认显示的链接颜色</p>
+</li>
+<li><p><code>alink</code>：鼠标放在链接上的颜色</p>
+</li>
+<li><p><code>vlink</code>：点击链接后链接显示的颜色</p>
+</li>
+</ul>
+<p>2.注意事项</p>
+<ul>
+<li>标签不能交叉嵌套</li>
+<li>标签必须闭合</li>
+<li>属性值要加<code>&quot;&quot;</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端入门</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -1564,8 +1564,8 @@
       </categories>
       <tags>
         <tag>HTML</tag>
-        <tag>前端</tag>
         <tag>css</tag>
+        <tag>前端</tag>
         <tag>javascript</tag>
       </tags>
   </entry>
@@ -1758,8 +1758,8 @@
       </categories>
       <tags>
         <tag>HTML</tag>
-        <tag>前端</tag>
         <tag>css</tag>
+        <tag>前端</tag>
         <tag>Bootstrap</tag>
       </tags>
   </entry>
