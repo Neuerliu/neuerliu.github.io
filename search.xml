@@ -72,58 +72,6 @@
       </tags>
   </entry>
   <entry>
-    <title>VScode使用(一)</title>
-    <url>/archives/34d8562e.html</url>
-    <content><![CDATA[<p>在这里我将记录如何使用并配置vscode，使得我们的编程更加方便</p>
-<span id="more"></span>
-
-<h1 id="1-基础使用"><a href="#1-基础使用" class="headerlink" title="1.基础使用"></a>1.基础使用</h1><h2 id="1-1-语言配置"><a href="#1-1-语言配置" class="headerlink" title="1.1 语言配置"></a>1.1 语言配置</h2><p>下载中文包后，可以输入<code>ctrl+shift+p</code>显示所有命令。在其中输入<code>display</code>点击高亮选项，可以切换语言(zh-cn&#x2F;en)。</p>
-<h2 id="1-2-文件操作"><a href="#1-2-文件操作" class="headerlink" title="1.2 文件操作"></a>1.2 文件操作</h2><ul>
-<li>输入<code>ctrl+n</code>新建文件</li>
-<li>输入<code>ctrl+o</code>打开电脑文件</li>
-<li>打开工作区可以将一个项目的内容进行整合，可以认为是一个逻辑上的文件夹</li>
-</ul>
-<h2 id="1-3-编辑操作"><a href="#1-3-编辑操作" class="headerlink" title="1.3 编辑操作"></a>1.3 编辑操作</h2><p>基础操作就是复制、粘贴、查找等等，快捷键比较常用</p>
-<h1 id="2-快捷键的基本使用"><a href="#2-快捷键的基本使用" class="headerlink" title="2.快捷键的基本使用"></a>2.快捷键的基本使用</h1><p>可以在帮助-编辑器操场进行学习</p>
-<h2 id="2-1-多光标编辑"><a href="#2-1-多光标编辑" class="headerlink" title="2.1 多光标编辑"></a>2.1 多光标编辑</h2><ul>
-<li>选中矩形区域：通过<code>shift+DownArrow</code>进行上下左右移动，选中矩形区域</li>
-<li>同时编辑多行：通过<code>ctrl+alt+DownArrow</code>或者<code>ctrl+alt+UpArrow</code>使得光标上下移动，在多行同时编辑</li>
-<li>选中同一内容，同时编辑：选中待编辑的内容，通过<code>ctrl+shift+L</code>可以选中同一内容，以同时编辑</li>
-</ul>
-<h2 id="2-2-代码补全"><a href="#2-2-代码补全" class="headerlink" title="2.2 代码补全"></a>2.2 代码补全</h2><ul>
-<li>在vscode中，已经有对于JavaScript和TypeScript的代码补全</li>
-<li>对于python，我们如果需要代码补全，则首先需要安装<code>pylint-django</code></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install pylint-django</span><br></pre></td></tr></table></figure>
-
-<p>接下来在vscode中显示所有命令，选择Preferences:Open Workspace Settings (JSON)，并输入：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;python.autoComplete.addBrackets&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.languageServer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jedi&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.linting.pylintArgs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;--load-plugins&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;pylint_django&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>重启vscode即可实现python的代码补全</p>
-<ul>
-<li>代码补全如果没有出现，可以通过<code>Alt+/</code>查看</li>
-</ul>
-<h2 id="2-3-操作行"><a href="#2-3-操作行" class="headerlink" title="2.3 操作行"></a>2.3 操作行</h2><ul>
-<li>复制一行：通过<code>shift+Alt+DownArrow/UpArrow</code>可以实现在原行的下&#x2F;上行复制</li>
-<li>移动一行：通过<code>Alt+DownArrow/UpArrow</code>可以实现下&#x2F;上移动一行</li>
-<li>删除一行：在该行<code>Ctrl+shift+k</code>删除行</li>
-</ul>
-<h2 id="2-4-变量名重构"><a href="#2-4-变量名重构" class="headerlink" title="2.4 变量名重构"></a>2.4 变量名重构</h2><p>我们有时候需要批量修改变量名，此时可以通过<code>Fn+F2</code>实现变量名的选中，并且不会选中文本中部分包含变量名的内容</p>
-<h2 id="2-5-格式"><a href="#2-5-格式" class="headerlink" title="2.5 格式"></a>2.5 格式</h2><p>很多时候会存在缩进问题：</p>
-<ul>
-<li>调整整个文档的缩进：输入<code>shift+Alt+F</code></li>
-<li>调整某行的缩进：输入<code>ctrl+K</code>再输入<code>ctrl+F</code></li>
-</ul>
-<h2 id="2-6-代码折叠"><a href="#2-6-代码折叠" class="headerlink" title="2.6 代码折叠"></a>2.6 代码折叠</h2><p>可以直接手动操作，也可以通过<code>ctrl+shift+[</code>来折叠，通过<code>ctrl+shift+]</code>来打开</p>
-]]></content>
-      <categories>
-        <category>VScode</category>
-      </categories>
-      <tags>
-        <tag>编辑器使用</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SQL必知必会(四):检索数据</title>
     <url>/archives/6270f2a1.html</url>
     <content><![CDATA[<p>本章将介绍如何使用<code>select</code>语句从表中检索一个或多个数据列</p>
@@ -188,6 +136,58 @@
       </tags>
   </entry>
   <entry>
+    <title>VScode使用(一)</title>
+    <url>/archives/34d8562e.html</url>
+    <content><![CDATA[<p>在这里我将记录如何使用并配置vscode，使得我们的编程更加方便</p>
+<span id="more"></span>
+
+<h1 id="1-基础使用"><a href="#1-基础使用" class="headerlink" title="1.基础使用"></a>1.基础使用</h1><h2 id="1-1-语言配置"><a href="#1-1-语言配置" class="headerlink" title="1.1 语言配置"></a>1.1 语言配置</h2><p>下载中文包后，可以输入<code>ctrl+shift+p</code>显示所有命令。在其中输入<code>display</code>点击高亮选项，可以切换语言(zh-cn&#x2F;en)。</p>
+<h2 id="1-2-文件操作"><a href="#1-2-文件操作" class="headerlink" title="1.2 文件操作"></a>1.2 文件操作</h2><ul>
+<li>输入<code>ctrl+n</code>新建文件</li>
+<li>输入<code>ctrl+o</code>打开电脑文件</li>
+<li>打开工作区可以将一个项目的内容进行整合，可以认为是一个逻辑上的文件夹</li>
+</ul>
+<h2 id="1-3-编辑操作"><a href="#1-3-编辑操作" class="headerlink" title="1.3 编辑操作"></a>1.3 编辑操作</h2><p>基础操作就是复制、粘贴、查找等等，快捷键比较常用</p>
+<h1 id="2-快捷键的基本使用"><a href="#2-快捷键的基本使用" class="headerlink" title="2.快捷键的基本使用"></a>2.快捷键的基本使用</h1><p>可以在帮助-编辑器操场进行学习</p>
+<h2 id="2-1-多光标编辑"><a href="#2-1-多光标编辑" class="headerlink" title="2.1 多光标编辑"></a>2.1 多光标编辑</h2><ul>
+<li>选中矩形区域：通过<code>shift+DownArrow</code>进行上下左右移动，选中矩形区域</li>
+<li>同时编辑多行：通过<code>ctrl+alt+DownArrow</code>或者<code>ctrl+alt+UpArrow</code>使得光标上下移动，在多行同时编辑</li>
+<li>选中同一内容，同时编辑：选中待编辑的内容，通过<code>ctrl+shift+L</code>可以选中同一内容，以同时编辑</li>
+</ul>
+<h2 id="2-2-代码补全"><a href="#2-2-代码补全" class="headerlink" title="2.2 代码补全"></a>2.2 代码补全</h2><ul>
+<li>在vscode中，已经有对于JavaScript和TypeScript的代码补全</li>
+<li>对于python，我们如果需要代码补全，则首先需要安装<code>pylint-django</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install pylint-django</span><br></pre></td></tr></table></figure>
+
+<p>接下来在vscode中显示所有命令，选择Preferences:Open Workspace Settings (JSON)，并输入：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;python.autoComplete.addBrackets&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.languageServer&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Jedi&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;python.linting.pylintArgs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;--load-plugins&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;pylint_django&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>重启vscode即可实现python的代码补全</p>
+<ul>
+<li>代码补全如果没有出现，可以通过<code>Alt+/</code>查看</li>
+</ul>
+<h2 id="2-3-操作行"><a href="#2-3-操作行" class="headerlink" title="2.3 操作行"></a>2.3 操作行</h2><ul>
+<li>复制一行：通过<code>shift+Alt+DownArrow/UpArrow</code>可以实现在原行的下&#x2F;上行复制</li>
+<li>移动一行：通过<code>Alt+DownArrow/UpArrow</code>可以实现下&#x2F;上移动一行</li>
+<li>删除一行：在该行<code>Ctrl+shift+k</code>删除行</li>
+</ul>
+<h2 id="2-4-变量名重构"><a href="#2-4-变量名重构" class="headerlink" title="2.4 变量名重构"></a>2.4 变量名重构</h2><p>我们有时候需要批量修改变量名，此时可以通过<code>Fn+F2</code>实现变量名的选中，并且不会选中文本中部分包含变量名的内容</p>
+<h2 id="2-5-格式"><a href="#2-5-格式" class="headerlink" title="2.5 格式"></a>2.5 格式</h2><p>很多时候会存在缩进问题：</p>
+<ul>
+<li>调整整个文档的缩进：输入<code>shift+Alt+F</code></li>
+<li>调整某行的缩进：输入<code>ctrl+K</code>再输入<code>ctrl+F</code></li>
+</ul>
+<h2 id="2-6-代码折叠"><a href="#2-6-代码折叠" class="headerlink" title="2.6 代码折叠"></a>2.6 代码折叠</h2><p>可以直接手动操作，也可以通过<code>ctrl+shift+[</code>来折叠，通过<code>ctrl+shift+]</code>来打开</p>
+]]></content>
+      <categories>
+        <category>VScode</category>
+      </categories>
+      <tags>
+        <tag>编辑器使用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VScode使用(二)</title>
     <url>/archives/9be9cd4c.html</url>
     <content><![CDATA[<p>这里将介绍一些我比较常用的VScode的小trick</p>
@@ -236,6 +236,12 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello Hexo!</title>
+    <url>/archives/9628.html</url>
+    <content><![CDATA[<h2 id="Hello-hexo-this-is-neuerliu"><a href="#Hello-hexo-this-is-neuerliu" class="headerlink" title="Hello hexo, this is neuerliu!"></a>Hello hexo, this is neuerliu!</h2><p>你好，这个是我的个人网站！我的博客网站使用了Hexo作为模板建立，在此感谢Hexo。如果你有需要，可以访问<a href="https://github.com/hexojs/hexo">HexoGithub</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>git入门:(一)git的基本使用</title>
     <url>/archives/555df1d9.html</url>
     <content><![CDATA[<p>我们这里主要记录下最基本的git和github使用流程。</p>
@@ -272,12 +278,6 @@
       <tags>
         <tag>git</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello Hexo!</title>
-    <url>/archives/9628.html</url>
-    <content><![CDATA[<h2 id="Hello-hexo-this-is-neuerliu"><a href="#Hello-hexo-this-is-neuerliu" class="headerlink" title="Hello hexo, this is neuerliu!"></a>Hello hexo, this is neuerliu!</h2><p>你好，这个是我的个人网站！我的博客网站使用了Hexo作为模板建立，在此感谢Hexo。如果你有需要，可以访问<a href="https://github.com/hexojs/hexo">HexoGithub</a></p>
-]]></content>
   </entry>
   <entry>
     <title>linux实用工具:(一)shell讲解</title>
@@ -736,81 +736,6 @@
       </tags>
   </entry>
   <entry>
-    <title>python数据结构与算法:(一)算法分析</title>
-    <url>/archives/f30c48de.html</url>
-    <content><![CDATA[<h1 id="1-大O表示法"><a href="#1-大O表示法" class="headerlink" title="1.大O表示法"></a>1.大O表示法</h1><h2 id="1-1-算法时间度量指标"><a href="#1-1-算法时间度量指标" class="headerlink" title="1.1 算法时间度量指标"></a>1.1 算法时间度量指标</h2><ul>
-<li>算法实施的操作数量或步骤数可以作为独立于具体程序或机器的度量指标</li>
-<li><strong>赋值语句</strong>是一个合适作为度量的选择</li>
-</ul>
-<span id="more"></span>
-
-<h2 id="1-2-问题规模影响算法执行时间"><a href="#1-2-问题规模影响算法执行时间" class="headerlink" title="1.2 问题规模影响算法执行时间"></a>1.2 问题规模影响算法执行时间</h2><ul>
-<li>问题规模：影响算法执行时间的主要因素</li>
-<li><strong>算法分析的目标</strong>：找出问题规模如何影响算法执行时间</li>
-</ul>
-<h2 id="1-3-数量级函数"><a href="#1-3-数量级函数" class="headerlink" title="1.3 数量级函数"></a>1.3 数量级函数</h2><ul>
-<li>基本操作数量函数<code>T(n)</code>的精确值并不是特别重要，重要的是<code>T(n)</code>中起<strong>决定性因素的主导部分</strong></li>
-<li>数量级函数描述了<code>T(n)</code>中随着n增加而增加速度最快的主导部分，称为<strong>大O表示法</strong>，记作<code>O(f(n))</code>，其中<code>f(n)</code>表示<code>T(n)</code>中的主导部分，即<code>T(n)</code>中变化最快的部分</li>
-</ul>
-<h2 id="1-4-影响算法执行的其他因素"><a href="#1-4-影响算法执行的其他因素" class="headerlink" title="1.4 影响算法执行的其他因素"></a>1.4 影响算法执行的其他因素</h2><p>某些具体数据也会影响算法运行时间</p>
-<ul>
-<li>分为最好、平均、最差情况，平均情况体现了算法的主流性能</li>
-<li>对算法分析看<strong>主流</strong></li>
-</ul>
-<h2 id="1-5-常见的大O数量级函数"><a href="#1-5-常见的大O数量级函数" class="headerlink" title="1.5 常见的大O数量级函数"></a>1.5 常见的大O数量级函数</h2><p><img src="/../images/python_dsa/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%A4%A7O%E6%95%B0%E9%87%8F%E7%BA%A7%E5%87%BD%E6%95%B0.PNG" alt="常见的大O数量级函数"></p>
-<h2 id="1-6-其他算法复杂度表示方法"><a href="#1-6-其他算法复杂度表示方法" class="headerlink" title="1.6 其他算法复杂度表示方法"></a>1.6 其他算法复杂度表示方法</h2><ul>
-<li>大O表示法：表示了所有上限中最小的那个上限</li>
-<li>大Ω表示法：表示了所有下限中最大的那个下限</li>
-<li>大θ表示法：上下限相同时可以使用大θ表示</li>
-</ul>
-<h1 id="2-“变位词”判断问题"><a href="#2-“变位词”判断问题" class="headerlink" title="2.“变位词”判断问题"></a>2.“变位词”判断问题</h1><h2 id="2-1-问题描述"><a href="#2-1-问题描述" class="headerlink" title="2.1 问题描述"></a>2.1 问题描述</h2><ul>
-<li>问题描述：所谓变位词是指两个词之间存在组成字母的重新排列关系，例如：<code>heart</code>和<code>earth</code>。为了简单起见，假设参与判断的两个词仅由小写字母构成，而且长度相等。</li>
-<li>解题目标：写一个<code>bool</code>函数，以两个词作为参数，返回这两个词是否为变位词</li>
-<li>意义：展示同一问题的不同数量级算法算法</li>
-</ul>
-<h2 id="2-2-解决方案"><a href="#2-2-解决方案" class="headerlink" title="2.2 解决方案"></a>2.2 解决方案</h2><h3 id="2-2-1-逐字检查"><a href="#2-2-1-逐字检查" class="headerlink" title="2.2.1 逐字检查"></a>2.2.1 逐字检查</h3><ul>
-<li><p>思路：将词1的字符逐个到词2中检查是否存在，存在就打勾。如果每个字符都能找到，则说明两个词的变位词；如果存在一个词找不到，则不是变位词。</p>
-</li>
-<li><p>问题规模：词中包含字符个数n</p>
-</li>
-<li><p>主要部分在于两重循环，总执行次数为<br>$$<br>\frac{n(n+1)}{2}\rightarrow O(n^2)<br>$$</p>
-</li>
-</ul>
-<h3 id="2-2-2-排序比较"><a href="#2-2-2-排序比较" class="headerlink" title="2.2.2 排序比较"></a>2.2.2 排序比较</h3><ul>
-<li><p>思路：将两个字符串按照字母顺序排列，再逐个比较字符，如果相同则是变位词，如果不同则不是变位词</p>
-</li>
-<li><p>本算法的主要执行时间在排序步骤，运行时间数量级等于排序过程的数量级<code>O(nlogn)</code></p>
-</li>
-</ul>
-<h3 id="2-2-3-暴力法"><a href="#2-2-3-暴力法" class="headerlink" title="2.2.3 暴力法"></a>2.2.3 暴力法</h3><ul>
-<li>思路：穷尽所有可能组合，检查是否存在</li>
-<li>本算法的主要执行时间数量级为<code>O(n!)</code></li>
-</ul>
-<h3 id="2-2-4-计数比较"><a href="#2-2-4-计数比较" class="headerlink" title="2.2.4 计数比较"></a>2.2.4 计数比较</h3><ul>
-<li>思路：记录各字母出现的次数，如果相同则说明是变位词</li>
-<li>本算法的主要执行时间数量级为<code>O(n)</code></li>
-</ul>
-<h1 id="3-Python数据类型的性能"><a href="#3-Python数据类型的性能" class="headerlink" title="3.Python数据类型的性能"></a>3.Python数据类型的性能</h1><h2 id="3-1-list和dict各种操作的大O数量级"><a href="#3-1-list和dict各种操作的大O数量级" class="headerlink" title="3.1 list和dict各种操作的大O数量级"></a>3.1 <code>list</code>和<code>dict</code>各种操作的大O数量级</h2><p><img src="/../images/python_dsa/list%E5%92%8Cdict.PNG" alt="list和dict"></p>
-<h3 id="3-1-1-列表list"><a href="#3-1-1-列表list" class="headerlink" title="3.1.1 列表list"></a>3.1.1 列表<code>list</code></h3><ul>
-<li>最常用的是：按索引取值和赋值，均为O(1)</li>
-<li>另一个常用的是列表增长，可以选择<code>append()</code>或者<code>+</code>，执行复杂度分别为O(1)和O(n+k)</li>
-<li><code>pop()</code>的时间复杂度为O(1)，<code>pop(i)</code>的时间复杂度为O(n)</li>
-</ul>
-<p>使用<code>timeit</code>模块进行计时，其中可以指定反复运行次数</p>
-<h3 id="3-1-2-字典dict"><a href="#3-1-2-字典dict" class="headerlink" title="3.1.2 字典dict"></a>3.1.2 字典<code>dict</code></h3><ul>
-<li>最常用的取值<code>get</code>和赋值<code>set</code>，其性能为O(1)</li>
-<li>另一个重要操作<code>contains</code>(in)，其心梗也是O(1)</li>
-</ul>
-]]></content>
-      <categories>
-        <category>python数据结构与算法</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python数据结构与算法:(二)基本结构</title>
     <url>/archives/5fa6ab7.html</url>
     <content><![CDATA[<h1 id="1-线性结构-Linear-Structure"><a href="#1-线性结构-Linear-Structure" class="headerlink" title="1.线性结构(Linear Structure)"></a>1.线性结构(Linear Structure)</h1><h2 id="1-1-线性结构的定义"><a href="#1-1-线性结构的定义" class="headerlink" title="1.1 线性结构的定义"></a>1.1 线性结构的定义</h2><p>线性结构是一种有序数据项的集合，其中每个数据项都有唯一的前驱和后继。</p>
@@ -1089,6 +1014,81 @@
 <li><p>如何打印输出一个类？</p>
 <p>答：可以定义其中的<code>__str__</code>和<code>__repr__</code>特殊方法实现，在执行<code>print(&lt;类名&gt;)</code>实现打印类的自定义信息。</p>
 </li>
+</ul>
+]]></content>
+      <categories>
+        <category>python数据结构与算法</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python数据结构与算法:(一)算法分析</title>
+    <url>/archives/f30c48de.html</url>
+    <content><![CDATA[<h1 id="1-大O表示法"><a href="#1-大O表示法" class="headerlink" title="1.大O表示法"></a>1.大O表示法</h1><h2 id="1-1-算法时间度量指标"><a href="#1-1-算法时间度量指标" class="headerlink" title="1.1 算法时间度量指标"></a>1.1 算法时间度量指标</h2><ul>
+<li>算法实施的操作数量或步骤数可以作为独立于具体程序或机器的度量指标</li>
+<li><strong>赋值语句</strong>是一个合适作为度量的选择</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="1-2-问题规模影响算法执行时间"><a href="#1-2-问题规模影响算法执行时间" class="headerlink" title="1.2 问题规模影响算法执行时间"></a>1.2 问题规模影响算法执行时间</h2><ul>
+<li>问题规模：影响算法执行时间的主要因素</li>
+<li><strong>算法分析的目标</strong>：找出问题规模如何影响算法执行时间</li>
+</ul>
+<h2 id="1-3-数量级函数"><a href="#1-3-数量级函数" class="headerlink" title="1.3 数量级函数"></a>1.3 数量级函数</h2><ul>
+<li>基本操作数量函数<code>T(n)</code>的精确值并不是特别重要，重要的是<code>T(n)</code>中起<strong>决定性因素的主导部分</strong></li>
+<li>数量级函数描述了<code>T(n)</code>中随着n增加而增加速度最快的主导部分，称为<strong>大O表示法</strong>，记作<code>O(f(n))</code>，其中<code>f(n)</code>表示<code>T(n)</code>中的主导部分，即<code>T(n)</code>中变化最快的部分</li>
+</ul>
+<h2 id="1-4-影响算法执行的其他因素"><a href="#1-4-影响算法执行的其他因素" class="headerlink" title="1.4 影响算法执行的其他因素"></a>1.4 影响算法执行的其他因素</h2><p>某些具体数据也会影响算法运行时间</p>
+<ul>
+<li>分为最好、平均、最差情况，平均情况体现了算法的主流性能</li>
+<li>对算法分析看<strong>主流</strong></li>
+</ul>
+<h2 id="1-5-常见的大O数量级函数"><a href="#1-5-常见的大O数量级函数" class="headerlink" title="1.5 常见的大O数量级函数"></a>1.5 常见的大O数量级函数</h2><p><img src="/../images/python_dsa/%E5%B8%B8%E8%A7%81%E7%9A%84%E5%A4%A7O%E6%95%B0%E9%87%8F%E7%BA%A7%E5%87%BD%E6%95%B0.PNG" alt="常见的大O数量级函数"></p>
+<h2 id="1-6-其他算法复杂度表示方法"><a href="#1-6-其他算法复杂度表示方法" class="headerlink" title="1.6 其他算法复杂度表示方法"></a>1.6 其他算法复杂度表示方法</h2><ul>
+<li>大O表示法：表示了所有上限中最小的那个上限</li>
+<li>大Ω表示法：表示了所有下限中最大的那个下限</li>
+<li>大θ表示法：上下限相同时可以使用大θ表示</li>
+</ul>
+<h1 id="2-“变位词”判断问题"><a href="#2-“变位词”判断问题" class="headerlink" title="2.“变位词”判断问题"></a>2.“变位词”判断问题</h1><h2 id="2-1-问题描述"><a href="#2-1-问题描述" class="headerlink" title="2.1 问题描述"></a>2.1 问题描述</h2><ul>
+<li>问题描述：所谓变位词是指两个词之间存在组成字母的重新排列关系，例如：<code>heart</code>和<code>earth</code>。为了简单起见，假设参与判断的两个词仅由小写字母构成，而且长度相等。</li>
+<li>解题目标：写一个<code>bool</code>函数，以两个词作为参数，返回这两个词是否为变位词</li>
+<li>意义：展示同一问题的不同数量级算法算法</li>
+</ul>
+<h2 id="2-2-解决方案"><a href="#2-2-解决方案" class="headerlink" title="2.2 解决方案"></a>2.2 解决方案</h2><h3 id="2-2-1-逐字检查"><a href="#2-2-1-逐字检查" class="headerlink" title="2.2.1 逐字检查"></a>2.2.1 逐字检查</h3><ul>
+<li><p>思路：将词1的字符逐个到词2中检查是否存在，存在就打勾。如果每个字符都能找到，则说明两个词的变位词；如果存在一个词找不到，则不是变位词。</p>
+</li>
+<li><p>问题规模：词中包含字符个数n</p>
+</li>
+<li><p>主要部分在于两重循环，总执行次数为<br>$$<br>\frac{n(n+1)}{2}\rightarrow O(n^2)<br>$$</p>
+</li>
+</ul>
+<h3 id="2-2-2-排序比较"><a href="#2-2-2-排序比较" class="headerlink" title="2.2.2 排序比较"></a>2.2.2 排序比较</h3><ul>
+<li><p>思路：将两个字符串按照字母顺序排列，再逐个比较字符，如果相同则是变位词，如果不同则不是变位词</p>
+</li>
+<li><p>本算法的主要执行时间在排序步骤，运行时间数量级等于排序过程的数量级<code>O(nlogn)</code></p>
+</li>
+</ul>
+<h3 id="2-2-3-暴力法"><a href="#2-2-3-暴力法" class="headerlink" title="2.2.3 暴力法"></a>2.2.3 暴力法</h3><ul>
+<li>思路：穷尽所有可能组合，检查是否存在</li>
+<li>本算法的主要执行时间数量级为<code>O(n!)</code></li>
+</ul>
+<h3 id="2-2-4-计数比较"><a href="#2-2-4-计数比较" class="headerlink" title="2.2.4 计数比较"></a>2.2.4 计数比较</h3><ul>
+<li>思路：记录各字母出现的次数，如果相同则说明是变位词</li>
+<li>本算法的主要执行时间数量级为<code>O(n)</code></li>
+</ul>
+<h1 id="3-Python数据类型的性能"><a href="#3-Python数据类型的性能" class="headerlink" title="3.Python数据类型的性能"></a>3.Python数据类型的性能</h1><h2 id="3-1-list和dict各种操作的大O数量级"><a href="#3-1-list和dict各种操作的大O数量级" class="headerlink" title="3.1 list和dict各种操作的大O数量级"></a>3.1 <code>list</code>和<code>dict</code>各种操作的大O数量级</h2><p><img src="/../images/python_dsa/list%E5%92%8Cdict.PNG" alt="list和dict"></p>
+<h3 id="3-1-1-列表list"><a href="#3-1-1-列表list" class="headerlink" title="3.1.1 列表list"></a>3.1.1 列表<code>list</code></h3><ul>
+<li>最常用的是：按索引取值和赋值，均为O(1)</li>
+<li>另一个常用的是列表增长，可以选择<code>append()</code>或者<code>+</code>，执行复杂度分别为O(1)和O(n+k)</li>
+<li><code>pop()</code>的时间复杂度为O(1)，<code>pop(i)</code>的时间复杂度为O(n)</li>
+</ul>
+<p>使用<code>timeit</code>模块进行计时，其中可以指定反复运行次数</p>
+<h3 id="3-1-2-字典dict"><a href="#3-1-2-字典dict" class="headerlink" title="3.1.2 字典dict"></a>3.1.2 字典<code>dict</code></h3><ul>
+<li>最常用的取值<code>get</code>和赋值<code>set</code>，其性能为O(1)</li>
+<li>另一个重要操作<code>contains</code>(in)，其心梗也是O(1)</li>
 </ul>
 ]]></content>
       <categories>
@@ -1425,151 +1425,6 @@
       </tags>
   </entry>
   <entry>
-    <title>前端入门:(五)javascript介绍</title>
-    <url>/archives/8b3fb578.html</url>
-    <content><![CDATA[<ul>
-<li><p><code>javascript</code>是用来为网页提供动态效果的编程语言，会涉及到一些类库(模块)，实现动态网页，浏览器就是js的解释器。</p>
-</li>
-<li><p>DOM和BOM：内置模块</p>
-</li>
-<li><p>jQuery：第三方模块</p>
-</li>
-</ul>
-<span id="more"></span>
-
-<h1 id="1-javascript简介"><a href="#1-javascript简介" class="headerlink" title="1.javascript简介"></a>1.javascript简介</h1><p><code>javascript</code>就是为了让网页实现一些动态效果。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.menus</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.menus</span> <span class="selector-class">.header</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: gold;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>: <span class="number">20px</span> <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;menus&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;header&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunc()&quot;</span>&gt;</span>大标题<span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!-- onclick=&quot;myFunc()&quot; 点击事件 --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注意这里需要带括号 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">myFunc</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// alert(&#x27;Hello world!&#x27;); //点击实现提示</span></span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">confirm</span>(<span class="string">&#x27;是否要继续？&#x27;</span>) <span class="comment">// 点击实现确认框</span></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="1-1-js代码存放位置"><a href="#1-1-js代码存放位置" class="headerlink" title="1.1 js代码存放位置"></a>1.1 js代码存放位置</h2><p><code>javascript</code>代码一般可以放在：</p>
-<ul>
-<li><p>可以放在<code>head</code>中<code>style</code>代码的后面</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&#x27;text/javascript&#x27;</span>&gt;</span></span><br><span class="line">       	在这里编写js代码</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>可以在<code>body</code>标签内部编写js代码（推荐）</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&#x27;text/javascript&#x27;</span>&gt;</span></span><br><span class="line">       	在这里编写js代码</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>解释器在解释代码时会按照从前到后的顺序执行，因此如果将js代码放在<code>head</code>中会导致浏览器先执行js代码，再显示页面，这会降低用户体验感。</p>
-<ul>
-<li>对于较多的js代码，可以单独写在js文件中，编写html时导入即可</li>
-</ul>
-<h2 id="1-2-注释格式"><a href="#1-2-注释格式" class="headerlink" title="1.2 注释格式"></a>1.2 注释格式</h2><ul>
-<li>html注释：<code>&lt;!-- 注释内容 --&gt;</code></li>
-<li>css注释：<code>/* 注释内容 */</code></li>
-<li>js注释：<code>// 注释内容</code></li>
-</ul>
-<h2 id="1-3-js中的变量"><a href="#1-3-js中的变量" class="headerlink" title="1.3 js中的变量"></a>1.3 js中的变量</h2><ul>
-<li><p>定义变量：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;诺小新&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name); <span class="comment">//打印变量</span></span><br></pre></td></tr></table></figure>
-
-<p>js中打印变量需要在浏览器中右键选择<code>检查---&gt;控制台(console)</code>查看输出</p>
-</li>
-</ul>
-<h2 id="1-4-字符串类型"><a href="#1-4-字符串类型" class="headerlink" title="1.4 字符串类型"></a>1.4 字符串类型</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;小新&#x27;</span>; <span class="comment">//定义字符串</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 字符串的常见功能</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;中国联通&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> name_length = name.<span class="property">length</span>; <span class="comment">//获取字符串长度</span></span><br><span class="line"><span class="keyword">var</span> name_first_char = name[<span class="number">0</span>]; <span class="comment">// 获取字符串的第一个字符，不存在负索引，也可以通过name.charAt()访问某位置的字符</span></span><br><span class="line"><span class="keyword">var</span> name1 = name.<span class="title function_">trim</span>(); <span class="comment">//去除字符串的前后空字符。类似于python中的strip</span></span><br><span class="line"><span class="keyword">var</span> name2 = name.<span class="title function_">substring</span>(<span class="number">0</span>,<span class="number">2</span>) <span class="comment">//字符串切片，也遵循前取后不取</span></span><br></pre></td></tr></table></figure>
-
-<p>案例：跑马灯</p>
-<h2 id="1-5-js中的数组"><a href="#1-5-js中的数组" class="headerlink" title="1.5 js中的数组"></a>1.5 js中的数组</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义数组</span></span><br><span class="line"><span class="keyword">var</span> v1 = [<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>];</span><br><span class="line"><span class="keyword">var</span> v2 = <span class="title class_">Array</span>([<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>]);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 操作数组</span></span><br><span class="line"><span class="keyword">var</span> v1 = [<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//索引</span></span><br><span class="line">v1[<span class="number">0</span>] <span class="comment">//索引获取值</span></span><br><span class="line">v1[<span class="number">1</span>] = <span class="string">&#x27;小新&#x27;</span> <span class="comment">//索引更新值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//追加新值</span></span><br><span class="line">v1.<span class="title function_">push</span>(<span class="string">&#x27;你好&#x27;</span>) <span class="comment">//尾部追加</span></span><br><span class="line">v1.<span class="title function_">unshift</span>(<span class="string">&#x27;nihao&#x27;</span>) <span class="comment">//头部追加</span></span><br><span class="line">v1.<span class="title function_">splice</span>(索引, <span class="number">0</span>, <span class="string">&#x27;hello&#x27;</span>) <span class="comment">//在索引处插入&#x27;hello&#x27;，0表示不删除字符</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//删除元素</span></span><br><span class="line">v1.<span class="title function_">pop</span>() <span class="comment">//尾部删除</span></span><br><span class="line">v1.<span class="title function_">shift</span>() <span class="comment">//头部删除</span></span><br><span class="line">v1.<span class="title function_">splice</span>(索引位置, <span class="number">1</span>) <span class="comment">//删除索引处元素</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//遍历数组</span></span><br><span class="line"><span class="keyword">var</span> v1 = [<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> idx <span class="keyword">in</span> v1)&#123; <span class="comment">//注意：这里是循环索引</span></span><br><span class="line">    &lt;操作&gt;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;v1.<span class="property">length</span>; i++)&#123; <span class="comment">//另一种遍历索引的方法</span></span><br><span class="line">    &lt;操作&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>案例：动态数据</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;city&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- &lt;li&gt;北京&lt;/li&gt;</span></span><br><span class="line"><span class="comment">        &lt;li&gt;上海&lt;/li&gt;</span></span><br><span class="line"><span class="comment">        &lt;li&gt;深圳&lt;/li&gt; --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 实现数据的动态创建 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> citylist = [<span class="string">&#x27;北京&#x27;</span>,<span class="string">&#x27;上海&#x27;</span>,<span class="string">&#x27;深圳&#x27;</span>];</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> idx <span class="keyword">in</span> citylist)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> text = citylist[idx]; <span class="comment">//获取城市名称</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> li_tag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;li&#x27;</span>); <span class="comment">//创建一个li标签</span></span></span><br><span class="line"><span class="language-javascript">            li_tag.<span class="property">innerText</span> = text; <span class="comment">//设置li标签的内容</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//添加到id=city的标签中</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> ul_tag = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;city&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            ul_tag.<span class="title function_">appendChild</span>(li_tag);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="1-6-javascript中的字典对象"><a href="#1-6-javascript中的字典对象" class="headerlink" title="1.6 javascript中的字典对象"></a>1.6 <code>javascript</code>中的字典对象</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义字典对象</span></span><br><span class="line"><span class="keyword">var</span> info = &#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;小新&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> info = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;小新&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">&#125;<span class="comment">// 键不加引号较为常用</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 访问字典中的值</span></span><br><span class="line">info.<span class="property">name</span></span><br><span class="line">info.<span class="property">age</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新字典中的值</span></span><br><span class="line">info.<span class="property">name</span> = <span class="string">&#x27;诺小新&#x27;</span></span><br><span class="line">info[<span class="string">&#x27;age&#x27;</span>] = <span class="string">&#x27;诺小新&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除字典中的元素</span></span><br><span class="line"><span class="keyword">delete</span> info[<span class="string">&#x27;age&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 遍历字典的键</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> info)&#123;</span><br><span class="line">    data = info[key]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>案例：动态表格</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>ID<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tbody</span> <span class="attr">id</span>=<span class="string">&quot;body&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 动态创建表格数据 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> data = [</span></span><br><span class="line"><span class="language-javascript">            &#123;<span class="attr">id</span>:<span class="number">1</span>, <span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>, <span class="attr">age</span>:<span class="number">19</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">            &#123;<span class="attr">id</span>:<span class="number">2</span>, <span class="attr">name</span>:<span class="string">&#x27;李四&#x27;</span>, <span class="attr">age</span>:<span class="number">20</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">            &#123;<span class="attr">id</span>:<span class="number">3</span>, <span class="attr">name</span>:<span class="string">&#x27;王五&#x27;</span>, <span class="attr">age</span>:<span class="number">21</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">        ] <span class="comment">//一般网页中的数据都是通过网络请求获取的</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> idx <span class="keyword">in</span> data)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//找到当前数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> info = data[idx]</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//先创建tr标签，存放数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> tr_tag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;tr&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> info)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">var</span> text = info[key]; <span class="comment">//获取数据</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">var</span> td_tag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;td&#x27;</span>); <span class="comment">//创建一个td标签</span></span></span><br><span class="line"><span class="language-javascript">                td_tag.<span class="property">innerText</span> = text; <span class="comment">//设置td标签的内容</span></span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//将td放到tr中</span></span></span><br><span class="line"><span class="language-javascript">                tr_tag.<span class="title function_">appendChild</span>(td_tag);</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//将tr放到body中</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">var</span> body_tag = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;body&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                body_tag.<span class="title function_">appendChild</span>(tr_tag);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="1-7-javascript中的条件语句"><a href="#1-7-javascript中的条件语句" class="headerlink" title="1.7 javascript中的条件语句"></a>1.7 <code>javascript</code>中的条件语句</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 条件语句1</span></span><br><span class="line"><span class="keyword">if</span> (条件) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//条件语句2</span></span><br><span class="line"><span class="keyword">if</span> (条件<span class="number">1</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (条件<span class="number">2</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-8-javascript中的函数"><a href="#1-8-javascript中的函数" class="headerlink" title="1.8 javascript中的函数"></a>1.8 <code>javascript</code>中的函数</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">func</span>(<span class="params"></span>)&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="title function_">func</span>() <span class="comment">// 调用函数</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="2-DOM简介"><a href="#2-DOM简介" class="headerlink" title="2.DOM简介"></a>2.DOM简介</h1><p><code>DOM</code>可以认为是一个js中的模块，文档对象模型 (DOM) 是 HTML 和 XML 文档的编程接口，可以对html页面中的标签进行操作。</p>
-<ul>
-<li><p>获取标签及其文本并修改</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据ID获取标签</span></span><br><span class="line"><span class="keyword">var</span> tag = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;&lt;ID&gt;&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取标签中的文本</span></span><br><span class="line">tag.<span class="property">innerText</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改标签中的文本</span></span><br><span class="line">tag.<span class="property">innerText</span> = <span class="string">&#x27;&lt;text&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建标签</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建标签</span></span><br><span class="line"><span class="keyword">var</span> tag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>) <span class="comment">//创建div标签</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 向创造的标签内写内容</span></span><br><span class="line">tag.<span class="property">innerText</span> = <span class="string">&#x27;&lt;text&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>标签之间层级设置</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建标签</span></span><br><span class="line"><span class="keyword">var</span> parent_tag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;ul&#x27;</span>) <span class="comment">//创建ul标签</span></span><br><span class="line"><span class="keyword">var</span> child_tag = <span class="variable language_">document</span>.<span class="title class_">CreateElement</span>(<span class="string">&#x27;li&#x27;</span>) <span class="comment">// 创建li标签</span></span><br><span class="line">child_tag.<span class="property">innerText</span> = <span class="string">&#x27;你好&#x27;</span></span><br><span class="line">parent_tag.<span class="title function_">appendChild</span>(child_tag) <span class="comment">//将li标签放到ul标签中</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="2-1-事件的绑定"><a href="#2-1-事件的绑定" class="headerlink" title="2.1 事件的绑定"></a>2.1 事件的绑定</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 实现点击按钮，向ul标签中添加用户输入的内容 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入内容&quot;</span> <span class="attr">id</span>=<span class="string">&quot;userinput&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--onclick表示单机，换成ondblclick实现双击触发事件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;点击添加&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;addCityInfo()&quot;</span>&gt;</span> <span class="comment">&lt;!--绑定一个点击事件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;city&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">addCityInfo</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//获取输入框中用户输入的数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> userinput_tag = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;userinput&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            userinput_text = userinput_tag.<span class="property">value</span>; <span class="comment">//读取用户输入内容</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//创建新标签及填充其中内容</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> infotag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;li&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//判断用户输入内容是否为空，只有不为空才能继续</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span>(userinput_text &gt; <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                infotag.<span class="property">innerText</span> = userinput_text;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">var</span> ul_tag = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;city&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                ul_tag.<span class="title function_">appendChild</span>(infotag);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//将input框内容清空，便于下次输入</span></span></span><br><span class="line"><span class="language-javascript">                userinput_tag.<span class="property">value</span> = <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//提示用户输入不能为空</span></span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">alert</span>(<span class="string">&#x27;输入内容不能为空&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>实际开发中，我们并不会自己来写基于<code>DOM</code>的代码，而是会用<code>jQuery</code>实现页面效果，实际企业开发中会使用<code>vue.js</code>&#x2F;<code>react</code>实现。</p>
-<h1 id="3-python知识点回顾"><a href="#3-python知识点回顾" class="headerlink" title="3.python知识点回顾"></a>3.<code>python</code>知识点回顾</h1><ul>
-<li><p>编码相关</p>
-<p>文件存储&#x2F;打开必须采用相同编码，否则会出现乱码。1字节&#x3D;8比特</p>
-<p>字符和二进制对应关系(编码)：</p>
-<ul>
-<li>ascii编码，256种对应关系</li>
-<li>gb2312&#x2F;gbk，中文和亚洲采用的编码格式，中文一般采用2字节存储</li>
-<li>unicode，ucs2(2字节存储)&#x2F;ucs4(4字节存储)，包括现在已发现的所有文字</li>
-<li>utf-8编码：对unicode进行一定程度的压缩，其中中文一般采用3字节存储</li>
-</ul>
-</li>
-<li><p>python字符串格式化：3种</p>
-<ul>
-<li><code>.format</code>方法：’我是{}’.format(“诺小新”)</li>
-<li><code>%s</code> <code>%d</code>表示：’我是%s，今年%d岁’ % (‘诺小新’,22)</li>
-<li><code>f&#123;&#125;</code>方法：name&#x3D;’诺小新’ age&#x3D;22 f’我是{name}，今年{age}岁’</li>
-</ul>
-</li>
-<li><p>python中的数据类型：int&#x2F;bool&#x2F;str&#x2F;list&#x2F;dict&#x2F;tuple&#x2F;set&#x2F;float&#x2F;None</p>
-<ul>
-<li><p>空、None、0转化为布尔值为False</p>
-</li>
-<li><p>可变数据类型：list&#x2F;set&#x2F;dict</p>
-<p>不可变数据类型：其余</p>
-</li>
-<li><p>可哈希数据类型：字典的键&#x2F;集合的元素</p>
-<p>不可哈希数据类型：list&#x2F;set&#x2F;dict</p>
-</li>
-<li><p>功能</p>
-<ul>
-<li><p>str</p>
-<ul>
-<li>独有功能：upper&#x2F;lower&#x2F;split&#x2F;startswith&#x2F;strip，由于不可变，执行功能不会对原str进行修改，会返回一个新的字符串</li>
-<li>公共功能：len&#x2F;索引&#x2F;切片&#x2F;for循环&#x2F;判断是否包含某字符</li>
-</ul>
-</li>
-<li><p>list</p>
-<ul>
-<li>独有功能：append&#x2F;insert&#x2F;remove&#x2F;pop，由于可变，执行上述功能均是在原list上进行</li>
-<li>公共功能：len&#x2F;索引&#x2F;切片&#x2F;for循环&#x2F;判断是否包含某字符</li>
-</ul>
-</li>
-<li><p>dict</p>
-<ul>
-<li>独有功能：get&#x2F;keys&#x2F;items&#x2F;values</li>
-<li>公共功能：len&#x2F;索引&#x2F;for循环&#x2F;判断是否包含某字符</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>前端入门</category>
-      </categories>
-      <tags>
-        <tag>HTML</tag>
-        <tag>css</tag>
-        <tag>前端</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>前端入门:(二)HTML基本标签介绍/flask快速了解</title>
     <url>/archives/aaccae8f.html</url>
     <content><![CDATA[<h1 id="1-flask框架"><a href="#1-flask框架" class="headerlink" title="1.flask框架"></a>1.flask框架</h1><p>flask是一个web框架，支持将html语言写入文件并读取。这时我们需要从flask模块导入render__template模块，新建templates文件夹，在文件夹下新建html文件并读取相对应文件。</p>
@@ -1761,6 +1616,151 @@
         <tag>css</tag>
         <tag>前端</tag>
         <tag>Bootstrap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端入门:(五)javascript介绍</title>
+    <url>/archives/8b3fb578.html</url>
+    <content><![CDATA[<ul>
+<li><p><code>javascript</code>是用来为网页提供动态效果的编程语言，会涉及到一些类库(模块)，实现动态网页，浏览器就是js的解释器。</p>
+</li>
+<li><p>DOM和BOM：内置模块</p>
+</li>
+<li><p>jQuery：第三方模块</p>
+</li>
+</ul>
+<span id="more"></span>
+
+<h1 id="1-javascript简介"><a href="#1-javascript简介" class="headerlink" title="1.javascript简介"></a>1.javascript简介</h1><p><code>javascript</code>就是为了让网页实现一些动态效果。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.menus</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.menus</span> <span class="selector-class">.header</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: gold;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>: <span class="number">20px</span> <span class="number">10px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;menus&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;header&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunc()&quot;</span>&gt;</span>大标题<span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!-- onclick=&quot;myFunc()&quot; 点击事件 --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注意这里需要带括号 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item&quot;</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">myFunc</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// alert(&#x27;Hello world!&#x27;); //点击实现提示</span></span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">confirm</span>(<span class="string">&#x27;是否要继续？&#x27;</span>) <span class="comment">// 点击实现确认框</span></span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-1-js代码存放位置"><a href="#1-1-js代码存放位置" class="headerlink" title="1.1 js代码存放位置"></a>1.1 js代码存放位置</h2><p><code>javascript</code>代码一般可以放在：</p>
+<ul>
+<li><p>可以放在<code>head</code>中<code>style</code>代码的后面</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&#x27;text/javascript&#x27;</span>&gt;</span></span><br><span class="line">       	在这里编写js代码</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以在<code>body</code>标签内部编写js代码（推荐）</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&#x27;text/javascript&#x27;</span>&gt;</span></span><br><span class="line">       	在这里编写js代码</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>解释器在解释代码时会按照从前到后的顺序执行，因此如果将js代码放在<code>head</code>中会导致浏览器先执行js代码，再显示页面，这会降低用户体验感。</p>
+<ul>
+<li>对于较多的js代码，可以单独写在js文件中，编写html时导入即可</li>
+</ul>
+<h2 id="1-2-注释格式"><a href="#1-2-注释格式" class="headerlink" title="1.2 注释格式"></a>1.2 注释格式</h2><ul>
+<li>html注释：<code>&lt;!-- 注释内容 --&gt;</code></li>
+<li>css注释：<code>/* 注释内容 */</code></li>
+<li>js注释：<code>// 注释内容</code></li>
+</ul>
+<h2 id="1-3-js中的变量"><a href="#1-3-js中的变量" class="headerlink" title="1.3 js中的变量"></a>1.3 js中的变量</h2><ul>
+<li><p>定义变量：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;诺小新&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name); <span class="comment">//打印变量</span></span><br></pre></td></tr></table></figure>
+
+<p>js中打印变量需要在浏览器中右键选择<code>检查---&gt;控制台(console)</code>查看输出</p>
+</li>
+</ul>
+<h2 id="1-4-字符串类型"><a href="#1-4-字符串类型" class="headerlink" title="1.4 字符串类型"></a>1.4 字符串类型</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;小新&#x27;</span>; <span class="comment">//定义字符串</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 字符串的常见功能</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;中国联通&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> name_length = name.<span class="property">length</span>; <span class="comment">//获取字符串长度</span></span><br><span class="line"><span class="keyword">var</span> name_first_char = name[<span class="number">0</span>]; <span class="comment">// 获取字符串的第一个字符，不存在负索引，也可以通过name.charAt()访问某位置的字符</span></span><br><span class="line"><span class="keyword">var</span> name1 = name.<span class="title function_">trim</span>(); <span class="comment">//去除字符串的前后空字符。类似于python中的strip</span></span><br><span class="line"><span class="keyword">var</span> name2 = name.<span class="title function_">substring</span>(<span class="number">0</span>,<span class="number">2</span>) <span class="comment">//字符串切片，也遵循前取后不取</span></span><br></pre></td></tr></table></figure>
+
+<p>案例：跑马灯</p>
+<h2 id="1-5-js中的数组"><a href="#1-5-js中的数组" class="headerlink" title="1.5 js中的数组"></a>1.5 js中的数组</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义数组</span></span><br><span class="line"><span class="keyword">var</span> v1 = [<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>];</span><br><span class="line"><span class="keyword">var</span> v2 = <span class="title class_">Array</span>([<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>]);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 操作数组</span></span><br><span class="line"><span class="keyword">var</span> v1 = [<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//索引</span></span><br><span class="line">v1[<span class="number">0</span>] <span class="comment">//索引获取值</span></span><br><span class="line">v1[<span class="number">1</span>] = <span class="string">&#x27;小新&#x27;</span> <span class="comment">//索引更新值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//追加新值</span></span><br><span class="line">v1.<span class="title function_">push</span>(<span class="string">&#x27;你好&#x27;</span>) <span class="comment">//尾部追加</span></span><br><span class="line">v1.<span class="title function_">unshift</span>(<span class="string">&#x27;nihao&#x27;</span>) <span class="comment">//头部追加</span></span><br><span class="line">v1.<span class="title function_">splice</span>(索引, <span class="number">0</span>, <span class="string">&#x27;hello&#x27;</span>) <span class="comment">//在索引处插入&#x27;hello&#x27;，0表示不删除字符</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//删除元素</span></span><br><span class="line">v1.<span class="title function_">pop</span>() <span class="comment">//尾部删除</span></span><br><span class="line">v1.<span class="title function_">shift</span>() <span class="comment">//头部删除</span></span><br><span class="line">v1.<span class="title function_">splice</span>(索引位置, <span class="number">1</span>) <span class="comment">//删除索引处元素</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//遍历数组</span></span><br><span class="line"><span class="keyword">var</span> v1 = [<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> idx <span class="keyword">in</span> v1)&#123; <span class="comment">//注意：这里是循环索引</span></span><br><span class="line">    &lt;操作&gt;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;v1.<span class="property">length</span>; i++)&#123; <span class="comment">//另一种遍历索引的方法</span></span><br><span class="line">    &lt;操作&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>案例：动态数据</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;city&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- &lt;li&gt;北京&lt;/li&gt;</span></span><br><span class="line"><span class="comment">        &lt;li&gt;上海&lt;/li&gt;</span></span><br><span class="line"><span class="comment">        &lt;li&gt;深圳&lt;/li&gt; --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 实现数据的动态创建 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> citylist = [<span class="string">&#x27;北京&#x27;</span>,<span class="string">&#x27;上海&#x27;</span>,<span class="string">&#x27;深圳&#x27;</span>];</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> idx <span class="keyword">in</span> citylist)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> text = citylist[idx]; <span class="comment">//获取城市名称</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> li_tag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;li&#x27;</span>); <span class="comment">//创建一个li标签</span></span></span><br><span class="line"><span class="language-javascript">            li_tag.<span class="property">innerText</span> = text; <span class="comment">//设置li标签的内容</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//添加到id=city的标签中</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> ul_tag = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;city&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            ul_tag.<span class="title function_">appendChild</span>(li_tag);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-6-javascript中的字典对象"><a href="#1-6-javascript中的字典对象" class="headerlink" title="1.6 javascript中的字典对象"></a>1.6 <code>javascript</code>中的字典对象</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义字典对象</span></span><br><span class="line"><span class="keyword">var</span> info = &#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;小新&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;age&#x27;</span>: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> info = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;小新&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">&#125;<span class="comment">// 键不加引号较为常用</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 访问字典中的值</span></span><br><span class="line">info.<span class="property">name</span></span><br><span class="line">info.<span class="property">age</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新字典中的值</span></span><br><span class="line">info.<span class="property">name</span> = <span class="string">&#x27;诺小新&#x27;</span></span><br><span class="line">info[<span class="string">&#x27;age&#x27;</span>] = <span class="string">&#x27;诺小新&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除字典中的元素</span></span><br><span class="line"><span class="keyword">delete</span> info[<span class="string">&#x27;age&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 遍历字典的键</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> info)&#123;</span><br><span class="line">    data = info[key]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>案例：动态表格</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>ID<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tbody</span> <span class="attr">id</span>=<span class="string">&quot;body&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 动态创建表格数据 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> data = [</span></span><br><span class="line"><span class="language-javascript">            &#123;<span class="attr">id</span>:<span class="number">1</span>, <span class="attr">name</span>:<span class="string">&#x27;张三&#x27;</span>, <span class="attr">age</span>:<span class="number">19</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">            &#123;<span class="attr">id</span>:<span class="number">2</span>, <span class="attr">name</span>:<span class="string">&#x27;李四&#x27;</span>, <span class="attr">age</span>:<span class="number">20</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">            &#123;<span class="attr">id</span>:<span class="number">3</span>, <span class="attr">name</span>:<span class="string">&#x27;王五&#x27;</span>, <span class="attr">age</span>:<span class="number">21</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">        ] <span class="comment">//一般网页中的数据都是通过网络请求获取的</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> idx <span class="keyword">in</span> data)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//找到当前数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> info = data[idx]</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//先创建tr标签，存放数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> tr_tag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;tr&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> info)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">var</span> text = info[key]; <span class="comment">//获取数据</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">var</span> td_tag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;td&#x27;</span>); <span class="comment">//创建一个td标签</span></span></span><br><span class="line"><span class="language-javascript">                td_tag.<span class="property">innerText</span> = text; <span class="comment">//设置td标签的内容</span></span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//将td放到tr中</span></span></span><br><span class="line"><span class="language-javascript">                tr_tag.<span class="title function_">appendChild</span>(td_tag);</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//将tr放到body中</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">var</span> body_tag = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;body&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                body_tag.<span class="title function_">appendChild</span>(tr_tag);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-7-javascript中的条件语句"><a href="#1-7-javascript中的条件语句" class="headerlink" title="1.7 javascript中的条件语句"></a>1.7 <code>javascript</code>中的条件语句</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 条件语句1</span></span><br><span class="line"><span class="keyword">if</span> (条件) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//条件语句2</span></span><br><span class="line"><span class="keyword">if</span> (条件<span class="number">1</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span> (条件<span class="number">2</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-8-javascript中的函数"><a href="#1-8-javascript中的函数" class="headerlink" title="1.8 javascript中的函数"></a>1.8 <code>javascript</code>中的函数</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">func</span>(<span class="params"></span>)&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="title function_">func</span>() <span class="comment">// 调用函数</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="2-DOM简介"><a href="#2-DOM简介" class="headerlink" title="2.DOM简介"></a>2.DOM简介</h1><p><code>DOM</code>可以认为是一个js中的模块，文档对象模型 (DOM) 是 HTML 和 XML 文档的编程接口，可以对html页面中的标签进行操作。</p>
+<ul>
+<li><p>获取标签及其文本并修改</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 根据ID获取标签</span></span><br><span class="line"><span class="keyword">var</span> tag = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;&lt;ID&gt;&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取标签中的文本</span></span><br><span class="line">tag.<span class="property">innerText</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改标签中的文本</span></span><br><span class="line">tag.<span class="property">innerText</span> = <span class="string">&#x27;&lt;text&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建标签</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建标签</span></span><br><span class="line"><span class="keyword">var</span> tag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>) <span class="comment">//创建div标签</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 向创造的标签内写内容</span></span><br><span class="line">tag.<span class="property">innerText</span> = <span class="string">&#x27;&lt;text&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>标签之间层级设置</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建标签</span></span><br><span class="line"><span class="keyword">var</span> parent_tag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;ul&#x27;</span>) <span class="comment">//创建ul标签</span></span><br><span class="line"><span class="keyword">var</span> child_tag = <span class="variable language_">document</span>.<span class="title class_">CreateElement</span>(<span class="string">&#x27;li&#x27;</span>) <span class="comment">// 创建li标签</span></span><br><span class="line">child_tag.<span class="property">innerText</span> = <span class="string">&#x27;你好&#x27;</span></span><br><span class="line">parent_tag.<span class="title function_">appendChild</span>(child_tag) <span class="comment">//将li标签放到ul标签中</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="2-1-事件的绑定"><a href="#2-1-事件的绑定" class="headerlink" title="2.1 事件的绑定"></a>2.1 事件的绑定</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 实现点击按钮，向ul标签中添加用户输入的内容 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入内容&quot;</span> <span class="attr">id</span>=<span class="string">&quot;userinput&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--onclick表示单机，换成ondblclick实现双击触发事件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;点击添加&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;addCityInfo()&quot;</span>&gt;</span> <span class="comment">&lt;!--绑定一个点击事件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;city&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">addCityInfo</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//获取输入框中用户输入的数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> userinput_tag = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;userinput&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            userinput_text = userinput_tag.<span class="property">value</span>; <span class="comment">//读取用户输入内容</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//创建新标签及填充其中内容</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> infotag = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;li&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//判断用户输入内容是否为空，只有不为空才能继续</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span>(userinput_text &gt; <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                infotag.<span class="property">innerText</span> = userinput_text;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">var</span> ul_tag = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;city&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                ul_tag.<span class="title function_">appendChild</span>(infotag);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//将input框内容清空，便于下次输入</span></span></span><br><span class="line"><span class="language-javascript">                userinput_tag.<span class="property">value</span> = <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">//提示用户输入不能为空</span></span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">alert</span>(<span class="string">&#x27;输入内容不能为空&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>实际开发中，我们并不会自己来写基于<code>DOM</code>的代码，而是会用<code>jQuery</code>实现页面效果，实际企业开发中会使用<code>vue.js</code>&#x2F;<code>react</code>实现。</p>
+<h1 id="3-python知识点回顾"><a href="#3-python知识点回顾" class="headerlink" title="3.python知识点回顾"></a>3.<code>python</code>知识点回顾</h1><ul>
+<li><p>编码相关</p>
+<p>文件存储&#x2F;打开必须采用相同编码，否则会出现乱码。1字节&#x3D;8比特</p>
+<p>字符和二进制对应关系(编码)：</p>
+<ul>
+<li>ascii编码，256种对应关系</li>
+<li>gb2312&#x2F;gbk，中文和亚洲采用的编码格式，中文一般采用2字节存储</li>
+<li>unicode，ucs2(2字节存储)&#x2F;ucs4(4字节存储)，包括现在已发现的所有文字</li>
+<li>utf-8编码：对unicode进行一定程度的压缩，其中中文一般采用3字节存储</li>
+</ul>
+</li>
+<li><p>python字符串格式化：3种</p>
+<ul>
+<li><code>.format</code>方法：’我是{}’.format(“诺小新”)</li>
+<li><code>%s</code> <code>%d</code>表示：’我是%s，今年%d岁’ % (‘诺小新’,22)</li>
+<li><code>f&#123;&#125;</code>方法：name&#x3D;’诺小新’ age&#x3D;22 f’我是{name}，今年{age}岁’</li>
+</ul>
+</li>
+<li><p>python中的数据类型：int&#x2F;bool&#x2F;str&#x2F;list&#x2F;dict&#x2F;tuple&#x2F;set&#x2F;float&#x2F;None</p>
+<ul>
+<li><p>空、None、0转化为布尔值为False</p>
+</li>
+<li><p>可变数据类型：list&#x2F;set&#x2F;dict</p>
+<p>不可变数据类型：其余</p>
+</li>
+<li><p>可哈希数据类型：字典的键&#x2F;集合的元素</p>
+<p>不可哈希数据类型：list&#x2F;set&#x2F;dict</p>
+</li>
+<li><p>功能</p>
+<ul>
+<li><p>str</p>
+<ul>
+<li>独有功能：upper&#x2F;lower&#x2F;split&#x2F;startswith&#x2F;strip，由于不可变，执行功能不会对原str进行修改，会返回一个新的字符串</li>
+<li>公共功能：len&#x2F;索引&#x2F;切片&#x2F;for循环&#x2F;判断是否包含某字符</li>
+</ul>
+</li>
+<li><p>list</p>
+<ul>
+<li>独有功能：append&#x2F;insert&#x2F;remove&#x2F;pop，由于可变，执行上述功能均是在原list上进行</li>
+<li>公共功能：len&#x2F;索引&#x2F;切片&#x2F;for循环&#x2F;判断是否包含某字符</li>
+</ul>
+</li>
+<li><p>dict</p>
+<ul>
+<li>独有功能：get&#x2F;keys&#x2F;items&#x2F;values</li>
+<li>公共功能：len&#x2F;索引&#x2F;for循环&#x2F;判断是否包含某字符</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端入门</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>css</tag>
+        <tag>前端</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
