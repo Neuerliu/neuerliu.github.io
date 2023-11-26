@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"neuerliu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="java基础讲解1.注释注释主要分为单行注释、多行注释以及文档注释：  单行注释：  1&#x2F;&#x2F; 单行注释   多行注释：  1234&#x2F;*Hello你好*&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java学习(三)java基础讲解">
+<meta property="og:url" content="https://neuerliu.github.io/archives/ff271b90.html">
+<meta property="og:site_name" content="诺小新 | Neuerliu">
+<meta property="og:description" content="java基础讲解1.注释注释主要分为单行注释、多行注释以及文档注释：  单行注释：  1&#x2F;&#x2F; 单行注释   多行注释：  1234&#x2F;*Hello你好*&#x2F;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://neuerliu.github.io/..%5Cimages%5Cjava%E5%AD%A6%E4%B9%A0%5C07_%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.PNG">
+<meta property="og:image" content="https://neuerliu.github.io/..%5Cimages%5Cjava%E5%AD%A6%E4%B9%A0%5CJavaDoc%E5%8F%82%E6%95%B0.png">
+<meta property="og:image" content="https://neuerliu.github.io/..%5Cimages%5Cjava%E5%AD%A6%E4%B9%A0%5CJavaDoc%E9%85%8D%E7%BD%AE.png">
+<meta property="article:published_time" content="2023-11-26T08:36:10.000Z">
+<meta property="article:modified_time" content="2023-11-26T08:43:28.331Z">
+<meta property="article:author" content="neuerliu">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://neuerliu.github.io/..%5Cimages%5Cjava%E5%AD%A6%E4%B9%A0%5C07_%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.PNG">
+
+<link rel="canonical" href="https://neuerliu.github.io/archives/ff271b90.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>java学习(三)java基础讲解 | 诺小新 | Neuerliu</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">诺小新 | Neuerliu</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags<span class="badge">18</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories<span class="badge">8</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives<span class="badge">22</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/neuerliu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://neuerliu.github.io/archives/ff271b90.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="neuerliu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="诺小新 | Neuerliu">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java学习(三)java基础讲解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-11-26 16:36:10 / Modified: 16:43:28" itemprop="dateCreated datePublished" datetime="2023-11-26T16:36:10+08:00">2023-11-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">java学习</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="java基础讲解"><a href="#java基础讲解" class="headerlink" title="java基础讲解"></a><code>java</code>基础讲解</h1><h2 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h2><p>注释主要分为单行注释、多行注释以及文档注释：</p>
+<ul>
+<li>单行注释：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行注释</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多行注释：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Hello</span></span><br><span class="line"><span class="comment">你好</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<ul>
+<li>文档注释：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">文档注释可以自动变为文档说明书</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-字面量"><a href="#2-字面量" class="headerlink" title="2.字面量"></a>2.字面量</h2><p>不同数据在程序中的书写方式不同：</p>
+<ul>
+<li>整数、小数：按照原本格式即可</li>
+<li>字符：使用<strong>单引号</strong></li>
+<li>字符串：使用<strong>双引号</strong></li>
+<li>布尔值：只有两个值，分别是<code>true</code>和<code>false</code></li>
+<li>空值：<code>null</code></li>
+</ul>
+<h2 id="3-变量"><a href="#3-变量" class="headerlink" title="3.变量"></a>3.变量</h2><ul>
+<li><p>变量是用来记住程序需要处理的数据。</p>
+</li>
+<li><p>使用变量的好处：便于扩展和维护</p>
+</li>
+</ul>
+<p>变量的注意事项：</p>
+<ul>
+<li>变量在声明后才能使用</li>
+<li>变量类型和赋值数据必须匹配</li>
+<li>变量从定义开始到 <code>&#125;</code> 截至范围内有效，且在同一范围内，它们的名称不能一样</li>
+<li>变量定义时可以不给初始值，但是使用之前一定要赋值</li>
+</ul>
+<h2 id="4-关键字、标识符"><a href="#4-关键字、标识符" class="headerlink" title="4.关键字、标识符"></a>4.关键字、标识符</h2><h3 id="4-1-关键字"><a href="#4-1-关键字" class="headerlink" title="4.1 关键字"></a>4.1 关键字</h3><p>关键字就是<code>java</code>语言用到的一些词，有特殊作用，称为关键字，例如：<code>public</code>&#x2F;<code>class</code>&#x2F;<code>int</code>&#x2F;<code>double</code>等。<strong>关键字不能用于类名、变量名，否则会报错</strong>。</p>
+<h3 id="4-2-标识符"><a href="#4-2-标识符" class="headerlink" title="4.2 标识符"></a>4.2 标识符</h3><p>标识符就是<strong>名字</strong>，例如类名、变量名都是标识符。</p>
+<p>标识符的要求：</p>
+<ul>
+<li>基本组成：由数字、字母以及下划线<code>_</code>和美元符号<code>$</code>等组成</li>
+<li>强制要求：不能以数字开头，不能用关键字作为名字，同时标识符区分大小写</li>
+</ul>
+<p>标识符的建议规范：</p>
+<ul>
+<li><p>变量名称：满足标识符规则，建议采用“驼峰模式”，采用有意义的英文名称、<strong>首字母小写</strong></p>
+</li>
+<li><p>类名称：满足标识符规则，同时采用“驼峰模式”，采用有意义的英文名称、<strong>首字母大写</strong></p>
+</li>
+</ul>
+<h2 id="5-变量详解"><a href="#5-变量详解" class="headerlink" title="5.变量详解"></a>5.变量详解</h2><h3 id="5-1-变量数据在计算机中的存储原理"><a href="#5-1-变量数据在计算机中的存储原理" class="headerlink" title="5.1 变量数据在计算机中的存储原理"></a>5.1 变量数据在计算机中的存储原理</h3><ul>
+<li>变量数据在计算机中通过<strong>二进制</strong>存储，可以通过<strong>除二取余法</strong>计算。</li>
+<li>计算机中<strong>表示数据的最小单元</strong>称为**字节(Byte)**，一个字节中包括8比特(bit&#x2F;位)，一个bit即是一位0&#x2F;1。</li>
+<li>计算机中<strong>最小表示位</strong>是比特(bit)</li>
+</ul>
+<h3 id="5-2-图片-x2F-音频-x2F-字符在计算机中的存储原理"><a href="#5-2-图片-x2F-音频-x2F-字符在计算机中的存储原理" class="headerlink" title="5.2 图片&#x2F;音频&#x2F;字符在计算机中的存储原理"></a>5.2 图片&#x2F;音频&#x2F;字符在计算机中的存储原理</h3><ul>
+<li>字符在计算机中的存储：将字符变成对应数字(ACSII编码)存储在底层。</li>
+<li>图片分为彩色和黑白图片，图片是由一系列像素点构成的，每个像素点都是由通道数值(0-255)构成，其中彩色图片有RGB三个通道，而黑白图片有一个通道。</li>
+<li>音频是有一系列波形图构成的，因此可以存储波形图上离散点的值即可。</li>
+</ul>
+<p>本质上都是二进制存储。</p>
+<h3 id="5-3-进制及进制转化"><a href="#5-3-进制及进制转化" class="headerlink" title="5.3 进制及进制转化"></a>5.3 进制及进制转化</h3><h4 id="5-3-1-十进制和二进制"><a href="#5-3-1-十进制和二进制" class="headerlink" title="5.3.1 十进制和二进制"></a>5.3.1 十进制和二进制</h4><ul>
+<li>十进制转二进制：可以通过除二取余法来进行</li>
+<li>二进制转十进制：通过各位的指数加法来进行</li>
+</ul>
+<h4 id="5-3-2-八进制"><a href="#5-3-2-八进制" class="headerlink" title="5.3.2 八进制"></a>5.3.2 八进制</h4><ul>
+<li>规则：逢八进一</li>
+<li>由来：将二进制中每三位作为一组，一组有8个数字(000-111，即0-7)，表示出来的数字称为八进制。</li>
+</ul>
+<h4 id="5-3-3-十六进制"><a href="#5-3-3-十六进制" class="headerlink" title="5.3.3 十六进制"></a>5.3.3 十六进制</h4><ul>
+<li>规则：逢十六进一</li>
+<li>由来：将二进制中每四位作为一组，一组有16个数字(0000-1111，即0-15，表示为0-9 + ABCDEF)，表示出来的数字称为十六进制。</li>
+</ul>
+<blockquote>
+<p>java中支持书写二进制&#x2F;八进制&#x2F;十六进制的数据：</p>
+<ul>
+<li>二进制：以<code>0B/0b</code>开头</li>
+<li>八进制：以<code>0</code>开头</li>
+<li>十六进制：以<code>0X/0x</code>开头</li>
+</ul>
+</blockquote>
+<h3 id="5-4-计算机的数据单位"><a href="#5-4-计算机的数据单位" class="headerlink" title="5.4 计算机的数据单位"></a>5.4 计算机的数据单位</h3><ul>
+<li>计算机表示数据的最小组成单元是字节(byte)，1字节&#x3D;8bit</li>
+<li>计算机发展出以下单位：<ul>
+<li>1B &#x3D; 8b</li>
+<li>1KB &#x3D; 1024B</li>
+<li>1MB &#x3D; 1024KB</li>
+<li>1GB &#x3D; 1024MB</li>
+<li>1TB &#x3D; 1024GB</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-5-数据类型"><a href="#5-5-数据类型" class="headerlink" title="5.5 数据类型"></a>5.5 数据类型</h3><p>基本数据类型包括8种：</p>
+<table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">类型名称</th>
+<th align="center">内存占用(字节数)</th>
+<th align="center">数据范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">整型</td>
+<td align="center">byte</td>
+<td align="center">1</td>
+<td align="center">-128 ~ 127(正数首位为0，负数首位为1)</td>
+</tr>
+<tr>
+<td align="center">整型</td>
+<td align="center">short</td>
+<td align="center">2</td>
+<td align="center">-32768 ~ 32767</td>
+</tr>
+<tr>
+<td align="center">整型</td>
+<td align="center">int</td>
+<td align="center">4</td>
+<td align="center">-2147483648 ~ 2147483647</td>
+</tr>
+<tr>
+<td align="center">整型</td>
+<td align="center">long</td>
+<td align="center">8</td>
+<td align="center">-9223372036854775808 ~ 9223372036854775807</td>
+</tr>
+<tr>
+<td align="center">浮点型</td>
+<td align="center">float</td>
+<td align="center">4</td>
+<td align="center">1.401298E-45 ~ 3.4028235E38</td>
+</tr>
+<tr>
+<td align="center">浮点型</td>
+<td align="center">double(默认)</td>
+<td align="center">8</td>
+<td align="center">4.9E-324 ~ 1.797693E308</td>
+</tr>
+<tr>
+<td align="center">字符型</td>
+<td align="center">char</td>
+<td align="center">2</td>
+<td align="center">0 ~ 65535</td>
+</tr>
+<tr>
+<td align="center">布尔型</td>
+<td align="center">boolean</td>
+<td align="center">1</td>
+<td align="center">true, false</td>
+</tr>
+</tbody></table>
+<h3 id="5-6-类型转换"><a href="#5-6-类型转换" class="headerlink" title="5.6 类型转换"></a>5.6 类型转换</h3><ul>
+<li>为什么要进行类型转换？<ol>
+<li>存在某种类型的变量赋值给另一种类型的变量</li>
+<li>存在不同类型的数据一起运算</li>
+</ol>
+</li>
+<li>类型转化的形式：<ul>
+<li>自动类型转换</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-6-1-自动类型转换"><a href="#5-6-1-自动类型转换" class="headerlink" title="5.6.1 自动类型转换"></a>5.6.1 自动类型转换</h4><ol>
+<li>定义：<strong>类型范围小</strong>的变量可以直接赋值给<strong>类型范围大</strong>的变量</li>
+<li>原理：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.neuer.type;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TypeConversionDemo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 目标：需要理解自动类型转换</span></span><br><span class="line">        <span class="type">byte</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">12</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> a; <span class="comment">// 发生自动类型转变</span></span><br><span class="line">        System.out.println(a);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上自动类型转换下，<code>byte</code>在计算机中以8位存储，<code>int</code>以32位存储，从类型范围小的变量可以直接赋值到类型范围大的变量，直接放到末尾即可。</p>
+<p><img src="/..%5Cimages%5Cjava%E5%AD%A6%E4%B9%A0%5C07_%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.PNG"></p>
+<h4 id="5-6-2-表达式的自动类型转换"><a href="#5-6-2-表达式的自动类型转换" class="headerlink" title="5.6.2 表达式的自动类型转换"></a>5.6.2 表达式的自动类型转换</h4><ol>
+<li>定义：在表达式中，小范围的变量会自动转换为表达式中较大范围的类型，再参与运算。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">byte</span>/<span class="type">short</span>/<span class="type">char</span> --&gt; <span class="type">int</span> --&gt; <span class="type">long</span> --&gt;<span class="type">float</span> --&gt; <span class="type">double</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>表达式的最终结果类型由表达式中的最高类型决定</li>
+<li>在表达式中，byte&#x2F;short&#x2F;char是直接转换成int类型参与运算的</li>
+</ul>
+</blockquote>
+<h4 id="5-6-3-强制类型转换"><a href="#5-6-3-强制类型转换" class="headerlink" title="5.6.3 强制类型转换"></a>5.6.3 强制类型转换</h4><p>当大范围类型的变量转换为小范围变量时会产生强制类型转换，需要<code>()</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line"><span class="type">byte</span> <span class="variable">b</span> <span class="operator">=</span> (<span class="type">byte</span>) a;</span><br><span class="line"></span><br><span class="line">System.out.println(a);</span><br><span class="line">System.out.println(b); <span class="comment">// -128</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意</strong>：</p>
+<ol>
+<li>不能对布尔值进行转换</li>
+<li>不能把对象类型转换为不相干的类型</li>
+<li>大范围-&gt;低范围的转换是强制类型转换</li>
+<li>转换过程中存在精度问题</li>
+</ol>
+</blockquote>
+<h3 id="5-7-算术运算符、连接符"><a href="#5-7-算术运算符、连接符" class="headerlink" title="5.7 算术运算符、连接符"></a>5.7 算术运算符、连接符</h3><ol>
+<li>基本的算术运算符：+、-、*、&#x2F;、%(取余)</li>
+<li><code>+</code>可以做连接符，在字符串运算中作为连接符使用：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a2</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;abc&quot;</span> + a2); <span class="comment">// &quot;abc5&quot;</span></span><br><span class="line">System.out.println(a2 + <span class="number">5</span>); <span class="comment">// 10</span></span><br><span class="line">System.out.println(<span class="string">&quot;abc&quot;</span> + a2 + <span class="string">&#x27;a&#x27;</span>); <span class="comment">// &quot;abc5a&quot;</span></span><br><span class="line">System.out.println(a2 + <span class="string">&#x27;a&#x27;</span> + <span class="string">&quot;efg&quot;</span>); <span class="comment">// &quot;102efg&quot;，前面的可以计算，计算按照ASCII码计算</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>要点：能算则算，不能算就在一起</p>
+</blockquote>
+<h3 id="5-8-自增运算符"><a href="#5-8-自增运算符" class="headerlink" title="5.8 自增运算符"></a>5.8 自增运算符</h3><ol>
+<li>自增运算符：放在变量之前或者后面，对变量自身的值加一</li>
+<li>自减运算符：放在变量之前或者后面，对变量自身的值减一</li>
+</ol>
+<blockquote>
+<ul>
+<li>自增&#x2F;自减只能操作变量，不能操作字面量</li>
+<li>自增&#x2F;自减如果不是单独使用，则在变量前后会存在明显区别</li>
+</ul>
+</blockquote>
+<h3 id="5-9-其他运算符"><a href="#5-9-其他运算符" class="headerlink" title="5.9 其他运算符"></a>5.9 其他运算符</h3><ul>
+<li>赋值运算符：<code>=</code></li>
+<li>关系运算符：<code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code> <code>==</code> <code>!=</code> <code>instanceof</code></li>
+<li>逻辑运算符：<code>&amp;&amp;</code> <code>||</code> <code>!</code></li>
+<li>位运算符：<code>&amp;</code> <code>|</code> <code>^</code> <code>~</code> <code>&gt;&gt;</code> <code>&lt;&lt;</code> <code>&gt;&gt;&gt;</code></li>
+<li>条件运算符：<code>?</code> <code>:</code></li>
+<li>扩展赋值运算符：<code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code></li>
+</ul>
+<h3 id="5-10-变量命名规范"><a href="#5-10-变量命名规范" class="headerlink" title="5.10 变量命名规范"></a>5.10 变量命名规范</h3><ul>
+<li>所有变量、方法、类名需要<strong>见名知意</strong></li>
+<li>具体命名原则：<ul>
+<li>类成员变量：首字母小写+驼峰原则，即除了第一个字母小写外，其余单词首字母大写，例如：monthSalary</li>
+<li>局部变量：首字母小写+驼峰原则</li>
+<li>常量：所有字母大写+下划线</li>
+<li>类名：首字母大写+驼峰原则</li>
+<li>方法名：首字母小写+驼峰原则</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-java包机制简介"><a href="#6-java包机制简介" class="headerlink" title="6.java包机制简介"></a>6.<code>java</code>包机制简介</h2><p><code>java</code>中提供了包机制，用于区别类名的命名空间。实际上，<strong>包的本质就是文件夹</strong>。</p>
+<p>包语句的语法格式是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> pkg1[. pkg2[. pkg3...]];</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意：一般采用公司域名倒置作为包名称</strong>，例如：百度下面可能包括主站、百科等，可以采用以下方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">com.baidu.www <span class="comment">// 百度的主站</span></span><br><span class="line">baike.baidu.www <span class="comment">// 百度的百科</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>在包下面定义的类，需要在首行声明包语句，即：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.neuer.operator <span class="comment">// 所在包为com.neuer.opeartor</span></span><br></pre></td></tr></table></figure>
+
+<p>有些时候，我们需要用到其他包中的类或者方法，需要将其导入，可以使用<code>import</code>实现(<strong>需要在包语句下面</strong>)：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> package1[.package2...].(classname|*);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意</strong>：不要让不同包下面的类名称重复，否则导入时会引起冲突。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.neuer.operator.Demo1; <span class="comment">// 导入Demo1类</span></span><br><span class="line"><span class="keyword">import</span> com.neuer.operator.*; <span class="comment">// 导入包下所有类</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7-JavaDoc"><a href="#7-JavaDoc" class="headerlink" title="7.JavaDoc"></a>7.<code>JavaDoc</code></h2><p><code>JavaDoc</code>可以生成自己的API文档，需要以下参数：</p>
+<p><img src="/..%5Cimages%5Cjava%E5%AD%A6%E4%B9%A0%5CJavaDoc%E5%8F%82%E6%95%B0.png"></p>
+<p>可以通过命令行执行<code>javadoc</code>命令产生对应的doc，例如：我们在<code>doc</code>包下有一个类，名为<code>DocDemo1</code>，可以通过以下命令生成对应的文档：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javadoc -encoding UTF-<span class="number">8</span> -charset UTF-<span class="number">8</span> DocDemo1.java</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意</strong>：<code>-encoding</code>以及<code>-charset</code>是为了满足中文编码的需要。</p>
+</blockquote>
+<p>也可以使用IDEA创建<code>javadoc</code>，可以在导航栏 -&gt; 生成<code>javadoc</code>中进行配置并生成，配置信息如下所示：</p>
+<p><img src="/..%5Cimages%5Cjava%E5%AD%A6%E4%B9%A0%5CJavaDoc%E9%85%8D%E7%BD%AE.png"></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>neuerliu
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://neuerliu.github.io/archives/ff271b90.html" title="java学习(三)java基础讲解">https://neuerliu.github.io/archives/ff271b90.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/archives/ad110b0c.html" rel="prev" title="java学习(二)IDEA基础知识">
+      <i class="fa fa-chevron-left"></i> java学习(二)IDEA基础知识
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java%E5%9F%BA%E7%A1%80%E8%AE%B2%E8%A7%A3"><span class="nav-text">java基础讲解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%B3%A8%E9%87%8A"><span class="nav-text">1.注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AD%97%E9%9D%A2%E9%87%8F"><span class="nav-text">2.字面量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%8F%98%E9%87%8F"><span class="nav-text">3.变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%85%B3%E9%94%AE%E5%AD%97%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-text">4.关键字、标识符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-text">4.1 关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-text">4.2 标识符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%8F%98%E9%87%8F%E8%AF%A6%E8%A7%A3"><span class="nav-text">5.变量详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E5%8F%98%E9%87%8F%E6%95%B0%E6%8D%AE%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="nav-text">5.1 变量数据在计算机中的存储原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E5%9B%BE%E7%89%87-x2F-%E9%9F%B3%E9%A2%91-x2F-%E5%AD%97%E7%AC%A6%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86"><span class="nav-text">5.2 图片&#x2F;音频&#x2F;字符在计算机中的存储原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E8%BF%9B%E5%88%B6%E5%8F%8A%E8%BF%9B%E5%88%B6%E8%BD%AC%E5%8C%96"><span class="nav-text">5.3 进制及进制转化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-1-%E5%8D%81%E8%BF%9B%E5%88%B6%E5%92%8C%E4%BA%8C%E8%BF%9B%E5%88%B6"><span class="nav-text">5.3.1 十进制和二进制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-2-%E5%85%AB%E8%BF%9B%E5%88%B6"><span class="nav-text">5.3.2 八进制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-3-%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6"><span class="nav-text">5.3.3 十六进制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8D%95%E4%BD%8D"><span class="nav-text">5.4 计算机的数据单位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">5.5 数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">5.6 类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-1-%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">5.6.1 自动类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-2-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">5.6.2 表达式的自动类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-6-3-%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">5.6.3 强制类型转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6%E3%80%81%E8%BF%9E%E6%8E%A5%E7%AC%A6"><span class="nav-text">5.7 算术运算符、连接符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-%E8%87%AA%E5%A2%9E%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">5.8 自增运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-%E5%85%B6%E4%BB%96%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">5.9 其他运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-10-%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-text">5.10 变量命名规范</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-java%E5%8C%85%E6%9C%BA%E5%88%B6%E7%AE%80%E4%BB%8B"><span class="nav-text">6.java包机制简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-JavaDoc"><span class="nav-text">7.JavaDoc</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">neuerliu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/neuerliu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;neuerliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:brackneuer@foxmail.com" title="E-Mail → mailto:brackneuer@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">neuerliu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
